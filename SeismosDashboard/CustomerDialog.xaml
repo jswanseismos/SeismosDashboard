@@ -1,0 +1,41 @@
+﻿<Window x:Class="SeismosDashboard.CustomerDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SeismosDashboard"
+        mc:Ignorable="d"
+        Title="CustomerDialog" Height="290.959" Width="481.918">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Create Project" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Customer" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Width="80" Text="" VerticalAlignment="Top" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Field" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Width="80" Text="" VerticalAlignment="Top" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Pad Name" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Width="80" Text="" VerticalAlignment="Top" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Basin" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Width="80" Text="" VerticalAlignment="Top" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Job #" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Width="80" Text="" VerticalAlignment="Top" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Width="80" Text="" VerticalAlignment="Top" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F4F6120-2726-4D3C-ADB5-FB83CC15ACB9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SeismosDataLibrary</RootNamespace>
+    <AssemblyName>SeismosDataLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACGraphData.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AcidTreatment.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Azimuth.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BasisSet.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CasingChartLookup.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CasingOrderTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CasingRepairTreatment.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CleanOutTreatment.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Column.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnValue.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cylinder.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAcquisition.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataRecord.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviationSurvey.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Easting.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Event.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\SeismosClientExt.cs" />
+    <Compile Include="Extensions\SeismosProjectExt.cs" />
+    <Compile Include="FilterTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fluid.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FluidTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HFTreatmentStage.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HydraulicFracturingDataAcquisition.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HydraulicFracturingTreatment.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inclination.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Injection.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InjectionDataAcquisition.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InjectionTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrityDataAcquisition.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceStateTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JunkBasketTreatment.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KGraphData.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Material.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MD.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Northing.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Note.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OffsetWellDataAcquisition.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParamConstraint.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Perforation.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerforationShapeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Plug.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlugDrillOutTreatment.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlugRecovery.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Processing.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessingTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionDataAcquisition.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proppant.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProppantTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reflection.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReflectionTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RefracTreatment.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeismosClient.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeismosDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeismosDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeismosDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeismosDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeismosDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SeismosProject.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stage.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SteamInjectionTreatment.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimePick.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimePickTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Treatment.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TreatmentTypeEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TVD.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsedFilter.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsedParameter.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Well.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WellBore.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WellGeometryEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wellhead.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WellheadAssembly.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WellheadComponent.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WellheadComponentEnum.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WellheadCoordinate.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="SeismosDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SeismosDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SeismosDataModel.edmx.diagram">
+      <DependentUpon>SeismosDataModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SeismosDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SeismosDataModel.edmx</DependentUpon>
+      <LastGenOutput>SeismosDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SeismosDataModel.edmx.sql" />
+    <Content Include="SeismosDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SeismosDataModel.edmx</DependentUpon>
+      <LastGenOutput>SeismosDataModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

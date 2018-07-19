@@ -1,0 +1,698 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="SeismosProject">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element name="Wells" type="WellsCollection" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="WellsCollection">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Well" type="Well" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Well">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Wellhead" type ="Wellhead" minOccurs="1" maxOccurs="1" />
+      <xs:element name="DeviationSurvey" type="DeviationSurvey" minOccurs="1" maxOccurs="1" />
+      <xs:element name="HydraulicFracturingMonitorings" type="HfMonitoringCollection" minOccurs="1" maxOccurs="1" />
+      <xs:element name="OffsetWellMonitorings" type="OffsetWellMonitoringCollection" minOccurs="1" maxOccurs="1" />
+      <xs:element name="ProductionMonitorings" type="ProductionMonitoringCollection" minOccurs="1" maxOccurs="1" />
+      <xs:element name="InjectionMonitorings" type="InjectionMonitoringCollection" minOccurs="1" maxOccurs="1" />
+      <xs:element name="IntegrityMonitorings" type="IntegrityMonitoringCollection" minOccurs="1" maxOccurs="1" />
+      <xs:element name="OtherMonitorings" type="OtherMonitoringCollection" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Treatments" type="TreatmentsCollection" />
+      <xs:element name="Logs" type="WellLogCollection" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Wellbore" type="Wellbore" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attributeGroup ref="WellAttributes" />
+  </xs:complexType>
+
+  <xs:complexType name="HfMonitoringCollection">
+    <xs:sequence>
+      <xs:element name="Monitoring" type="HydraulicFracturingMonitoring" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OffsetWellMonitoringCollection">
+    <xs:sequence>
+      <xs:element name="Monitoring" type="OffsetWellMonitoring" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProductionMonitoringCollection">
+    <xs:sequence>
+      <xs:element name="Monitoring" type="ProductionMonitoring" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InjectionMonitoringCollection">
+    <xs:sequence>
+      <xs:element name="Monitoring" type="InjectionMonitoring" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IntegrityMonitoringCollection">
+    <xs:sequence>
+      <xs:element name="Monitoring" type="InjectionMonitoring" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OtherMonitoringCollection">
+    <xs:sequence>
+      <xs:element name="Monitoring" type="OtherMonitoring" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="WellAttributes">
+    <xs:attribute name="Geometry" type="WellGeometry" />
+  </xs:attributeGroup>
+
+  <xs:complexType name="Wellhead">
+    <xs:all>
+      <xs:element name="WellheadCoordinates" type="WellheadCoordinates" minOccurs="1" maxOccurs="1" />
+      <xs:element name="WellheadAssembly" type="WellheadAssembly" minOccurs="0" maxOccurs="1" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="WellheadCoordinates">
+    <xs:all>
+      <xs:element name="Attributes" type="xs:string" minOccurs="0" maxOccurs="1" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="WellheadAssembly">
+    <xs:sequence>
+      <xs:element name="Components" type="WellheadComponentCollection" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WellheadComponentCollection">
+    <xs:sequence>
+      <xs:element name="Component" type="WellheadComponent" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="WellheadComponent">
+    <xs:sequence>
+      <xs:element name="Type" type="WellheadComponentType" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Material" type="Material" minOccurs="1" maxOccurs="5" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="WellheadComponentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ValveType1" />
+      <xs:enumeration value="ValveType2" />
+      <xs:enumeration value="ValveType2" />
+      <xs:enumeration value="Pipe" />
+      <xs:enumeration value="Flange" />
+      <xs:enumeration value="Goathead" />
+      <xs:enumeration value="Nut" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="WellGeometry">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Vertical" />
+      <xs:enumeration value="Deviated" />
+      <xs:enumeration value="Horizontal" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="DeviationSurvey">
+    <xs:sequence minOccurs="1">
+      <xs:element name="MD" type="DoubleSequence" minOccurs="1" maxOccurs="1" />
+      <xs:element name="TVD" type="DoubleSequence" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Inclination" type="DoubleSequence" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Azimuth" type="DoubleSequence" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Easting" type="DoubleSequence" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Northing" type="DoubleSequence" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="DoubleSequence">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Value" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Cylinder">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="Material" type="Material" />
+      <xs:element name="InnerInterfaceState" type="InterfaceState" />
+      <xs:element name="OuterInterfaceState" type="InterfaceState" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Material">
+    <xs:sequence>
+      <xs:element name="Attributes" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="InterfaceState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoSlip" />
+      <xs:enumeration value="PartialSlip" />
+      <xs:enumeration value="Frictionless" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Perforation">
+    <xs:sequence maxOccurs="1">
+      <xs:element name="Shape" type="PerforationShape" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="PerforationShape">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Conical" />
+      <xs:enumeration value="Cylindrical" />
+      <xs:enumeration value="Hemispherical" />
+      <xs:enumeration value="Amorphous" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="StagesCollection">
+    <xs:sequence>
+      <xs:element name="Stage" type="Stage" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Stage">
+    <xs:sequence>
+      <xs:element name="Number" type="xs:positiveInteger" />
+      <xs:element name="Perforations" type="PerforationCollection" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Plug" type="Plug" minOccurs="0" maxOccurs="1" />
+      <xs:element name="HfTreatmentStages" type="HfTreatmentStageCollection" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Monitorings" type="GUIdCollection" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Notes" type="NotesCollection" />
+      <xs:element name="Events" type="EventsCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TreatmentsCollection">
+    <xs:sequence>
+      <xs:element name="Treatment" type="Treatment" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Treatment">
+    <xs:sequence>
+      <xs:element name="Type" type="TreatmentType" />
+      <xs:element name="Stages" type="StagesCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="TreatmentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Hydraulic Fracturing" />
+      <xs:enumeration value="Steam Injection" />
+      <xs:enumeration value="Acid" />
+      <xs:enumeration value="Casing Repair" />
+      <xs:enumeration value="Clean Out" />
+      <xs:enumeration value="Junk Basket" />
+      <xs:enumeration value="Plug Drill Out" />
+      <xs:enumeration value="Plug Recovery" />
+      <xs:enumeration value="Refrac" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ProductionMonitoring">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="DataRecords" type="DataRecordsCollection" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DataRecordsCollection">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Record" type="DataRecord" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DataRecord">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="TimePicks" type="TimePicksCollection" />
+      <xs:element name="Reflections" type="ReflectionCollection" />
+    </xs:sequence> 
+  </xs:complexType>
+
+  <xs:complexType name="IntegrityMonitoring">
+    <xs:sequence>
+      <xs:element name="DataRecords" type="DataRecordsCollection" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="MasterRecord" type="DataRecord" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ProcessingInstances" type="ProcessingInstanceCollection" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Notes" type="NotesCollection" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InjectionMonitoring">
+    <xs:sequence>
+      <xs:element name="DataRecords" type="DataRecordsCollection" />
+      <xs:element name="InjectionSchedule" type="InjectionSchedule" />
+      <xs:element name="ProcessingInstances" type="ProcessingInstanceCollection" />
+      <xs:element name="Notes" type="NotesCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InjectionSchedule">
+    <xs:sequence>
+      <xs:element name="Injection" type="Injection" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Injection">
+    <xs:sequence>
+      <xs:element name="Type" type="InjectionType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="InjectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WasteWater" />
+      <xs:enumeration value="Brine" />
+      <xs:enumeration value="CO2" />
+      <xs:enumeration value="Steam" />
+      <xs:enumeration value="N2" />
+      <xs:enumeration value="Propane" />
+      <xs:enumeration value="Methane" />
+      <xs:enumeration value="Butane" />
+      <xs:enumeration value="Slickwater" />
+      <xs:enumeration value="Linear Gel" />
+      <xs:enumeration value="CrosslinkGel" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="HydraulicFracturingMonitoring">
+    <xs:sequence>
+      <xs:element name="DataRecords" type="DataRecordsCollection" />
+      <xs:element name="ProcessingInstances" type="ProcessingInstanceCollection" />
+      <xs:element name="Notes" type="NotesCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GUIdCollection">
+    <xs:sequence>
+      <xs:element name="Instance" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OffsetWellMonitoring">
+    <xs:sequence>
+      <xs:element name="DataRecords" type="DataRecordsCollection" />
+      <xs:element name="ProcessingInstances" type="ProcessingInstanceCollection" />
+      <xs:element name="Notes" type="NotesCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WellLog">
+    <xs:sequence>
+      <xs:element name="LogType" type="LogType" />
+      <xs:element name="Columns" type="ColumnCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="LogType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GammaRay" />
+      <xs:enumeration value="Acoustic" />
+      <xs:enumeration value="DipoleSonic" />
+      <xs:enumeration value="CBL" />
+      <xs:enumeration value="Resistivity" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ColumnCollection">
+    <xs:sequence>
+      <xs:element name="Column" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Column">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Values">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Value" type="xs:double" minOccurs="0" maxOccurs="unbounded" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NotesCollection">
+    <xs:sequence>
+      <xs:element name="Note" type="Note" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Note">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="Message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EventsCollection">
+    <xs:sequence>
+      <xs:element name="Event" type="Event" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Event">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="Type" type="EventType" />
+      <xs:element name="Comment" type="Note" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="EventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PumpsUp" />
+      <xs:enumeration value="PumpsDown" />
+      <xs:enumeration value="ShutIn" />
+      <xs:enumeration value="MasterOpen" />
+      <xs:enumeration value="MasterClose" />
+      <xs:enumeration value="EquipmentFailure" />
+      <xs:enumeration value="BallDropped" />
+      <xs:enumeration value="BallSeated" />
+      <xs:enumeration value="LubricatorAttachedToWellhead" />
+      <xs:enumeration value="StartAcid" />
+      <xs:enumeration value="StopAcid" />
+      <xs:enumeration value="FluidChange" />
+      <xs:enumeration value="ProppantChange" />
+      <xs:enumeration value="ScreenOut" />
+      <xs:enumeration value="StartPerfGunsPumpDown" />
+      <xs:enumeration value="StopPerfGunsPumpDown" />
+      <xs:enumeration value="PlugSet" />
+      <xs:enumeration value="PerfFired" />
+      <xs:enumeration value="PerfMisfire" />
+      <xs:enumeration value="Breakdown" />
+      <xs:enumeration value="SeismosActiveShot" />
+      <xs:enumeration value="SeismosActiveShotForward" />
+      <xs:enumeration value="SeismosActiveShotRetraction" />
+      <xs:enumeration value="SeismosEquipmentFailure" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>    
+  </xs:simpleType>
+
+  <xs:complexType name="OtherMonitoring">
+    <xs:sequence>
+      <xs:element name="Records" type="DataRecordsCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WellLogCollection">
+    <xs:sequence>
+      <xs:element name="Log" type="WellLog" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="HfTreatmentStageCollection">
+    <xs:sequence>
+      <xs:element name="HfTreatmentStage" type="HfTreatmentStage" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PerforationCollection">
+    <xs:sequence>
+      <xs:element name="Perforation" type="Perforation" minOccurs="1" maxOccurs="30" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="HfTreatmentStage">
+    <xs:sequence>
+      <xs:element name="Fluids" type="FluidCollection" />
+      <xs:element name="Proppants" type="ProppantCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FluidCollection">
+    <xs:sequence>
+      <xs:element name="Fluid" type="Fluid" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Fluid">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="Type" type="FluidType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="FluidType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Water" />
+      <xs:enumeration value="SlickWater" />
+      <xs:enumeration value="LinearGel" />
+      <xs:enumeration value="CrosslinkGel" />
+      <xs:enumeration value="N2" />
+      <xs:enumeration value="CO2" />
+      <xs:enumeration value="Propane" />
+      <xs:enumeration value="Brine" />
+      <xs:enumeration value="Methane" />
+      <xs:enumeration value="Butane" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ProppantCollection">
+    <xs:sequence>
+      <xs:element name="Proppant" type="Proppant" minOccurs="0" maxOccurs="10" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Proppant">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="Type" type="ProppantType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ProppantType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sand" />
+      <xs:enumeration value="Ceramic" />
+      <xs:enumeration value="ResinCoatedSand" />
+      <xs:enumeration value="ResinCoatedCeramic" />
+      <xs:enumeration value="Conductive" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="PumpingData">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="Columns" type="ColumnCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ProcessingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ReflectionModel" />
+      <xs:enumeration value="PressureDecay" />
+      <xs:enumeration value="ProppedLength" />
+      <xs:enumeration value="K-graph" />
+      <xs:enumeration value="Autocorrelation" />
+      <xs:enumeration value="Long-PeriodReflectionModel" />
+      <xs:enumeration value="AllStagesKGraph" />
+      <xs:enumeration value="AllStageAcPlot" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ProcessingInstanceCollection">
+    <xs:sequence>
+      <xs:element name="Instance" type="ProcessingInstance" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProcessingInstance">
+    <xs:sequence>
+      <xs:element name="Type" type="ProcessingType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ParametersUsed" type="ProcessingParameters" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DataRecords" type="DataRecordsCollection" />
+      <xs:element name="Notes" type="NotesCollection" minOccurs="0" maxOccurs="1" />
+      <xs:element name="KGraphData" type="KGraphData" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ACGraphData" type="ACGraphData" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="ACGraphData">
+    <xs:sequence>
+      <xs:element name="Columns" type="ColumnCollection" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="KGraphData">
+    <xs:sequence>
+      <xs:element name="Columns" type="ColumnCollection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TimePicksCollection">
+    <xs:sequence>
+      <xs:element name="Pick" type="TimePick" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TimePick">
+    <xs:sequence>
+      <xs:element name="Type" type="TimePickType" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="TimePickType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="StartActiveShot" />
+      <xs:enumeration value="EndActiveShot" />
+      <xs:enumeration value="StartWirelineWaterHammer" />
+      <xs:enumeration value="EndWirelineWaterHammer" />
+      <xs:enumeration value="StartShutInWaterHammer" />
+      <xs:enumeration value="EndShutInWaterHammer" />
+      <xs:enumeration value="StartPerfWaterHammer" />
+      <xs:enumeration value="EndPerfWaterHammer" />
+      <xs:enumeration value="StartPressureDecay" />
+      <xs:enumeration value="EndPressureDecay" />
+      <xs:enumeration value="StartKGraph" />
+      <xs:enumeration value="EndKGraph" />
+      <xs:enumeration value="StartAcPlot" />
+      <xs:enumeration value="EndAcPlot" />
+      <xs:enumeration value="OtherStart" />
+      <xs:enumeration value="OtherEnd" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ProcessingParameters">
+    <xs:sequence>
+      <xs:element name="Reflections" type="ReflectionCollection" minOccurs="0" maxOccurs="1" />
+      <xs:element name="FilterUsed" type="Filter" minOccurs="0" maxOccurs="10" />
+      <xs:element name="Constraints" type="ParameterConstraintCollection" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ReflectionCollection">
+    <xs:sequence>
+      <xs:element name="Reflection" type="Reflection" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Reflection">
+    <xs:sequence>
+      <xs:element name="Start" type="TimePick" />
+      <xs:element name="End" type="TimePick" />
+      <xs:element name="Type" type="ReflectionType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ReflectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FirstCasingJoint" />
+      <xs:enumeration value="SecondCasingJoint" />
+      <xs:enumeration value="ThirdCasingJoint" />
+      <xs:enumeration value="FourthCasingJoint" />
+      <xs:enumeration value="FirstCasingJointMultiple" />
+      <xs:enumeration value="SecondCasingJointMultiple" />
+      <xs:enumeration value="ThridCasingJointMulitple" />
+      <xs:enumeration value="FourthCasingJointMultiple" />
+      <xs:enumeration value="Toe" />
+      <xs:enumeration value="PerfsPlug" />
+      <xs:enumeration value="Plug" />
+      <xs:enumeration value="Mixed" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Filter">
+    <xs:sequence>
+      <xs:element name="Type" type="FilterType" />
+      <xs:element name="BasisSet" type="BasisSet" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="FilterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BandPass" />
+      <xs:enumeration value="HighPass" />
+      <xs:enumeration value="LowPass" />
+      <xs:enumeration value="PredictiveError" />
+      <xs:enumeration value="BasisProjection" />
+      <xs:enumeration value="CustomNoise" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="BasisSet">
+    <xs:sequence>
+      <xs:element name="BasisFunction" type="xs:string" minOccurs="3" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ParameterConstraintCollection">
+    <xs:sequence>
+      <xs:element name="MinimumQ4" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ModelCollection">
+    <xs:sequence>
+      <xs:element name="Model" type="Model" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Model">
+    <xs:sequence>
+      <xs:element name="Type" type="ModelType" minOccurs="1" maxOccurs="1" />
+      <xs:element name="KGraphData" type="KGraphData" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ACGraphData" type="ACGraphData" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Reflectors" type="ReflectorCollection" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ModelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SyntheticKGraph" />
+      <xs:enumeration value="SyntheticAcGraph" />
+      <xs:enumeration value="WellboreAcousticModel" />
+      <xs:enumeration value="FractureModel" />
+      <xs:enumeration value="ReservoirModel" />
+      <xs:enumeration value="SlowTimeModel" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ReflectorCollection">
+    <xs:sequence>
+      <xs:element name="Reflector" type="Reflector" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Reflector">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:length value="34" />
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Wellbore">
+    <xs:sequence>
+      <xs:element name="Section" type="Cylinder" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Plug">
+    <xs:sequence>
+      <xs:element name="Material" type="Material" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

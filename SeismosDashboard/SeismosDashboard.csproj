@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{889D7987-F56C-4B42-BEED-2D4583EFD78C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SeismosDashboard</RootNamespace>
+    <AssemblyName>SeismosDashboard</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CustomerDialog.xaml.cs">
+      <DependentUpon>CustomerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Experiment\AlphaViewModel.cs" />
+    <Compile Include="Experiment\AlphaWindow.xaml.cs">
+      <DependentUpon>AlphaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Experiment\BetaControl.xaml.cs">
+      <DependentUpon>BetaControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Experiment\BetaViewModel.cs" />
+    <Compile Include="Experiment\DeltaControl.xaml.cs">
+      <DependentUpon>DeltaControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Experiment\DeltaViewModel.cs" />
+    <Compile Include="Experiment\DialogService.cs" />
+    <Compile Include="Experiment\EpsilonControl.xaml.cs">
+      <DependentUpon>EpsilonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Experiment\EpsilonViewModel.cs" />
+    <Compile Include="Experiment\GammaViewModelBase.cs" />
+    <Compile Include="General\DashboardStorage.cs" />
+    <Compile Include="General\IWindowClose.cs" />
+    <Compile Include="General\RelayCommand.cs" />
+    <Compile Include="General\SeismosExtensions.cs" />
+    <Compile Include="General\SimpleCommand.cs" />
+    <Compile Include="General\ViewModelBase.cs" />
+    <Compile Include="HeaderControl\AddClientDialog.xaml.cs">
+      <DependentUpon>AddClientDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderControl\AddClientDialogViewModel.cs" />
+    <Compile Include="HeaderControl\AddProjectDialog.xaml.cs">
+      <DependentUpon>AddProjectDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderControl\AddProjectDialogViewModel.cs" />
+    <Compile Include="HeaderControl\HeaderControl.xaml.cs">
+      <DependentUpon>HeaderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderControl\HeaderControlViewModel.cs" />
+    <Compile Include="HeaderControl\SelectClientView.xaml.cs">
+      <DependentUpon>SelectClientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderControl\SelectClientViewModel.cs" />
+    <Compile Include="HeaderControl\SelectProjectView.xaml.cs">
+      <DependentUpon>SelectProjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderControl\SelectProjectViewModel.cs" />
+    <Compile Include="KvPair.cs" />
+    <Compile Include="LogEntryDialog.xaml.cs">
+      <DependentUpon>LogEntryDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPanel.xaml.cs">
+      <DependentUpon>MainPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPanelViewModel.cs" />
+    <Compile Include="ProjectDialog.xaml.cs">
+      <DependentUpon>ProjectDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="SideBar.xaml.cs">
+      <DependentUpon>SideBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WidgetBox.xaml.cs">
+      <DependentUpon>WidgetBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WidgetBoxAdv.xaml.cs">
+      <DependentUpon>WidgetBoxAdv.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WidgetContainer\MessageWidgetControl.xaml.cs">
+      <DependentUpon>MessageWidgetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WidgetContainer\MessageWidgetControlViewModel.cs" />
+    <Compile Include="Widgets\ClientWidget.xaml.cs">
+      <DependentUpon>ClientWidget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\ClientWidgetViewModel.cs" />
+    <Compile Include="Widgets\IWidgetIdentity.cs" />
+    <Compile Include="WidgetContainer\WidgetControl.xaml.cs">
+      <DependentUpon>WidgetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WidgetContainer\WidgetControlViewModel.cs" />
+    <Compile Include="WidgetContainer\WidgetPanelControl.xaml.cs">
+      <DependentUpon>WidgetPanelControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WidgetContainer\WidgetPanelControlViewModel.cs" />
+    <Compile Include="Widgets\ProjectWidget.xaml.cs">
+      <DependentUpon>ProjectWidget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\ProjectWidgetViewModel.cs" />
+    <Compile Include="Widgets\WellsWidget.xaml.cs">
+      <DependentUpon>WellsWidget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\WellsWidgetViewModel.cs" />
+    <Compile Include="Widgets\WidgetViewModelBase.cs" />
+    <Page Include="CustomerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Experiment\AlphaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Experiment\BetaControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Experiment\DeltaControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Experiment\EpsilonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Footer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeaderControl\AddClientDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeaderControl\AddProjectDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeaderControl\HeaderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeaderControl\SelectClientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeaderControl\SelectProjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogEntryDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Footer.xaml.cs">
+      <DependentUpon>Footer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ProjectDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SideBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\AdditionalStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\BureauBlack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BureauBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Expression\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Expression\Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Expression\Light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\WhistlerBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WidgetBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WidgetBoxAdv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WidgetContainer\MessageWidgetControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WidgetContainer\WidgetControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WidgetContainer\WidgetPanelControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\ClientWidget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\ProjectWidget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\WellsWidget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\SeismosDataLibrary.SeismosClient.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SeismosLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SeismosDataLibrary\SeismosDataLibrary.csproj">
+      <Project>{1F4F6120-2726-4D3C-ADB5-FB83CC15ACB9}</Project>
+      <Name>SeismosDataLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SeismosServices\SeismosServices.csproj">
+      <Project>{B2018DC9-4E3D-4A00-B0E3-4BEB2DA7B5FC}</Project>
+      <Name>SeismosServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

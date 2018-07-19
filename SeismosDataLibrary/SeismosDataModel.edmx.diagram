@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1cc314f7cf074463a21f48bd107eabac" Name="Diagram1" ZoomLevel="152">
+        <EntityTypeShape EntityType="seismosModel.SeismosClient" Width="1.5" PointX="9.375" PointY="10" />
+        <EntityTypeShape EntityType="seismosModel.SeismosProject" Width="1.5" PointX="11.625" PointY="8.875" />
+        <EntityTypeShape EntityType="seismosModel.Note" Width="1.5" PointX="13.625" PointY="13.875" />
+        <EntityTypeShape EntityType="seismosModel.Well" Width="1.75" PointX="13.875" PointY="42.125" />
+        <AssociationConnector Association="seismosModel.SeismosProjectsWells" />
+        <EntityTypeShape EntityType="seismosModel.DeviationSurvey" Width="1.5" PointX="16.375" PointY="30.75" />
+        <AssociationConnector Association="seismosModel.WellsDeviationSurveys" />
+        <EntityTypeShape EntityType="seismosModel.MD" Width="1.5" PointX="18.625" PointY="35" />
+        <EntityTypeShape EntityType="seismosModel.TVD" Width="1.5" PointX="18.625" PointY="32.5" />
+        <EntityTypeShape EntityType="seismosModel.Inclination" Width="1.5" PointX="18.625" PointY="24.875" />
+        <EntityTypeShape EntityType="seismosModel.Azimuth" Width="1.5" PointX="18.625" PointY="37.5" />
+        <EntityTypeShape EntityType="seismosModel.Easting" Width="1.5" PointX="18.625" PointY="27.375" />
+        <EntityTypeShape EntityType="seismosModel.Northing" Width="1.5" PointX="18.625" PointY="29.875" />
+        <AssociationConnector Association="seismosModel.DeviationSurveyInclination" />
+        <AssociationConnector Association="seismosModel.DeviationSurveyEasting" />
+        <AssociationConnector Association="seismosModel.DeviationSurveyNorthing" />
+        <AssociationConnector Association="seismosModel.DeviationSurveyAzimuth" />
+        <AssociationConnector Association="seismosModel.DeviationSurveyTVD" />
+        <AssociationConnector Association="seismosModel.DeviationSurveyMD" />
+        <EntityTypeShape EntityType="seismosModel.WellBore" Width="1.5" PointX="16.375" PointY="21.75" />
+        <EntityTypeShape EntityType="seismosModel.Cylinder" Width="1.5" PointX="18.625" PointY="21.125" />
+        <AssociationConnector Association="seismosModel.WellBoreCylinder" />
+        <AssociationConnector Association="seismosModel.WellWellBore" />
+        <EntityTypeShape EntityType="seismosModel.Material" Width="1.5" PointX="52.875" PointY="28.25" />
+        <EntityTypeShape EntityType="seismosModel.Wellhead" Width="1.5" PointX="16.375" PointY="16.5" />
+        <EntityTypeShape EntityType="seismosModel.WellheadCoordinate" Width="1.5" PointX="18.625" PointY="14.375" />
+        <EntityTypeShape EntityType="seismosModel.WellheadAssembly" Width="1.5" PointX="18.625" PointY="18.25" />
+        <EntityTypeShape EntityType="seismosModel.WellheadComponent" Width="2.25" PointX="20.875" PointY="17.625" />
+        <AssociationConnector Association="seismosModel.WellheadComponentMaterial" />
+        <AssociationConnector Association="seismosModel.SeismosClientSeismosProject" />
+        <AssociationConnector Association="seismosModel.SeismosProjectNote" />
+        <AssociationConnector Association="seismosModel.WellheadAssemblyWellheadComponent" />
+        <AssociationConnector Association="seismosModel.WellheadWellheadCoordinate" />
+        <AssociationConnector Association="seismosModel.WellWellhead" />
+        <AssociationConnector Association="seismosModel.WellheadWellheadAssembly" />
+        <EntityTypeShape EntityType="seismosModel.Treatment" Width="1.5" PointX="39.25" PointY="45.875" />
+        <EntityTypeShape EntityType="seismosModel.HydraulicFracturingTreatment" Width="1.5" PointX="30.25" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.HydraulicFracturingTreatment" />
+        <EntityTypeShape EntityType="seismosModel.SteamInjectionTreatment" Width="1.5" PointX="39.25" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.SteamInjectionTreatment" />
+        <EntityTypeShape EntityType="seismosModel.AcidTreatment" Width="1.5" PointX="41.5" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.AcidTreatment" />
+        <EntityTypeShape EntityType="seismosModel.CasingRepairTreatment" Width="1.5" PointX="37" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.CasingRepairTreatment" />
+        <EntityTypeShape EntityType="seismosModel.CleanOutTreatment" Width="1.5" PointX="32.5" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.CleanOutTreatment" />
+        <EntityTypeShape EntityType="seismosModel.JunkBasketTreatment" Width="1.5" PointX="34.75" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.JunkBasketTreatment" />
+        <EntityTypeShape EntityType="seismosModel.PlugDrillOutTreatment" Width="1.5" PointX="43.75" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.PlugDrillOutTreatment" />
+        <EntityTypeShape EntityType="seismosModel.PlugRecovery" Width="1.5" PointX="46" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.PlugRecovery" />
+        <EntityTypeShape EntityType="seismosModel.RefracTreatment" Width="1.5" PointX="48.25" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.RefracTreatment" />
+        <AssociationConnector Association="seismosModel.WellTreatment" />
+        <EntityTypeShape EntityType="seismosModel.DataAcquisition" Width="1.5" PointX="20.5" PointY="45.875" />
+        <EntityTypeShape EntityType="seismosModel.HydraulicFracturingDataAcquisition" Width="1.5" PointX="25" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.HydraulicFracturingDataAcquisition" />
+        <EntityTypeShape EntityType="seismosModel.OffsetWellDataAcquisition" Width="1.5" PointX="22.75" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.OffsetWellDataAcquisition" />
+        <EntityTypeShape EntityType="seismosModel.ProductionDataAcquisition" Width="1.5" PointX="16" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.ProductionDataAcquisition" />
+        <EntityTypeShape EntityType="seismosModel.InjectionDataAcquisition" Width="1.5" PointX="20.5" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.InjectionDataAcquisition" />
+        <EntityTypeShape EntityType="seismosModel.IntegrityDataAcquisition" Width="1.5" PointX="18.25" PointY="48.5" />
+        <InheritanceConnector EntityType="seismosModel.IntegrityDataAcquisition" />
+        <AssociationConnector Association="seismosModel.WellDataAcquisition" />
+        <EntityTypeShape EntityType="seismosModel.Processing" Width="1.875" PointX="28" PointY="29.75" />
+        <AssociationConnector Association="seismosModel.DataAcquisitionProcessing" />
+        <EntityTypeShape EntityType="seismosModel.DataRecord" Width="1.5" PointX="28" PointY="39.625" />
+        <EntityTypeShape EntityType="seismosModel.TimePick" Width="1.5" PointX="35.625" PointY="35.75" />
+        <EntityTypeShape EntityType="seismosModel.Reflection" Width="1.5" PointX="33.375" PointY="35.375" />
+        <AssociationConnector Association="seismosModel.DataRecordTimePick" />
+        <AssociationConnector Association="seismosModel.DataRecordReflection" />
+        <AssociationConnector Association="seismosModel.StartReflectionTimePick" />
+        <AssociationConnector Association="seismosModel.EndReflectionTimePick" />
+        <AssociationConnector Association="seismosModel.DataAcquisitionDataRecord" />
+        <EntityTypeShape EntityType="seismosModel.UsedParameter" Width="2" PointX="30.625" PointY="28.625" />
+        <AssociationConnector Association="seismosModel.ProcessingUsedParameter" />
+        <AssociationConnector Association="seismosModel.UsedParameterReflection" />
+        <EntityTypeShape EntityType="seismosModel.UsedFilter" Width="1.5" PointX="33.375" PointY="26.25" />
+        <EntityTypeShape EntityType="seismosModel.BasisSet" Width="1.5" PointX="35.625" PointY="26.625" />
+        <AssociationConnector Association="seismosModel.UsedFilterBasisSet" />
+        <AssociationConnector Association="seismosModel.UsedParameterUsedFilter" />
+        <EntityTypeShape EntityType="seismosModel.ParamConstraint" Width="2.625" PointX="33.375" PointY="29.5" />
+        <AssociationConnector Association="seismosModel.UsedParameterParamConstraint" />
+        <EntityTypeShape EntityType="seismosModel.Column" Width="1.5" PointX="32.875" PointY="38.75" />
+        <EntityTypeShape EntityType="seismosModel.ColumnValue" Width="1.5" PointX="35.125" PointY="39" />
+        <AssociationConnector Association="seismosModel.ColumnColumnValue" />
+        <EntityTypeShape EntityType="seismosModel.KGraphData" Width="1.5" PointX="30.625" PointY="35" />
+        <AssociationConnector Association="seismosModel.KGraphDataColumn" />
+        <AssociationConnector Association="seismosModel.ProcessingKGraphData" />
+        <EntityTypeShape EntityType="seismosModel.ACGraphData" Width="1.5" PointX="30.625" PointY="37.375" />
+        <AssociationConnector Association="seismosModel.ACGraphDataColumn" />
+        <AssociationConnector Association="seismosModel.ProcessingACGraphData" />
+        <EntityTypeShape EntityType="seismosModel.Injection" Width="1.5" PointX="28" PointY="44" />
+        <AssociationConnector Association="seismosModel.InjectionDataAcquisitionInjection" />
+        <EntityTypeShape EntityType="seismosModel.Event" Width="1.5" PointX="13.625" PointY="17.25" />
+        <InheritanceConnector EntityType="seismosModel.Event" />
+        <EntityTypeShape EntityType="seismosModel.Stage" Width="2.125" PointX="47.75" PointY="36.875" />
+        <EntityTypeShape EntityType="seismosModel.Perforation" Width="1.5" PointX="50.625" PointY="42" />
+        <AssociationConnector Association="seismosModel.StagePerforation" />
+        <EntityTypeShape EntityType="seismosModel.Plug" Width="1.5" PointX="50.625" PointY="38.75" />
+        <AssociationConnector Association="seismosModel.PlugMaterial" />
+        <AssociationConnector Association="seismosModel.StagePlug" />
+        <EntityTypeShape EntityType="seismosModel.HFTreatmentStage" Width="1.5" PointX="50.625" PointY="33.625" />
+        <EntityTypeShape EntityType="seismosModel.Fluid" Width="1.5" PointX="52.875" PointY="35.25" />
+        <EntityTypeShape EntityType="seismosModel.Proppant" Width="2" PointX="52.875" PointY="31.875" />
+        <AssociationConnector Association="seismosModel.HFTreatmentStageFluid" />
+        <AssociationConnector Association="seismosModel.HFTreatmentStageProppant" />
+        <AssociationConnector Association="seismosModel.StageHFTreatmentStage" />
+        <AssociationConnector Association="seismosModel.HydraulicFracturingTreatmentStage" />
+        <EntityTypeShape EntityType="seismosModel.CasingChartLookup" Width="1.5" PointX="15.625" PointY="3.375" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
