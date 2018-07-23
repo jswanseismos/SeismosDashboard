@@ -124,6 +124,7 @@
     <Compile Include="SideBar.xaml.cs">
       <DependentUpon>SideBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SidebarViewModel.cs" />
     <Compile Include="WidgetBox.xaml.cs">
       <DependentUpon>WidgetBox.xaml</DependentUpon>
     </Compile>

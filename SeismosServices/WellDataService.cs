@@ -8,8 +8,11 @@ using SeismosDataLibrary;
 
 namespace SeismosServices
 {
+
+
     public class WellDataService
     {
+
 
         public List<WellEntry> GetWellEntries()
         {
@@ -58,12 +61,13 @@ namespace SeismosServices
             return wellEntry;
         }
 
+
         private List<CylinderEntry> GetCylinderEntries (WellBore wellBore)
         {
             List<CylinderEntry> cylinderEntries = new List<CylinderEntry>();
             if (wellBore.Cylinders == null) return cylinderEntries;
-
-            cylinderEntries.AddRange(wellBore.Cylinders.Select(cylinder => new CylinderEntry()
+            var casingChart = new CasingChartService();
+            cylinderEntries.AddRange(wellBore.Cylinders.Select(cylinder => new CylinderEntry(casingChart)
             {
                 Id = cylinder.Id,
                 CasingOrderType = Enum.GetName(typeof(CasingOrderTypeEnum), cylinder.CasingOrderType),
@@ -82,11 +86,9 @@ namespace SeismosServices
 
         public void UpdateWellEntry(WellEntry wellEntry)
         {
-            Well currWell;
-
             using (var seismosContext = new seismosEntities())
             {
-                currWell = seismosContext.Wells.Where(w => w.Id == wellEntry.Id).Include(w => w.WellBore.Cylinders).FirstOrDefault();
+                var currWell = seismosContext.Wells.Where(w => w.Id == wellEntry.Id).Include(w => w.WellBore.Cylinders).FirstOrDefault();
                 if (currWell == null) return;
 
                 currWell.WellName = wellEntry.Name;
@@ -113,6 +115,74 @@ namespace SeismosServices
 
 
         }
+
+        public void AddWellEntry(WellEntry wellEntry, Guid targetProjectId)
+        {
+
+            using (var seismosContext = new seismosEntities())
+            {
+                var targetProject = seismosContext.SeismosProjects.FirstOrDefault(sp => sp.Id == targetProjectId);
+                if (targetProject == null) return;
+
+                var insertWell = new Well
+                {
+                    Id = Guid.NewGuid(),
+                    WellName = wellEntry.Name,
+                    SeismosProject = targetProject,
+                    WellBore = new WellBore
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = wellEntry.Name,
+                        SurfaceVolume = wellEntry.SurfaceVolume,
+                        TotalVolume = wellEntry.TotalVolume
+                    }
+                };
+
+                foreach (var wellEntryCylinderEntry in wellEntry.CylinderEntries)
+                {
+                    var wellBoreCylinder = new Cylinder
+                    {
+                        Id = Guid.NewGuid(),
+                        CalculatedVolume = wellEntryCylinderEntry.CalculatedVolume,
+                        CasingOrderType = (CasingOrderTypeEnum) Enum.Parse(typeof(CasingOrderTypeEnum),
+                            wellEntryCylinderEntry.CasingOrderType),
+                        Grade = wellEntryCylinderEntry.Grade,
+                        InnerDiameter = wellEntryCylinderEntry.InnerDiameter,
+                        MeasuredDepth = wellEntryCylinderEntry.MeasuredDepth,
+                        OuterDiameter = wellEntryCylinderEntry.OuterDiameter,
+                        TopOfLiner = wellEntryCylinderEntry.TopOfLiner,
+                        Weight = wellEntryCylinderEntry.Weight,
+                        InnerInterfaceState = InterfaceStateTypeEnum.NoSlip,
+                        OuterInterfaceState = InterfaceStateTypeEnum.NoSlip
+                    };
+                    insertWell.WellBore.Cylinders.Add(wellBoreCylinder);
+                }
+
+                // TODO handle the number of stages here
+                var hfTreatment = new HydraulicFracturingTreatment()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = insertWell + " HF",
+                    Type = TreatmentTypeEnum.HydraulicFracturing,
+                    Stages = new List<Stage>()
+                };
+
+
+                for (int index = 0; index < wellEntry.NumberOfStages; index++)
+                {
+                    hfTreatment.Stages.Add(new Stage(){Id = Guid.NewGuid(), Number = index, StartTime = DateTime.Now, StopTime = DateTime.Now});
+                }
+
+                insertWell.Treatments.Add(hfTreatment);
+
+                seismosContext.Wells.Add(insertWell);
+                seismosContext.SaveChanges();
+            }
+
+
+        }
+
+
 
     }
 }

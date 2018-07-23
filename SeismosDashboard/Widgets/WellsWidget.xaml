@@ -13,19 +13,44 @@
                         <WrapPanel>
                             <Label Content="Well Name:" Margin="5"/>
                             <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Name}"/>
-                            <Label Content="Number of Stages:" Margin="5"/>
+                            <Label Content="Number of Wells:" Margin="5"/>
                             <TextBox Height="23" TextWrapping="Wrap" Text="{Binding NumberOfStages}"/>
                         </WrapPanel>
                         <DataGrid ItemsSource="{Binding CylinderEntries}" AutoGenerateColumns="False" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding CasingOrderType}" ClipboardContentBinding="{x:Null}" Header="Type"/>
-                                <DataGridTextColumn Binding="{Binding OuterDiameter}" ClipboardContentBinding="{x:Null}" Header="OD"/>
-                                <DataGridTextColumn Binding="{Binding Grade}" ClipboardContentBinding="{x:Null}" Header="Grade"/>
-                                <DataGridTextColumn Binding="{Binding Weight}" ClipboardContentBinding="{x:Null}" Header="Weight"/>
-                                <DataGridTextColumn Binding="{Binding InnerDiameter}" ClipboardContentBinding="{x:Null}" Header="ID"/>
-                                <DataGridTextColumn Binding="{Binding MeasuredDepth}" ClipboardContentBinding="{x:Null}" Header="Measured Depth"/>
+                                <DataGridTextColumn Binding="{Binding OuterDiameter, UpdateSourceTrigger=LostFocus,StringFormat={}{0:#.####}}" ClipboardContentBinding="{x:Null}" Header="OD"/>
+                                <DataGridTemplateColumn Header="Weight">
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                        <DataTemplate>
+                                            <ComboBox ItemsSource="{Binding Weights}" SelectedItem="{Binding Weight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" IsEditable="True" ></ComboBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataGridTemplateColumn.CellTemplate >
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Weight, NotifyOnSourceUpdated=True}"></TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Grade">
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                        <DataTemplate>
+                                            <ComboBox ItemsSource="{Binding Grades}" SelectedItem="{Binding Grade, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ></ComboBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataGridTemplateColumn.CellTemplate >
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Grade, NotifyOnSourceUpdated=True}"></TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <!-- <DataGridComboBoxColumn ItemsSource="{Binding StrWeights}" SelectedValueBinding="{Binding StrWeight}" SelectedItemBinding="{Binding StrWeight}"  /> -->
+                                <!-- <DataGridTextColumn Binding="{Binding Weight}" ClipboardContentBinding="{x:Null}" Header="Weight"/> -->
+                                <!-- <DataGridTextColumn Binding="{Binding Grade}" ClipboardContentBinding="{x:Null}" Header="Grade"/> -->
+                                <DataGridTextColumn Binding="{Binding InnerDiameter, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" ClipboardContentBinding="{x:Null}" Header="ID"/>
+                                <DataGridTextColumn Binding="{Binding MeasuredDepth, UpdateSourceTrigger=LostFocus}" ClipboardContentBinding="{x:Null}" Header="Measured Depth"/>
                                 <DataGridTextColumn Binding="{Binding TopOfLiner}" ClipboardContentBinding="{x:Null}" Header="TOL"/>
-                                <DataGridTextColumn Binding="{Binding CalculatedVolume}" ClipboardContentBinding="{x:Null}" Header="Volume"/>
+                                <DataGridTextColumn Binding="{Binding CalculatedVolume, Mode=TwoWay}" ClipboardContentBinding="{x:Null}" Header="Volume"/>
                             </DataGrid.Columns>
 
                         </DataGrid>

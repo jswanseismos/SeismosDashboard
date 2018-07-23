@@ -23,6 +23,7 @@ namespace SeismosDashboard
         public SideBar()
         {
             InitializeComponent();
+            DataContext = new SidebarViewModel();
         }
     }
 }

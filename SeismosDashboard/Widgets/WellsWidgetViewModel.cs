@@ -20,6 +20,9 @@ namespace SeismosDashboard
 
             wellEntries = new ObservableCollection<WellEntry>(result);
 
+//            var weightList = wellDataService.GetWeightList(4.5);
+//            var gradeList = wellDataService.GetGradeList(4.5, 9.5);
+//            double innerDiameter = wellDataService.GetInnerDiameter(4.5, 9.5, "K-55");
 
         }
         private WellDataService wellDataService;
@@ -36,8 +39,15 @@ namespace SeismosDashboard
             Guid id = (Guid) param;
 
             var wellEntry = wellEntries.FirstOrDefault(we => we.Id == id);
-            wellDataService.UpdateWellEntry(wellEntry);
+            //            wellDataService.UpdateWellEntry(wellEntry);
+             
+            string selectedProjectId = DashboardStorage.Instance.GetValue<string>("SelectedSeismosProjectId");
+            if (!Guid.TryParse(selectedProjectId, out var selectSeismosProjectId))
+            {
+                selectSeismosProjectId = Guid.Empty;
+            }
 
+            wellDataService.AddWellEntry(wellEntry, selectSeismosProjectId);
 
         }
 

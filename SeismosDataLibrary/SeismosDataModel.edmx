@@ -4,1563 +4,1563 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="seismosModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="seismosModelStoreContainer">
-    <EntitySet Name="SeismosClients" EntityType="seismosModel.Store.SeismosClients" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SeismosProjects" EntityType="seismosModel.Store.SeismosProjects" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Notes" EntityType="seismosModel.Store.Notes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Wells" EntityType="seismosModel.Store.Wells" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DeviationSurveys" EntityType="seismosModel.Store.DeviationSurveys" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MDs" EntityType="seismosModel.Store.MDs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TVDs" EntityType="seismosModel.Store.TVDs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Inclinations" EntityType="seismosModel.Store.Inclinations" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Azimuths" EntityType="seismosModel.Store.Azimuths" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Eastings" EntityType="seismosModel.Store.Eastings" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Northings" EntityType="seismosModel.Store.Northings" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="WellBores" EntityType="seismosModel.Store.WellBores" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Cylinders" EntityType="seismosModel.Store.Cylinders" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Materials" EntityType="seismosModel.Store.Materials" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Wellheads" EntityType="seismosModel.Store.Wellheads" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="WellheadCoordinates" EntityType="seismosModel.Store.WellheadCoordinates" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="WellheadAssemblies" EntityType="seismosModel.Store.WellheadAssemblies" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="WellheadComponents" EntityType="seismosModel.Store.WellheadComponents" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments" EntityType="seismosModel.Store.Treatments" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DataAcquisitions" EntityType="seismosModel.Store.DataAcquisitions" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Processings" EntityType="seismosModel.Store.Processings" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DataRecords" EntityType="seismosModel.Store.DataRecords" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TimePicks" EntityType="seismosModel.Store.TimePicks" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Reflections" EntityType="seismosModel.Store.Reflections" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UsedParameters" EntityType="seismosModel.Store.UsedParameters" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UsedFilters" EntityType="seismosModel.Store.UsedFilters" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BasisSets" EntityType="seismosModel.Store.BasisSets" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ParamConstraints" EntityType="seismosModel.Store.ParamConstraints" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Columns" EntityType="seismosModel.Store.Columns" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ColumnValues" EntityType="seismosModel.Store.ColumnValues" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="KGraphDatas" EntityType="seismosModel.Store.KGraphDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ACGraphDatas" EntityType="seismosModel.Store.ACGraphDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Injections" EntityType="seismosModel.Store.Injections" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Stages" EntityType="seismosModel.Store.Stages" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Perforations" EntityType="seismosModel.Store.Perforations" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Plugs" EntityType="seismosModel.Store.Plugs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="HFTreatmentStages" EntityType="seismosModel.Store.HFTreatmentStages" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Fluids" EntityType="seismosModel.Store.Fluids" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Proppants" EntityType="seismosModel.Store.Proppants" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CasingChartLookups" EntityType="seismosModel.Store.CasingChartLookups" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DataAcquisitions_InjectionDataAcquisition" EntityType="seismosModel.Store.DataAcquisitions_InjectionDataAcquisition" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments_HydraulicFracturingTreatment" EntityType="seismosModel.Store.Treatments_HydraulicFracturingTreatment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments_SteamInjectionTreatment" EntityType="seismosModel.Store.Treatments_SteamInjectionTreatment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments_AcidTreatment" EntityType="seismosModel.Store.Treatments_AcidTreatment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments_CasingRepairTreatment" EntityType="seismosModel.Store.Treatments_CasingRepairTreatment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments_CleanOutTreatment" EntityType="seismosModel.Store.Treatments_CleanOutTreatment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments_JunkBasketTreatment" EntityType="seismosModel.Store.Treatments_JunkBasketTreatment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments_PlugDrillOutTreatment" EntityType="seismosModel.Store.Treatments_PlugDrillOutTreatment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments_PlugRecovery" EntityType="seismosModel.Store.Treatments_PlugRecovery" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Treatments_RefracTreatment" EntityType="seismosModel.Store.Treatments_RefracTreatment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DataAcquisitions_HydraulicFracturingDataAcquisition" EntityType="seismosModel.Store.DataAcquisitions_HydraulicFracturingDataAcquisition" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DataAcquisitions_OffsetWellDataAcquisition" EntityType="seismosModel.Store.DataAcquisitions_OffsetWellDataAcquisition" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DataAcquisitions_ProductionDataAcquisition" EntityType="seismosModel.Store.DataAcquisitions_ProductionDataAcquisition" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DataAcquisitions_IntegrityDataAcquisition" EntityType="seismosModel.Store.DataAcquisitions_IntegrityDataAcquisition" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Notes_Event" EntityType="seismosModel.Store.Notes_Event" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="SeismosProjectsWells" Association="seismosModel.Store.SeismosProjectsWells">
-      <End Role="SeismosProjects" EntitySet="SeismosProjects" />
-      <End Role="Wells" EntitySet="Wells" />
-    </AssociationSet>
-    <AssociationSet Name="WellsDeviationSurveys" Association="seismosModel.Store.WellsDeviationSurveys">
-      <End Role="Wells" EntitySet="Wells" />
-      <End Role="DeviationSurveys" EntitySet="DeviationSurveys" />
-    </AssociationSet>
-    <AssociationSet Name="DeviationSurveyInclination" Association="seismosModel.Store.DeviationSurveyInclination">
-      <End Role="DeviationSurvey" EntitySet="DeviationSurveys" />
-      <End Role="Inclination" EntitySet="Inclinations" />
-    </AssociationSet>
-    <AssociationSet Name="DeviationSurveyEasting" Association="seismosModel.Store.DeviationSurveyEasting">
-      <End Role="DeviationSurvey" EntitySet="DeviationSurveys" />
-      <End Role="Easting" EntitySet="Eastings" />
-    </AssociationSet>
-    <AssociationSet Name="DeviationSurveyNorthing" Association="seismosModel.Store.DeviationSurveyNorthing">
-      <End Role="DeviationSurvey" EntitySet="DeviationSurveys" />
-      <End Role="Northing" EntitySet="Northings" />
-    </AssociationSet>
-    <AssociationSet Name="DeviationSurveyAzimuth" Association="seismosModel.Store.DeviationSurveyAzimuth">
-      <End Role="DeviationSurvey" EntitySet="DeviationSurveys" />
-      <End Role="Azimuth" EntitySet="Azimuths" />
-    </AssociationSet>
-    <AssociationSet Name="DeviationSurveyTVD" Association="seismosModel.Store.DeviationSurveyTVD">
-      <End Role="DeviationSurvey" EntitySet="DeviationSurveys" />
-      <End Role="TVD" EntitySet="TVDs" />
-    </AssociationSet>
-    <AssociationSet Name="DeviationSurveyMD" Association="seismosModel.Store.DeviationSurveyMD">
-      <End Role="DeviationSurvey" EntitySet="DeviationSurveys" />
-      <End Role="MD" EntitySet="MDs" />
-    </AssociationSet>
-    <AssociationSet Name="WellBoreCylinder" Association="seismosModel.Store.WellBoreCylinder">
-      <End Role="WellBore" EntitySet="WellBores" />
-      <End Role="Cylinder" EntitySet="Cylinders" />
-    </AssociationSet>
-    <AssociationSet Name="WellWellBore" Association="seismosModel.Store.WellWellBore">
-      <End Role="Well" EntitySet="Wells" />
-      <End Role="WellBore" EntitySet="WellBores" />
-    </AssociationSet>
-    <AssociationSet Name="WellheadComponentMaterial" Association="seismosModel.Store.WellheadComponentMaterial">
-      <End Role="WellheadComponent" EntitySet="WellheadComponents" />
-      <End Role="Material" EntitySet="Materials" />
-    </AssociationSet>
-    <AssociationSet Name="SeismosClientSeismosProject" Association="seismosModel.Store.SeismosClientSeismosProject">
-      <End Role="SeismosClient" EntitySet="SeismosClients" />
-      <End Role="SeismosProject" EntitySet="SeismosProjects" />
-    </AssociationSet>
-    <AssociationSet Name="SeismosProjectNote" Association="seismosModel.Store.SeismosProjectNote">
-      <End Role="SeismosProject" EntitySet="SeismosProjects" />
-      <End Role="Note" EntitySet="Notes" />
-    </AssociationSet>
-    <AssociationSet Name="WellheadAssemblyWellheadComponent" Association="seismosModel.Store.WellheadAssemblyWellheadComponent">
-      <End Role="WellheadAssembly" EntitySet="WellheadAssemblies" />
-      <End Role="WellheadComponent" EntitySet="WellheadComponents" />
-    </AssociationSet>
-    <AssociationSet Name="WellheadWellheadCoordinate" Association="seismosModel.Store.WellheadWellheadCoordinate">
-      <End Role="Wellhead" EntitySet="Wellheads" />
-      <End Role="WellheadCoordinate" EntitySet="WellheadCoordinates" />
-    </AssociationSet>
-    <AssociationSet Name="WellWellhead" Association="seismosModel.Store.WellWellhead">
-      <End Role="Well" EntitySet="Wells" />
-      <End Role="Wellhead" EntitySet="Wellheads" />
-    </AssociationSet>
-    <AssociationSet Name="WellheadWellheadAssembly" Association="seismosModel.Store.WellheadWellheadAssembly">
-      <End Role="Wellhead" EntitySet="Wellheads" />
-      <End Role="WellheadAssembly" EntitySet="WellheadAssemblies" />
-    </AssociationSet>
-    <AssociationSet Name="WellTreatment" Association="seismosModel.Store.WellTreatment">
-      <End Role="Well" EntitySet="Wells" />
-      <End Role="Treatment" EntitySet="Treatments" />
-    </AssociationSet>
-    <AssociationSet Name="WellDataAcquisition" Association="seismosModel.Store.WellDataAcquisition">
-      <End Role="Well" EntitySet="Wells" />
-      <End Role="DataAcquisition" EntitySet="DataAcquisitions" />
-    </AssociationSet>
-    <AssociationSet Name="DataAcquisitionProcessing" Association="seismosModel.Store.DataAcquisitionProcessing">
-      <End Role="DataAcquisition" EntitySet="DataAcquisitions" />
-      <End Role="Processing" EntitySet="Processings" />
-    </AssociationSet>
-    <AssociationSet Name="DataRecordTimePick" Association="seismosModel.Store.DataRecordTimePick">
-      <End Role="DataRecord" EntitySet="DataRecords" />
-      <End Role="TimePick" EntitySet="TimePicks" />
-    </AssociationSet>
-    <AssociationSet Name="DataRecordReflection" Association="seismosModel.Store.DataRecordReflection">
-      <End Role="DataRecord" EntitySet="DataRecords" />
-      <End Role="Reflection" EntitySet="Reflections" />
-    </AssociationSet>
-    <AssociationSet Name="ReflectionTimePick" Association="seismosModel.Store.StartReflectionTimePick">
-      <End Role="Reflection" EntitySet="Reflections" />
-      <End Role="TimePick" EntitySet="TimePicks" />
-    </AssociationSet>
-    <AssociationSet Name="EndReflectionTimePick" Association="seismosModel.Store.EndReflectionTimePick">
-      <End Role="Reflection" EntitySet="Reflections" />
-      <End Role="TimePick" EntitySet="TimePicks" />
-    </AssociationSet>
-    <AssociationSet Name="DataAcquisitionDataRecord" Association="seismosModel.Store.DataAcquisitionDataRecord">
-      <End Role="DataAcquisition" EntitySet="DataAcquisitions" />
-      <End Role="DataRecord" EntitySet="DataRecords" />
-    </AssociationSet>
-    <AssociationSet Name="ProcessingUsedParameter" Association="seismosModel.Store.ProcessingUsedParameter">
-      <End Role="Processing" EntitySet="Processings" />
-      <End Role="UsedParameter" EntitySet="UsedParameters" />
-    </AssociationSet>
-    <AssociationSet Name="UsedParameterReflection" Association="seismosModel.Store.UsedParameterReflection">
-      <End Role="UsedParameter" EntitySet="UsedParameters" />
-      <End Role="Reflection" EntitySet="Reflections" />
-    </AssociationSet>
-    <AssociationSet Name="UsedFilterBasisSet" Association="seismosModel.Store.UsedFilterBasisSet">
-      <End Role="UsedFilter" EntitySet="UsedFilters" />
-      <End Role="BasisSet" EntitySet="BasisSets" />
-    </AssociationSet>
-    <AssociationSet Name="UsedParameterUsedFilter" Association="seismosModel.Store.UsedParameterUsedFilter">
-      <End Role="UsedParameter" EntitySet="UsedParameters" />
-      <End Role="UsedFilter" EntitySet="UsedFilters" />
-    </AssociationSet>
-    <AssociationSet Name="UsedParameterParamConstraint" Association="seismosModel.Store.UsedParameterParamConstraint">
-      <End Role="UsedParameter" EntitySet="UsedParameters" />
-      <End Role="ParamConstraint" EntitySet="ParamConstraints" />
-    </AssociationSet>
-    <AssociationSet Name="ColumnColumnValue" Association="seismosModel.Store.ColumnColumnValue">
-      <End Role="Column" EntitySet="Columns" />
-      <End Role="ColumnValue" EntitySet="ColumnValues" />
-    </AssociationSet>
-    <AssociationSet Name="KGraphDataColumn" Association="seismosModel.Store.KGraphDataColumn">
-      <End Role="KGraphData" EntitySet="KGraphDatas" />
-      <End Role="Column" EntitySet="Columns" />
-    </AssociationSet>
-    <AssociationSet Name="ProcessingKGraphData" Association="seismosModel.Store.ProcessingKGraphData">
-      <End Role="Processing" EntitySet="Processings" />
-      <End Role="KGraphData" EntitySet="KGraphDatas" />
-    </AssociationSet>
-    <AssociationSet Name="ACGraphDataColumn" Association="seismosModel.Store.ACGraphDataColumn">
-      <End Role="ACGraphData" EntitySet="ACGraphDatas" />
-      <End Role="Column" EntitySet="Columns" />
-    </AssociationSet>
-    <AssociationSet Name="ProcessingACGraphData" Association="seismosModel.Store.ProcessingACGraphData">
-      <End Role="Processing" EntitySet="Processings" />
-      <End Role="ACGraphData" EntitySet="ACGraphDatas" />
-    </AssociationSet>
-    <AssociationSet Name="InjectionDataAcquisitionInjection" Association="seismosModel.Store.InjectionDataAcquisitionInjection">
-      <End Role="InjectionDataAcquisition" EntitySet="DataAcquisitions_InjectionDataAcquisition" />
-      <End Role="Injection" EntitySet="Injections" />
-    </AssociationSet>
-    <AssociationSet Name="StagePerforation" Association="seismosModel.Store.StagePerforation">
-      <End Role="Stage" EntitySet="Stages" />
-      <End Role="Perforation" EntitySet="Perforations" />
-    </AssociationSet>
-    <AssociationSet Name="PlugMaterial" Association="seismosModel.Store.PlugMaterial">
-      <End Role="Plug" EntitySet="Plugs" />
-      <End Role="Material" EntitySet="Materials" />
-    </AssociationSet>
-    <AssociationSet Name="StagePlug" Association="seismosModel.Store.StagePlug">
-      <End Role="Stage" EntitySet="Stages" />
-      <End Role="Plug" EntitySet="Plugs" />
-    </AssociationSet>
-    <AssociationSet Name="HFTreatmentStageFluid" Association="seismosModel.Store.HFTreatmentStageFluid">
-      <End Role="HFTreatmentStage" EntitySet="HFTreatmentStages" />
-      <End Role="Fluid" EntitySet="Fluids" />
-    </AssociationSet>
-    <AssociationSet Name="HFTreatmentStageProppant" Association="seismosModel.Store.HFTreatmentStageProppant">
-      <End Role="HFTreatmentStage" EntitySet="HFTreatmentStages" />
-      <End Role="Proppant" EntitySet="Proppants" />
-    </AssociationSet>
-    <AssociationSet Name="StageHFTreatmentStage" Association="seismosModel.Store.StageHFTreatmentStage">
-      <End Role="Stage" EntitySet="Stages" />
-      <End Role="HFTreatmentStage" EntitySet="HFTreatmentStages" />
-    </AssociationSet>
-    <AssociationSet Name="HydraulicFracturingTreatmentStage" Association="seismosModel.Store.HydraulicFracturingTreatmentStage">
-      <End Role="HydraulicFracturingTreatment" EntitySet="Treatments_HydraulicFracturingTreatment" />
-      <End Role="Stage" EntitySet="Stages" />
-    </AssociationSet>
-    <AssociationSet Name="FK_InjectionDataAcquisition_inherits_DataAcquisition" Association="seismosModel.Store.FK_InjectionDataAcquisition_inherits_DataAcquisition">
-      <End Role="DataAcquisition" EntitySet="DataAcquisitions" />
-      <End Role="InjectionDataAcquisition" EntitySet="DataAcquisitions_InjectionDataAcquisition" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HydraulicFracturingTreatment_inherits_Treatment" Association="seismosModel.Store.FK_HydraulicFracturingTreatment_inherits_Treatment">
-      <End Role="Treatment" EntitySet="Treatments" />
-      <End Role="HydraulicFracturingTreatment" EntitySet="Treatments_HydraulicFracturingTreatment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SteamInjectionTreatment_inherits_Treatment" Association="seismosModel.Store.FK_SteamInjectionTreatment_inherits_Treatment">
-      <End Role="Treatment" EntitySet="Treatments" />
-      <End Role="SteamInjectionTreatment" EntitySet="Treatments_SteamInjectionTreatment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AcidTreatment_inherits_Treatment" Association="seismosModel.Store.FK_AcidTreatment_inherits_Treatment">
-      <End Role="Treatment" EntitySet="Treatments" />
-      <End Role="AcidTreatment" EntitySet="Treatments_AcidTreatment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CasingRepairTreatment_inherits_Treatment" Association="seismosModel.Store.FK_CasingRepairTreatment_inherits_Treatment">
-      <End Role="Treatment" EntitySet="Treatments" />
-      <End Role="CasingRepairTreatment" EntitySet="Treatments_CasingRepairTreatment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CleanOutTreatment_inherits_Treatment" Association="seismosModel.Store.FK_CleanOutTreatment_inherits_Treatment">
-      <End Role="Treatment" EntitySet="Treatments" />
-      <End Role="CleanOutTreatment" EntitySet="Treatments_CleanOutTreatment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_JunkBasketTreatment_inherits_Treatment" Association="seismosModel.Store.FK_JunkBasketTreatment_inherits_Treatment">
-      <End Role="Treatment" EntitySet="Treatments" />
-      <End Role="JunkBasketTreatment" EntitySet="Treatments_JunkBasketTreatment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PlugDrillOutTreatment_inherits_Treatment" Association="seismosModel.Store.FK_PlugDrillOutTreatment_inherits_Treatment">
-      <End Role="Treatment" EntitySet="Treatments" />
-      <End Role="PlugDrillOutTreatment" EntitySet="Treatments_PlugDrillOutTreatment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PlugRecovery_inherits_Treatment" Association="seismosModel.Store.FK_PlugRecovery_inherits_Treatment">
-      <End Role="Treatment" EntitySet="Treatments" />
-      <End Role="PlugRecovery" EntitySet="Treatments_PlugRecovery" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RefracTreatment_inherits_Treatment" Association="seismosModel.Store.FK_RefracTreatment_inherits_Treatment">
-      <End Role="Treatment" EntitySet="Treatments" />
-      <End Role="RefracTreatment" EntitySet="Treatments_RefracTreatment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HydraulicFracturingDataAcquisition_inherits_DataAcquisition" Association="seismosModel.Store.FK_HydraulicFracturingDataAcquisition_inherits_DataAcquisition">
-      <End Role="DataAcquisition" EntitySet="DataAcquisitions" />
-      <End Role="HydraulicFracturingDataAcquisition" EntitySet="DataAcquisitions_HydraulicFracturingDataAcquisition" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OffsetWellDataAcquisition_inherits_DataAcquisition" Association="seismosModel.Store.FK_OffsetWellDataAcquisition_inherits_DataAcquisition">
-      <End Role="DataAcquisition" EntitySet="DataAcquisitions" />
-      <End Role="OffsetWellDataAcquisition" EntitySet="DataAcquisitions_OffsetWellDataAcquisition" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductionDataAcquisition_inherits_DataAcquisition" Association="seismosModel.Store.FK_ProductionDataAcquisition_inherits_DataAcquisition">
-      <End Role="DataAcquisition" EntitySet="DataAcquisitions" />
-      <End Role="ProductionDataAcquisition" EntitySet="DataAcquisitions_ProductionDataAcquisition" />
-    </AssociationSet>
-    <AssociationSet Name="FK_IntegrityDataAcquisition_inherits_DataAcquisition" Association="seismosModel.Store.FK_IntegrityDataAcquisition_inherits_DataAcquisition">
-      <End Role="DataAcquisition" EntitySet="DataAcquisitions" />
-      <End Role="IntegrityDataAcquisition" EntitySet="DataAcquisitions_IntegrityDataAcquisition" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Event_inherits_Note" Association="seismosModel.Store.FK_Event_inherits_Note">
-      <End Role="Note" EntitySet="Notes" />
-      <End Role="Event" EntitySet="Notes_Event" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="SeismosClients">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Contact" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ClientName" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="SeismosProjects">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Field" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Pad" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="JobNum" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AFENum" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Formation" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="County" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="State" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="StartDate" Type="datetime" Nullable="false" />
-    <Property Name="EndDate" Type="datetime" Nullable="false" />
-    <Property Name="LastModified" Type="datetime" Nullable="false" />
-    <Property Name="LastModifiedBy" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SeismosClientId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Notes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="SourceId" Type="uniqueidentifier" Nullable="true" />
-    <Property Name="SourceDescription" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ProjectId" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SeismosProjectId" Type="uniqueidentifier" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Wells">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WellName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="WellGeometryType" Type="smallint" Nullable="false" />
-    <Property Name="SeismosProject_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DeviationSurveys">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WellId" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Well_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="MDs">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Value" Type="float" Nullable="false" />
-    <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TVDs">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Value" Type="float" Nullable="false" />
-    <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Inclinations">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Value" Type="float" Nullable="false" />
-    <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Azimuths">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Value" Type="float" Nullable="false" />
-    <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Eastings">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Value" Type="float" Nullable="false" />
-    <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Northings">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Value" Type="float" Nullable="false" />
-    <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="WellBores">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SurfaceVolume" Type="float" Nullable="false" />
-    <Property Name="TotalVolume" Type="float" Nullable="false" />
-    <Property Name="Well_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Cylinders">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="MeasuredDepth" Type="float" Nullable="false" />
-    <Property Name="InnerDiameter" Type="float" Nullable="false" />
-    <Property Name="OuterDiameter" Type="float" Nullable="false" />
-    <Property Name="TopOfLiner" Type="float" Nullable="false" />
-    <Property Name="InnerInterfaceState" Type="smallint" Nullable="false" />
-    <Property Name="OuterInterfaceState" Type="smallint" Nullable="false" />
-    <Property Name="WellBoreId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Weight" Type="float" Nullable="false" />
-    <Property Name="Grade" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CasingOrderType" Type="smallint" Nullable="false" />
-    <Property Name="CalculatedVolume" Type="float" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Materials">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Density" Type="float" Nullable="false" />
-    <Property Name="BulkModulus" Type="float" Nullable="false" />
-    <Property Name="WellheadComponent_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Wellheads">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="WellheadCoordinate_Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Well_Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="WellheadAssembly_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="WellheadCoordinates">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="X" Type="float" Nullable="false" />
-    <Property Name="Y" Type="float" Nullable="false" />
-    <Property Name="KB" Type="float" Nullable="false" />
-    <Property Name="CoordinateSystem" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Lat" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Long" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="WellheadAssemblies">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="WellheadComponents">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="InternalDiameter" Type="float" Nullable="false" />
-    <Property Name="OuterDiameter" Type="float" Nullable="false" />
-    <Property Name="Length" Type="float" Nullable="false" />
-    <Property Name="WellheadAssemblyId" Type="uniqueidentifier" Nullable="true" />
-    <Property Name="Type" Type="smallint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Type" Type="smallint" Nullable="false" />
-    <Property Name="WellId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DataAcquisitions">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="WellId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Processings">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DataAcquisitionId" Type="uniqueidentifier" Nullable="true" />
-    <Property Name="Type" Type="smallint" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ProcessingStartTime" Type="datetime" Nullable="false" />
-    <Property Name="LastModified" Type="datetime" Nullable="false" />
-    <Property Name="NearFieldConductivity" Type="float" Nullable="false" />
-    <Property Name="C1" Type="float" Nullable="false" />
-    <Property Name="C2" Type="float" Nullable="false" />
-    <Property Name="C3" Type="float" Nullable="false" />
-    <Property Name="C4" Type="float" Nullable="false" />
-    <Property Name="Q1" Type="float" Nullable="false" />
-    <Property Name="Q2" Type="float" Nullable="false" />
-    <Property Name="Q3" Type="float" Nullable="false" />
-    <Property Name="Q4" Type="float" Nullable="false" />
-    <Property Name="FarFieldConductivity" Type="float" Nullable="false" />
-    <Property Name="TimeOfMeasurement" Type="int" Nullable="false" />
-    <Property Name="EffectivePropperLength" Type="float" Nullable="false" />
-    <Property Name="Residual" Type="float" Nullable="false" />
-    <Property Name="Final" Type="bit" Nullable="false" />
-    <Property Name="UsedParameter_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DataRecords">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
-    <Property Name="Filename" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Seconds" Type="float" Nullable="false" />
-    <Property Name="StartTime" Type="datetime" Nullable="false" />
-    <Property Name="SampleRate" Type="bigint" Nullable="false" />
-    <Property Name="DataAcquisitionId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TimePicks">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
-    <Property Name="Type" Type="smallint" Nullable="false" />
-    <Property Name="SampleNumber" Type="bigint" Nullable="false" />
-    <Property Name="DataRecordId" Type="bigint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Reflections">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
-    <Property Name="Type" Type="smallint" Nullable="false" />
-    <Property Name="Weight" Type="float" Nullable="false" />
-    <Property Name="DataRecordId" Type="bigint" Nullable="true" />
-    <Property Name="StartTimePick_Id" Type="bigint" Nullable="false" />
-    <Property Name="EndTimePick_Id" Type="bigint" Nullable="false" />
-    <Property Name="UsedParameter_Id" Type="uniqueidentifier" Nullable="true" />
-  </EntityType>
-  <EntityType Name="UsedParameters">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Viscosity" Type="float" Nullable="false" />
-    <Property Name="BulkModulus" Type="float" Nullable="false" />
-    <Property Name="FluidCompressibility" Type="float" Nullable="false" />
-    <Property Name="NumberOfFractures" Type="int" Nullable="false" />
-    <Property Name="FractureWidth" Type="float" Nullable="false" />
-    <Property Name="Permeability" Type="float" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UsedFilters">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Type" Type="smallint" Nullable="false" />
-    <Property Name="LowerFrequency" Type="float" Nullable="false" />
-    <Property Name="UpperFrequency" Type="float" Nullable="false" />
-    <Property Name="TaperFunction" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UsedParameterId" Type="uniqueidentifier" Nullable="true" />
-  </EntityType>
-  <EntityType Name="BasisSets">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="BasisFunction" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UsedFilterId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ParamConstraints">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="MinimumC1" Type="float" Nullable="false" />
-    <Property Name="MinimumC2" Type="float" Nullable="false" />
-    <Property Name="MinimumC3" Type="float" Nullable="false" />
-    <Property Name="MinimumC4" Type="float" Nullable="false" />
-    <Property Name="MinimumQ1" Type="float" Nullable="false" />
-    <Property Name="MinimumQ2" Type="float" Nullable="false" />
-    <Property Name="MinimumQ3" Type="float" Nullable="false" />
-    <Property Name="MinimumQ4" Type="float" Nullable="false" />
-    <Property Name="MaximumC1" Type="float" Nullable="false" />
-    <Property Name="MaximumC2" Type="float" Nullable="false" />
-    <Property Name="MaximumC3" Type="float" Nullable="false" />
-    <Property Name="MaximumC4" Type="float" Nullable="false" />
-    <Property Name="MaximumQ1" Type="float" Nullable="false" />
-    <Property Name="MaximumQ2" Type="float" Nullable="false" />
-    <Property Name="MaximumQ3" Type="float" Nullable="false" />
-    <Property Name="MaximumQ4" Type="float" Nullable="false" />
-    <Property Name="UsedParameterId" Type="uniqueidentifier" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Columns">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="KGraphDataId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ACGraphDataId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ColumnValues">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Value" Type="float" Nullable="false" />
-    <Property Name="ColumnId" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="KGraphDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Processing_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ACGraphDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Processing_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Injections">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Type" Type="smallint" Nullable="false" />
-    <Property Name="Volume" Type="float" Nullable="false" />
-    <Property Name="StartTime" Type="datetime" Nullable="false" />
-    <Property Name="StopTime" Type="datetime" Nullable="false" />
-    <Property Name="InjectionDataAcquisitionId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Stages">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Number" Type="int" Nullable="false" />
-    <Property Name="StartTime" Type="datetime" Nullable="false" />
-    <Property Name="StopTime" Type="datetime" Nullable="false" />
-    <Property Name="HydraulicFracturingTreatmentId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Perforations">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="MD" Type="float" Nullable="false" />
-    <Property Name="X" Type="float" Nullable="false" />
-    <Property Name="Y" Type="float" Nullable="false" />
-    <Property Name="Depth" Type="float" Nullable="false" />
-    <Property Name="ShapeType" Type="smallint" Nullable="false" />
-    <Property Name="StageId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Plugs">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OuterDiameter" Type="float" Nullable="false" />
-    <Property Name="OpeningDiameter" Type="float" Nullable="false" />
-    <Property Name="TopMD" Type="float" Nullable="false" />
-    <Property Name="Length" Type="float" Nullable="false" />
-    <Property Name="Material_Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Stage_Id" Type="uniqueidentifier" Nullable="true" />
-  </EntityType>
-  <EntityType Name="HFTreatmentStages">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="StageNumber" Type="int" Nullable="false" />
-    <Property Name="TotalVolume" Type="float" Nullable="false" />
-    <Property Name="StageId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Fluids">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Type" Type="smallint" Nullable="false" />
-    <Property Name="Density" Type="float" Nullable="false" />
-    <Property Name="BulkModulus" Type="float" Nullable="false" />
-    <Property Name="Volume" Type="float" Nullable="false" />
-    <Property Name="Viscosity" Type="float" Nullable="false" />
-    <Property Name="HFTreatmentStageId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Proppants">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Type" Type="smallint" Nullable="false" />
-    <Property Name="Size" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Volume" Type="float" Nullable="false" />
-    <Property Name="ConcentrationInPPG" Type="float" Nullable="false" />
-    <Property Name="HFTreatmentStageId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CasingChartLookups">
-    <Key>
-      <PropertyRef Name="Key" />
-    </Key>
-    <Property Name="Key" Type="int" Nullable="false" />
-    <Property Name="OuterDiameter" Type="float" Nullable="true" />
-    <Property Name="Weight" Type="float" Nullable="true" />
-    <Property Name="Grade" Type="varchar" Nullable="true" MaxLength="50" />
-    <Property Name="Collapse" Type="float" Nullable="true" />
-    <Property Name="InternalMinYield" Type="float" Nullable="true" />
-    <Property Name="JointStrengthSTC" Type="float" Nullable="true" />
-    <Property Name="JointStrengthLTC" Type="float" Nullable="true" />
-    <Property Name="JointStrengthBTC" Type="float" Nullable="true" />
-    <Property Name="BodyYield" Type="float" Nullable="true" />
-    <Property Name="Wall" Type="float" Nullable="true" />
-    <Property Name="InnerDiameter" Type="float" Nullable="true" />
-    <Property Name="DriftDiameterAPI" Type="float" Nullable="true" />
-    <Property Name="DriftDiameterSPDR" Type="float" Nullable="true" />
-    <Property Name="MaximumSettingDepthSTC" Type="float" Nullable="true" />
-  </EntityType>
-  <EntityType Name="DataAcquisitions_InjectionDataAcquisition">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments_HydraulicFracturingTreatment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments_SteamInjectionTreatment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments_AcidTreatment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments_CasingRepairTreatment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments_CleanOutTreatment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments_JunkBasketTreatment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments_PlugDrillOutTreatment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments_PlugRecovery">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Treatments_RefracTreatment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DataAcquisitions_HydraulicFracturingDataAcquisition">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DataAcquisitions_OffsetWellDataAcquisition">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DataAcquisitions_ProductionDataAcquisition">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DataAcquisitions_IntegrityDataAcquisition">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Notes_Event">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="EventType" Type="smallint" Nullable="false" />
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <Association Name="SeismosProjectsWells">
-    <End Role="SeismosProjects" Type="seismosModel.Store.SeismosProjects" Multiplicity="1" />
-    <End Role="Wells" Type="seismosModel.Store.Wells" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SeismosProjects">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Wells">
-        <PropertyRef Name="SeismosProject_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellsDeviationSurveys">
-    <End Role="Wells" Type="seismosModel.Store.Wells" Multiplicity="1" />
-    <End Role="DeviationSurveys" Type="seismosModel.Store.DeviationSurveys" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Wells">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DeviationSurveys">
-        <PropertyRef Name="Well_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviationSurveyInclination">
-    <End Role="DeviationSurvey" Type="seismosModel.Store.DeviationSurveys" Multiplicity="1" />
-    <End Role="Inclination" Type="seismosModel.Store.Inclinations" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DeviationSurvey">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Inclination">
-        <PropertyRef Name="DeviationSurvey_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviationSurveyEasting">
-    <End Role="DeviationSurvey" Type="seismosModel.Store.DeviationSurveys" Multiplicity="1" />
-    <End Role="Easting" Type="seismosModel.Store.Eastings" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DeviationSurvey">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Easting">
-        <PropertyRef Name="DeviationSurvey_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviationSurveyNorthing">
-    <End Role="DeviationSurvey" Type="seismosModel.Store.DeviationSurveys" Multiplicity="1" />
-    <End Role="Northing" Type="seismosModel.Store.Northings" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DeviationSurvey">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Northing">
-        <PropertyRef Name="DeviationSurvey_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviationSurveyAzimuth">
-    <End Role="DeviationSurvey" Type="seismosModel.Store.DeviationSurveys" Multiplicity="1" />
-    <End Role="Azimuth" Type="seismosModel.Store.Azimuths" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DeviationSurvey">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Azimuth">
-        <PropertyRef Name="DeviationSurvey_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviationSurveyTVD">
-    <End Role="DeviationSurvey" Type="seismosModel.Store.DeviationSurveys" Multiplicity="1" />
-    <End Role="TVD" Type="seismosModel.Store.TVDs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DeviationSurvey">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TVD">
-        <PropertyRef Name="DeviationSurvey_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DeviationSurveyMD">
-    <End Role="DeviationSurvey" Type="seismosModel.Store.DeviationSurveys" Multiplicity="1" />
-    <End Role="MD" Type="seismosModel.Store.MDs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DeviationSurvey">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MD">
-        <PropertyRef Name="DeviationSurvey_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellBoreCylinder">
-    <End Role="WellBore" Type="seismosModel.Store.WellBores" Multiplicity="1" />
-    <End Role="Cylinder" Type="seismosModel.Store.Cylinders" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WellBore">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cylinder">
-        <PropertyRef Name="WellBoreId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellWellBore">
-    <End Role="Well" Type="seismosModel.Store.Wells" Multiplicity="1" />
-    <End Role="WellBore" Type="seismosModel.Store.WellBores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Well">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="WellBore">
-        <PropertyRef Name="Well_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellheadComponentMaterial">
-    <End Role="WellheadComponent" Type="seismosModel.Store.WellheadComponents" Multiplicity="1" />
-    <End Role="Material" Type="seismosModel.Store.Materials" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WellheadComponent">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Material">
-        <PropertyRef Name="WellheadComponent_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SeismosClientSeismosProject">
-    <End Role="SeismosClient" Type="seismosModel.Store.SeismosClients" Multiplicity="1" />
-    <End Role="SeismosProject" Type="seismosModel.Store.SeismosProjects" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SeismosClient">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SeismosProject">
-        <PropertyRef Name="SeismosClientId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SeismosProjectNote">
-    <End Role="SeismosProject" Type="seismosModel.Store.SeismosProjects" Multiplicity="0..1" />
-    <End Role="Note" Type="seismosModel.Store.Notes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SeismosProject">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Note">
-        <PropertyRef Name="SeismosProjectId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellheadAssemblyWellheadComponent">
-    <End Role="WellheadAssembly" Type="seismosModel.Store.WellheadAssemblies" Multiplicity="0..1" />
-    <End Role="WellheadComponent" Type="seismosModel.Store.WellheadComponents" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WellheadAssembly">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="WellheadComponent">
-        <PropertyRef Name="WellheadAssemblyId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellheadWellheadCoordinate">
-    <End Role="Wellhead" Type="seismosModel.Store.Wellheads" Multiplicity="*" />
-    <End Role="WellheadCoordinate" Type="seismosModel.Store.WellheadCoordinates" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="WellheadCoordinate">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Wellhead">
-        <PropertyRef Name="WellheadCoordinate_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellWellhead">
-    <End Role="Well" Type="seismosModel.Store.Wells" Multiplicity="1" />
-    <End Role="Wellhead" Type="seismosModel.Store.Wellheads" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Well">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Wellhead">
-        <PropertyRef Name="Well_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellheadWellheadAssembly">
-    <End Role="Wellhead" Type="seismosModel.Store.Wellheads" Multiplicity="*" />
-    <End Role="WellheadAssembly" Type="seismosModel.Store.WellheadAssemblies" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="WellheadAssembly">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Wellhead">
-        <PropertyRef Name="WellheadAssembly_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellTreatment">
-    <End Role="Well" Type="seismosModel.Store.Wells" Multiplicity="1" />
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Well">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Treatment">
-        <PropertyRef Name="WellId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WellDataAcquisition">
-    <End Role="Well" Type="seismosModel.Store.Wells" Multiplicity="1" />
-    <End Role="DataAcquisition" Type="seismosModel.Store.DataAcquisitions" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Well">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DataAcquisition">
-        <PropertyRef Name="WellId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DataAcquisitionProcessing">
-    <End Role="DataAcquisition" Type="seismosModel.Store.DataAcquisitions" Multiplicity="0..1" />
-    <End Role="Processing" Type="seismosModel.Store.Processings" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DataAcquisition">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Processing">
-        <PropertyRef Name="DataAcquisitionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DataRecordTimePick">
-    <End Role="DataRecord" Type="seismosModel.Store.DataRecords" Multiplicity="1" />
-    <End Role="TimePick" Type="seismosModel.Store.TimePicks" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DataRecord">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TimePick">
-        <PropertyRef Name="DataRecordId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DataRecordReflection">
-    <End Role="DataRecord" Type="seismosModel.Store.DataRecords" Multiplicity="0..1" />
-    <End Role="Reflection" Type="seismosModel.Store.Reflections" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DataRecord">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Reflection">
-        <PropertyRef Name="DataRecordId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="StartReflectionTimePick">
-    <End Role="Reflection" Type="seismosModel.Store.Reflections" Multiplicity="*" />
-    <End Role="TimePick" Type="seismosModel.Store.TimePicks" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="TimePick">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Reflection">
-        <PropertyRef Name="StartTimePick_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EndReflectionTimePick">
-    <End Role="Reflection" Type="seismosModel.Store.Reflections" Multiplicity="*" />
-    <End Role="TimePick" Type="seismosModel.Store.TimePicks" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="TimePick">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Reflection">
-        <PropertyRef Name="EndTimePick_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DataAcquisitionDataRecord">
-    <End Role="DataAcquisition" Type="seismosModel.Store.DataAcquisitions" Multiplicity="1" />
-    <End Role="DataRecord" Type="seismosModel.Store.DataRecords" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DataAcquisition">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DataRecord">
-        <PropertyRef Name="DataAcquisitionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ProcessingUsedParameter">
-    <End Role="Processing" Type="seismosModel.Store.Processings" Multiplicity="*" />
-    <End Role="UsedParameter" Type="seismosModel.Store.UsedParameters" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="UsedParameter">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Processing">
-        <PropertyRef Name="UsedParameter_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UsedParameterReflection">
-    <End Role="UsedParameter" Type="seismosModel.Store.UsedParameters" Multiplicity="0..1" />
-    <End Role="Reflection" Type="seismosModel.Store.Reflections" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UsedParameter">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Reflection">
-        <PropertyRef Name="UsedParameter_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UsedFilterBasisSet">
-    <End Role="UsedFilter" Type="seismosModel.Store.UsedFilters" Multiplicity="1" />
-    <End Role="BasisSet" Type="seismosModel.Store.BasisSets" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UsedFilter">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BasisSet">
-        <PropertyRef Name="UsedFilterId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UsedParameterUsedFilter">
-    <End Role="UsedParameter" Type="seismosModel.Store.UsedParameters" Multiplicity="0..1" />
-    <End Role="UsedFilter" Type="seismosModel.Store.UsedFilters" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UsedParameter">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UsedFilter">
-        <PropertyRef Name="UsedParameterId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UsedParameterParamConstraint">
-    <End Role="UsedParameter" Type="seismosModel.Store.UsedParameters" Multiplicity="0..1" />
-    <End Role="ParamConstraint" Type="seismosModel.Store.ParamConstraints" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UsedParameter">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ParamConstraint">
-        <PropertyRef Name="UsedParameterId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ColumnColumnValue">
-    <End Role="Column" Type="seismosModel.Store.Columns" Multiplicity="0..1" />
-    <End Role="ColumnValue" Type="seismosModel.Store.ColumnValues" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Column">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ColumnValue">
-        <PropertyRef Name="ColumnId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="KGraphDataColumn">
-    <End Role="KGraphData" Type="seismosModel.Store.KGraphDatas" Multiplicity="1" />
-    <End Role="Column" Type="seismosModel.Store.Columns" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KGraphData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Column">
-        <PropertyRef Name="KGraphDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ProcessingKGraphData">
-    <End Role="Processing" Type="seismosModel.Store.Processings" Multiplicity="1" />
-    <End Role="KGraphData" Type="seismosModel.Store.KGraphDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Processing">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="KGraphData">
-        <PropertyRef Name="Processing_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ACGraphDataColumn">
-    <End Role="ACGraphData" Type="seismosModel.Store.ACGraphDatas" Multiplicity="1" />
-    <End Role="Column" Type="seismosModel.Store.Columns" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ACGraphData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Column">
-        <PropertyRef Name="ACGraphDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ProcessingACGraphData">
-    <End Role="Processing" Type="seismosModel.Store.Processings" Multiplicity="1" />
-    <End Role="ACGraphData" Type="seismosModel.Store.ACGraphDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Processing">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ACGraphData">
-        <PropertyRef Name="Processing_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="InjectionDataAcquisitionInjection">
-    <End Role="InjectionDataAcquisition" Type="seismosModel.Store.DataAcquisitions_InjectionDataAcquisition" Multiplicity="1" />
-    <End Role="Injection" Type="seismosModel.Store.Injections" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="InjectionDataAcquisition">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Injection">
-        <PropertyRef Name="InjectionDataAcquisitionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="StagePerforation">
-    <End Role="Stage" Type="seismosModel.Store.Stages" Multiplicity="1" />
-    <End Role="Perforation" Type="seismosModel.Store.Perforations" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stage">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Perforation">
-        <PropertyRef Name="StageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PlugMaterial">
-    <End Role="Plug" Type="seismosModel.Store.Plugs" Multiplicity="*" />
-    <End Role="Material" Type="seismosModel.Store.Materials" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Material">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Plug">
-        <PropertyRef Name="Material_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="StagePlug">
-    <End Role="Stage" Type="seismosModel.Store.Stages" Multiplicity="0..1" />
-    <End Role="Plug" Type="seismosModel.Store.Plugs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stage">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Plug">
-        <PropertyRef Name="Stage_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="HFTreatmentStageFluid">
-    <End Role="HFTreatmentStage" Type="seismosModel.Store.HFTreatmentStages" Multiplicity="1" />
-    <End Role="Fluid" Type="seismosModel.Store.Fluids" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HFTreatmentStage">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Fluid">
-        <PropertyRef Name="HFTreatmentStageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="HFTreatmentStageProppant">
-    <End Role="HFTreatmentStage" Type="seismosModel.Store.HFTreatmentStages" Multiplicity="1" />
-    <End Role="Proppant" Type="seismosModel.Store.Proppants" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HFTreatmentStage">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Proppant">
-        <PropertyRef Name="HFTreatmentStageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="StageHFTreatmentStage">
-    <End Role="Stage" Type="seismosModel.Store.Stages" Multiplicity="1" />
-    <End Role="HFTreatmentStage" Type="seismosModel.Store.HFTreatmentStages" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stage">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="HFTreatmentStage">
-        <PropertyRef Name="StageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="HydraulicFracturingTreatmentStage">
-    <End Role="HydraulicFracturingTreatment" Type="seismosModel.Store.Treatments_HydraulicFracturingTreatment" Multiplicity="1" />
-    <End Role="Stage" Type="seismosModel.Store.Stages" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HydraulicFracturingTreatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Stage">
-        <PropertyRef Name="HydraulicFracturingTreatmentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_InjectionDataAcquisition_inherits_DataAcquisition">
-    <End Role="DataAcquisition" Type="seismosModel.Store.DataAcquisitions" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="InjectionDataAcquisition" Type="seismosModel.Store.DataAcquisitions_InjectionDataAcquisition" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="DataAcquisition">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="InjectionDataAcquisition">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HydraulicFracturingTreatment_inherits_Treatment">
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="HydraulicFracturingTreatment" Type="seismosModel.Store.Treatments_HydraulicFracturingTreatment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Treatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="HydraulicFracturingTreatment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SteamInjectionTreatment_inherits_Treatment">
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="SteamInjectionTreatment" Type="seismosModel.Store.Treatments_SteamInjectionTreatment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Treatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SteamInjectionTreatment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AcidTreatment_inherits_Treatment">
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AcidTreatment" Type="seismosModel.Store.Treatments_AcidTreatment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Treatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AcidTreatment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CasingRepairTreatment_inherits_Treatment">
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="CasingRepairTreatment" Type="seismosModel.Store.Treatments_CasingRepairTreatment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Treatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CasingRepairTreatment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CleanOutTreatment_inherits_Treatment">
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="CleanOutTreatment" Type="seismosModel.Store.Treatments_CleanOutTreatment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Treatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CleanOutTreatment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_JunkBasketTreatment_inherits_Treatment">
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="JunkBasketTreatment" Type="seismosModel.Store.Treatments_JunkBasketTreatment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Treatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="JunkBasketTreatment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PlugDrillOutTreatment_inherits_Treatment">
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="PlugDrillOutTreatment" Type="seismosModel.Store.Treatments_PlugDrillOutTreatment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Treatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PlugDrillOutTreatment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PlugRecovery_inherits_Treatment">
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="PlugRecovery" Type="seismosModel.Store.Treatments_PlugRecovery" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Treatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PlugRecovery">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RefracTreatment_inherits_Treatment">
-    <End Role="Treatment" Type="seismosModel.Store.Treatments" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="RefracTreatment" Type="seismosModel.Store.Treatments_RefracTreatment" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Treatment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="RefracTreatment">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HydraulicFracturingDataAcquisition_inherits_DataAcquisition">
-    <End Role="DataAcquisition" Type="seismosModel.Store.DataAcquisitions" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="HydraulicFracturingDataAcquisition" Type="seismosModel.Store.DataAcquisitions_HydraulicFracturingDataAcquisition" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="DataAcquisition">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="HydraulicFracturingDataAcquisition">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OffsetWellDataAcquisition_inherits_DataAcquisition">
-    <End Role="DataAcquisition" Type="seismosModel.Store.DataAcquisitions" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="OffsetWellDataAcquisition" Type="seismosModel.Store.DataAcquisitions_OffsetWellDataAcquisition" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="DataAcquisition">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="OffsetWellDataAcquisition">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductionDataAcquisition_inherits_DataAcquisition">
-    <End Role="DataAcquisition" Type="seismosModel.Store.DataAcquisitions" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ProductionDataAcquisition" Type="seismosModel.Store.DataAcquisitions_ProductionDataAcquisition" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="DataAcquisition">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ProductionDataAcquisition">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_IntegrityDataAcquisition_inherits_DataAcquisition">
-    <End Role="DataAcquisition" Type="seismosModel.Store.DataAcquisitions" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="IntegrityDataAcquisition" Type="seismosModel.Store.DataAcquisitions_IntegrityDataAcquisition" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="DataAcquisition">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IntegrityDataAcquisition">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Event_inherits_Note">
-    <End Role="Note" Type="seismosModel.Store.Notes" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Event" Type="seismosModel.Store.Notes_Event" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Note">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Event">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="seismosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACGraphDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Processing_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Azimuths">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BasisSets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BasisFunction" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UsedFilterId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CasingChartLookups">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="int" Nullable="false" />
+          <Property Name="OuterDiameter" Type="float" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+          <Property Name="Collapse" Type="float" Nullable="false" />
+          <Property Name="InternalMinYield" Type="float" />
+          <Property Name="JointStrengthSTC" Type="float" />
+          <Property Name="JointStrengthLTC" Type="float" />
+          <Property Name="JointStrengthBTC" Type="float" />
+          <Property Name="BodyYield" Type="float" />
+          <Property Name="Wall" Type="float" />
+          <Property Name="InnerDiameter" Type="float" Nullable="false" />
+          <Property Name="DriftDiameterAPI" Type="float" />
+          <Property Name="DriftDiameterSPDR" Type="float" />
+          <Property Name="MaximumSettingDepthSTC" Type="float" />
+        </EntityType>
+        <EntityType Name="Columns">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="KGraphDataId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ACGraphDataId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ColumnValues">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="ColumnId" Type="int" />
+        </EntityType>
+        <EntityType Name="Cylinders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MeasuredDepth" Type="float" Nullable="false" />
+          <Property Name="InnerDiameter" Type="float" Nullable="false" />
+          <Property Name="OuterDiameter" Type="float" Nullable="false" />
+          <Property Name="TopOfLiner" Type="float" Nullable="false" />
+          <Property Name="InnerInterfaceState" Type="smallint" Nullable="false" />
+          <Property Name="OuterInterfaceState" Type="smallint" Nullable="false" />
+          <Property Name="WellBoreId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="Grade" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CasingOrderType" Type="smallint" Nullable="false" />
+          <Property Name="CalculatedVolume" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataAcquisitions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WellId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataAcquisitions_HydraulicFracturingDataAcquisition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataAcquisitions_InjectionDataAcquisition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataAcquisitions_IntegrityDataAcquisition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataAcquisitions_OffsetWellDataAcquisition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataAcquisitions_ProductionDataAcquisition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataRecords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Seconds" Type="float" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="SampleRate" Type="bigint" Nullable="false" />
+          <Property Name="DataAcquisitionId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviationSurveys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WellId" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Well_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Eastings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fluids">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="Density" Type="float" Nullable="false" />
+          <Property Name="BulkModulus" Type="float" Nullable="false" />
+          <Property Name="Volume" Type="float" Nullable="false" />
+          <Property Name="Viscosity" Type="float" Nullable="false" />
+          <Property Name="HFTreatmentStageId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HFTreatmentStages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StageNumber" Type="int" Nullable="false" />
+          <Property Name="TotalVolume" Type="float" Nullable="false" />
+          <Property Name="StageId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inclinations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Injections">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="Volume" Type="float" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="StopTime" Type="datetime" Nullable="false" />
+          <Property Name="InjectionDataAcquisitionId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KGraphDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Processing_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materials">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Density" Type="float" Nullable="false" />
+          <Property Name="BulkModulus" Type="float" Nullable="false" />
+          <Property Name="WellheadComponent_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MDs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Northings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="SourceId" Type="uniqueidentifier" />
+          <Property Name="SourceDescription" Type="nvarchar(max)" />
+          <Property Name="ProjectId" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SeismosProjectId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Notes_Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="EventType" Type="smallint" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ParamConstraints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MinimumC1" Type="float" Nullable="false" />
+          <Property Name="MinimumC2" Type="float" Nullable="false" />
+          <Property Name="MinimumC3" Type="float" Nullable="false" />
+          <Property Name="MinimumC4" Type="float" Nullable="false" />
+          <Property Name="MinimumQ1" Type="float" Nullable="false" />
+          <Property Name="MinimumQ2" Type="float" Nullable="false" />
+          <Property Name="MinimumQ3" Type="float" Nullable="false" />
+          <Property Name="MinimumQ4" Type="float" Nullable="false" />
+          <Property Name="MaximumC1" Type="float" Nullable="false" />
+          <Property Name="MaximumC2" Type="float" Nullable="false" />
+          <Property Name="MaximumC3" Type="float" Nullable="false" />
+          <Property Name="MaximumC4" Type="float" Nullable="false" />
+          <Property Name="MaximumQ1" Type="float" Nullable="false" />
+          <Property Name="MaximumQ2" Type="float" Nullable="false" />
+          <Property Name="MaximumQ3" Type="float" Nullable="false" />
+          <Property Name="MaximumQ4" Type="float" Nullable="false" />
+          <Property Name="UsedParameterId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Perforations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MD" Type="float" Nullable="false" />
+          <Property Name="X" Type="float" Nullable="false" />
+          <Property Name="Y" Type="float" Nullable="false" />
+          <Property Name="Depth" Type="float" Nullable="false" />
+          <Property Name="ShapeType" Type="smallint" Nullable="false" />
+          <Property Name="StageId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Plugs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OuterDiameter" Type="float" Nullable="false" />
+          <Property Name="OpeningDiameter" Type="float" Nullable="false" />
+          <Property Name="TopMD" Type="float" Nullable="false" />
+          <Property Name="Length" Type="float" Nullable="false" />
+          <Property Name="Material_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Stage_Id" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Processings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DataAcquisitionId" Type="uniqueidentifier" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProcessingStartTime" Type="datetime" Nullable="false" />
+          <Property Name="LastModified" Type="datetime" Nullable="false" />
+          <Property Name="NearFieldConductivity" Type="float" Nullable="false" />
+          <Property Name="C1" Type="float" Nullable="false" />
+          <Property Name="C2" Type="float" Nullable="false" />
+          <Property Name="C3" Type="float" Nullable="false" />
+          <Property Name="C4" Type="float" Nullable="false" />
+          <Property Name="Q1" Type="float" Nullable="false" />
+          <Property Name="Q2" Type="float" Nullable="false" />
+          <Property Name="Q3" Type="float" Nullable="false" />
+          <Property Name="Q4" Type="float" Nullable="false" />
+          <Property Name="FarFieldConductivity" Type="float" Nullable="false" />
+          <Property Name="TimeOfMeasurement" Type="int" Nullable="false" />
+          <Property Name="EffectivePropperLength" Type="float" Nullable="false" />
+          <Property Name="Residual" Type="float" Nullable="false" />
+          <Property Name="Final" Type="bit" Nullable="false" />
+          <Property Name="UsedParameter_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proppants">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="Size" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Volume" Type="float" Nullable="false" />
+          <Property Name="ConcentrationInPPG" Type="float" Nullable="false" />
+          <Property Name="HFTreatmentStageId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reflections">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="DataRecordId" Type="bigint" />
+          <Property Name="StartTimePick_Id" Type="bigint" Nullable="false" />
+          <Property Name="EndTimePick_Id" Type="bigint" Nullable="false" />
+          <Property Name="UsedParameter_Id" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="SeismosClients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Contact" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="ClientName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SeismosProjects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Field" Type="nvarchar(max)" />
+          <Property Name="Pad" Type="nvarchar(max)" />
+          <Property Name="JobNum" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AFENum" Type="nvarchar(max)" />
+          <Property Name="Formation" Type="nvarchar(max)" />
+          <Property Name="County" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModified" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar(max)" />
+          <Property Name="SeismosClientId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="StopTime" Type="datetime" Nullable="false" />
+          <Property Name="HydraulicFracturingTreatmentId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimePicks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="SampleNumber" Type="bigint" Nullable="false" />
+          <Property Name="DataRecordId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="WellId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments_AcidTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments_CasingRepairTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments_CleanOutTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments_HydraulicFracturingTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments_JunkBasketTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments_PlugDrillOutTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments_PlugRecovery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments_RefracTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatments_SteamInjectionTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TVDs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="float" Nullable="false" />
+          <Property Name="DeviationSurveyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeviationSurvey_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsedFilters">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="LowerFrequency" Type="float" Nullable="false" />
+          <Property Name="UpperFrequency" Type="float" Nullable="false" />
+          <Property Name="TaperFunction" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UsedParameterId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="UsedParameters">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Viscosity" Type="float" Nullable="false" />
+          <Property Name="BulkModulus" Type="float" Nullable="false" />
+          <Property Name="FluidCompressibility" Type="float" Nullable="false" />
+          <Property Name="NumberOfFractures" Type="int" Nullable="false" />
+          <Property Name="FractureWidth" Type="float" Nullable="false" />
+          <Property Name="Permeability" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WellBores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="SurfaceVolume" Type="float" Nullable="false" />
+          <Property Name="TotalVolume" Type="float" Nullable="false" />
+          <Property Name="Well_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WellheadAssemblies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WellheadComponents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="InternalDiameter" Type="float" Nullable="false" />
+          <Property Name="OuterDiameter" Type="float" Nullable="false" />
+          <Property Name="Length" Type="float" Nullable="false" />
+          <Property Name="WellheadAssemblyId" Type="uniqueidentifier" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WellheadCoordinates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="X" Type="float" Nullable="false" />
+          <Property Name="Y" Type="float" Nullable="false" />
+          <Property Name="KB" Type="float" Nullable="false" />
+          <Property Name="CoordinateSystem" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Lat" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Long" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wellheads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WellheadCoordinate_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Well_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WellheadAssembly_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wells">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WellName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="WellGeometryType" Type="smallint" Nullable="false" />
+          <Property Name="SeismosProject_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ACGraphDataColumn">
+          <End Role="ACGraphDatas" Type="Self.ACGraphDatas" Multiplicity="1" />
+          <End Role="Columns" Type="Self.Columns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACGraphDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Columns">
+              <PropertyRef Name="ACGraphDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AcidTreatment_inherits_Treatment">
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Treatments_AcidTreatment" Type="Self.Treatments_AcidTreatment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments_AcidTreatment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CasingRepairTreatment_inherits_Treatment">
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Treatments_CasingRepairTreatment" Type="Self.Treatments_CasingRepairTreatment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments_CasingRepairTreatment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CleanOutTreatment_inherits_Treatment">
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Treatments_CleanOutTreatment" Type="Self.Treatments_CleanOutTreatment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments_CleanOutTreatment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColumnColumnValue">
+          <End Role="Columns" Type="Self.Columns" Multiplicity="0..1" />
+          <End Role="ColumnValues" Type="Self.ColumnValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Columns">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ColumnValues">
+              <PropertyRef Name="ColumnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataAcquisitionDataRecord">
+          <End Role="DataAcquisitions" Type="Self.DataAcquisitions" Multiplicity="1" />
+          <End Role="DataRecords" Type="Self.DataRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataAcquisitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataRecords">
+              <PropertyRef Name="DataAcquisitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataAcquisitionProcessing">
+          <End Role="DataAcquisitions" Type="Self.DataAcquisitions" Multiplicity="0..1" />
+          <End Role="Processings" Type="Self.Processings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataAcquisitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processings">
+              <PropertyRef Name="DataAcquisitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataRecordReflection">
+          <End Role="DataRecords" Type="Self.DataRecords" Multiplicity="0..1" />
+          <End Role="Reflections" Type="Self.Reflections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataRecords">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reflections">
+              <PropertyRef Name="DataRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataRecordTimePick">
+          <End Role="DataRecords" Type="Self.DataRecords" Multiplicity="1" />
+          <End Role="TimePicks" Type="Self.TimePicks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataRecords">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TimePicks">
+              <PropertyRef Name="DataRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviationSurveyAzimuth">
+          <End Role="DeviationSurveys" Type="Self.DeviationSurveys" Multiplicity="1" />
+          <End Role="Azimuths" Type="Self.Azimuths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviationSurveys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Azimuths">
+              <PropertyRef Name="DeviationSurvey_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviationSurveyEasting">
+          <End Role="DeviationSurveys" Type="Self.DeviationSurveys" Multiplicity="1" />
+          <End Role="Eastings" Type="Self.Eastings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviationSurveys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Eastings">
+              <PropertyRef Name="DeviationSurvey_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviationSurveyInclination">
+          <End Role="DeviationSurveys" Type="Self.DeviationSurveys" Multiplicity="1" />
+          <End Role="Inclinations" Type="Self.Inclinations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviationSurveys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inclinations">
+              <PropertyRef Name="DeviationSurvey_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviationSurveyMD">
+          <End Role="DeviationSurveys" Type="Self.DeviationSurveys" Multiplicity="1" />
+          <End Role="MDs" Type="Self.MDs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviationSurveys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MDs">
+              <PropertyRef Name="DeviationSurvey_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviationSurveyNorthing">
+          <End Role="DeviationSurveys" Type="Self.DeviationSurveys" Multiplicity="1" />
+          <End Role="Northings" Type="Self.Northings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviationSurveys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Northings">
+              <PropertyRef Name="DeviationSurvey_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviationSurveyTVD">
+          <End Role="DeviationSurveys" Type="Self.DeviationSurveys" Multiplicity="1" />
+          <End Role="TVDs" Type="Self.TVDs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviationSurveys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TVDs">
+              <PropertyRef Name="DeviationSurvey_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EndReflectionTimePick">
+          <End Role="TimePicks" Type="Self.TimePicks" Multiplicity="1" />
+          <End Role="Reflections" Type="Self.Reflections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimePicks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reflections">
+              <PropertyRef Name="EndTimePick_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_inherits_Note">
+          <End Role="Notes" Type="Self.Notes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Notes_Event" Type="Self.Notes_Event" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Notes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notes_Event">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HFTreatmentStageFluid">
+          <End Role="HFTreatmentStages" Type="Self.HFTreatmentStages" Multiplicity="1" />
+          <End Role="Fluids" Type="Self.Fluids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HFTreatmentStages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fluids">
+              <PropertyRef Name="HFTreatmentStageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HFTreatmentStageProppant">
+          <End Role="HFTreatmentStages" Type="Self.HFTreatmentStages" Multiplicity="1" />
+          <End Role="Proppants" Type="Self.Proppants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HFTreatmentStages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proppants">
+              <PropertyRef Name="HFTreatmentStageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HydraulicFracturingDataAcquisition_inherits_DataAcquisition">
+          <End Role="DataAcquisitions" Type="Self.DataAcquisitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DataAcquisitions_HydraulicFracturingDataAcquisition" Type="Self.DataAcquisitions_HydraulicFracturingDataAcquisition" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DataAcquisitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataAcquisitions_HydraulicFracturingDataAcquisition">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HydraulicFracturingTreatment_inherits_Treatment">
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Treatments_HydraulicFracturingTreatment" Type="Self.Treatments_HydraulicFracturingTreatment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments_HydraulicFracturingTreatment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HydraulicFracturingTreatmentStage">
+          <End Role="Treatments_HydraulicFracturingTreatment" Type="Self.Treatments_HydraulicFracturingTreatment" Multiplicity="1" />
+          <End Role="Stages" Type="Self.Stages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments_HydraulicFracturingTreatment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stages">
+              <PropertyRef Name="HydraulicFracturingTreatmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InjectionDataAcquisition_inherits_DataAcquisition">
+          <End Role="DataAcquisitions" Type="Self.DataAcquisitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DataAcquisitions_InjectionDataAcquisition" Type="Self.DataAcquisitions_InjectionDataAcquisition" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DataAcquisitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataAcquisitions_InjectionDataAcquisition">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InjectionDataAcquisitionInjection">
+          <End Role="DataAcquisitions_InjectionDataAcquisition" Type="Self.DataAcquisitions_InjectionDataAcquisition" Multiplicity="1" />
+          <End Role="Injections" Type="Self.Injections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataAcquisitions_InjectionDataAcquisition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Injections">
+              <PropertyRef Name="InjectionDataAcquisitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IntegrityDataAcquisition_inherits_DataAcquisition">
+          <End Role="DataAcquisitions" Type="Self.DataAcquisitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DataAcquisitions_IntegrityDataAcquisition" Type="Self.DataAcquisitions_IntegrityDataAcquisition" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DataAcquisitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataAcquisitions_IntegrityDataAcquisition">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JunkBasketTreatment_inherits_Treatment">
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Treatments_JunkBasketTreatment" Type="Self.Treatments_JunkBasketTreatment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments_JunkBasketTreatment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KGraphDataColumn">
+          <End Role="KGraphDatas" Type="Self.KGraphDatas" Multiplicity="1" />
+          <End Role="Columns" Type="Self.Columns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KGraphDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Columns">
+              <PropertyRef Name="KGraphDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OffsetWellDataAcquisition_inherits_DataAcquisition">
+          <End Role="DataAcquisitions" Type="Self.DataAcquisitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DataAcquisitions_OffsetWellDataAcquisition" Type="Self.DataAcquisitions_OffsetWellDataAcquisition" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DataAcquisitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataAcquisitions_OffsetWellDataAcquisition">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlugDrillOutTreatment_inherits_Treatment">
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Treatments_PlugDrillOutTreatment" Type="Self.Treatments_PlugDrillOutTreatment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments_PlugDrillOutTreatment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlugMaterial">
+          <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+          <End Role="Plugs" Type="Self.Plugs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materials">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Plugs">
+              <PropertyRef Name="Material_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlugRecovery_inherits_Treatment">
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Treatments_PlugRecovery" Type="Self.Treatments_PlugRecovery" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments_PlugRecovery">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessingACGraphData">
+          <End Role="Processings" Type="Self.Processings" Multiplicity="1" />
+          <End Role="ACGraphDatas" Type="Self.ACGraphDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ACGraphDatas">
+              <PropertyRef Name="Processing_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessingKGraphData">
+          <End Role="Processings" Type="Self.Processings" Multiplicity="1" />
+          <End Role="KGraphDatas" Type="Self.KGraphDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KGraphDatas">
+              <PropertyRef Name="Processing_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessingUsedParameter">
+          <End Role="UsedParameters" Type="Self.UsedParameters" Multiplicity="1" />
+          <End Role="Processings" Type="Self.Processings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsedParameters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processings">
+              <PropertyRef Name="UsedParameter_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductionDataAcquisition_inherits_DataAcquisition">
+          <End Role="DataAcquisitions" Type="Self.DataAcquisitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DataAcquisitions_ProductionDataAcquisition" Type="Self.DataAcquisitions_ProductionDataAcquisition" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DataAcquisitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataAcquisitions_ProductionDataAcquisition">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RefracTreatment_inherits_Treatment">
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Treatments_RefracTreatment" Type="Self.Treatments_RefracTreatment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments_RefracTreatment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeismosClientSeismosProject">
+          <End Role="SeismosClients" Type="Self.SeismosClients" Multiplicity="1" />
+          <End Role="SeismosProjects" Type="Self.SeismosProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeismosClients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SeismosProjects">
+              <PropertyRef Name="SeismosClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeismosProjectNote">
+          <End Role="SeismosProjects" Type="Self.SeismosProjects" Multiplicity="0..1" />
+          <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeismosProjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="SeismosProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeismosProjectsWells">
+          <End Role="SeismosProjects" Type="Self.SeismosProjects" Multiplicity="1" />
+          <End Role="Wells" Type="Self.Wells" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeismosProjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wells">
+              <PropertyRef Name="SeismosProject_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StageHFTreatmentStage">
+          <End Role="Stages" Type="Self.Stages" Multiplicity="1" />
+          <End Role="HFTreatmentStages" Type="Self.HFTreatmentStages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HFTreatmentStages">
+              <PropertyRef Name="StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StagePerforation">
+          <End Role="Stages" Type="Self.Stages" Multiplicity="1" />
+          <End Role="Perforations" Type="Self.Perforations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Perforations">
+              <PropertyRef Name="StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StagePlug">
+          <End Role="Stages" Type="Self.Stages" Multiplicity="0..1" />
+          <End Role="Plugs" Type="Self.Plugs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Plugs">
+              <PropertyRef Name="Stage_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StartReflectionTimePick">
+          <End Role="TimePicks" Type="Self.TimePicks" Multiplicity="1" />
+          <End Role="Reflections" Type="Self.Reflections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimePicks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reflections">
+              <PropertyRef Name="StartTimePick_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SteamInjectionTreatment_inherits_Treatment">
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Treatments_SteamInjectionTreatment" Type="Self.Treatments_SteamInjectionTreatment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Treatments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments_SteamInjectionTreatment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsedFilterBasisSet">
+          <End Role="UsedFilters" Type="Self.UsedFilters" Multiplicity="1" />
+          <End Role="BasisSets" Type="Self.BasisSets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsedFilters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BasisSets">
+              <PropertyRef Name="UsedFilterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsedParameterParamConstraint">
+          <End Role="UsedParameters" Type="Self.UsedParameters" Multiplicity="0..1" />
+          <End Role="ParamConstraints" Type="Self.ParamConstraints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsedParameters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ParamConstraints">
+              <PropertyRef Name="UsedParameterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsedParameterReflection">
+          <End Role="UsedParameters" Type="Self.UsedParameters" Multiplicity="0..1" />
+          <End Role="Reflections" Type="Self.Reflections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsedParameters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reflections">
+              <PropertyRef Name="UsedParameter_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsedParameterUsedFilter">
+          <End Role="UsedParameters" Type="Self.UsedParameters" Multiplicity="0..1" />
+          <End Role="UsedFilters" Type="Self.UsedFilters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsedParameters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsedFilters">
+              <PropertyRef Name="UsedParameterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellBoreCylinder">
+          <End Role="WellBores" Type="Self.WellBores" Multiplicity="1" />
+          <End Role="Cylinders" Type="Self.Cylinders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WellBores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cylinders">
+              <PropertyRef Name="WellBoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellDataAcquisition">
+          <End Role="Wells" Type="Self.Wells" Multiplicity="1" />
+          <End Role="DataAcquisitions" Type="Self.DataAcquisitions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wells">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataAcquisitions">
+              <PropertyRef Name="WellId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellheadAssemblyWellheadComponent">
+          <End Role="WellheadAssemblies" Type="Self.WellheadAssemblies" Multiplicity="0..1" />
+          <End Role="WellheadComponents" Type="Self.WellheadComponents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WellheadAssemblies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WellheadComponents">
+              <PropertyRef Name="WellheadAssemblyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellheadComponentMaterial">
+          <End Role="WellheadComponents" Type="Self.WellheadComponents" Multiplicity="1" />
+          <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WellheadComponents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Materials">
+              <PropertyRef Name="WellheadComponent_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellheadWellheadAssembly">
+          <End Role="WellheadAssemblies" Type="Self.WellheadAssemblies" Multiplicity="1" />
+          <End Role="Wellheads" Type="Self.Wellheads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WellheadAssemblies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wellheads">
+              <PropertyRef Name="WellheadAssembly_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellheadWellheadCoordinate">
+          <End Role="WellheadCoordinates" Type="Self.WellheadCoordinates" Multiplicity="1" />
+          <End Role="Wellheads" Type="Self.Wellheads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WellheadCoordinates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wellheads">
+              <PropertyRef Name="WellheadCoordinate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellsDeviationSurveys">
+          <End Role="Wells" Type="Self.Wells" Multiplicity="1" />
+          <End Role="DeviationSurveys" Type="Self.DeviationSurveys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wells">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeviationSurveys">
+              <PropertyRef Name="Well_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellTreatment">
+          <End Role="Wells" Type="Self.Wells" Multiplicity="1" />
+          <End Role="Treatments" Type="Self.Treatments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wells">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Treatments">
+              <PropertyRef Name="WellId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellWellBore">
+          <End Role="Wells" Type="Self.Wells" Multiplicity="1" />
+          <End Role="WellBores" Type="Self.WellBores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wells">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WellBores">
+              <PropertyRef Name="Well_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WellWellhead">
+          <End Role="Wells" Type="Self.Wells" Multiplicity="1" />
+          <End Role="Wellheads" Type="Self.Wellheads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wells">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wellheads">
+              <PropertyRef Name="Well_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="seismosModelStoreContainer">
+          <EntitySet Name="ACGraphDatas" EntityType="Self.ACGraphDatas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Azimuths" EntityType="Self.Azimuths" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BasisSets" EntityType="Self.BasisSets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CasingChartLookups" EntityType="Self.CasingChartLookups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Columns" EntityType="Self.Columns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ColumnValues" EntityType="Self.ColumnValues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cylinders" EntityType="Self.Cylinders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataAcquisitions" EntityType="Self.DataAcquisitions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataAcquisitions_HydraulicFracturingDataAcquisition" EntityType="Self.DataAcquisitions_HydraulicFracturingDataAcquisition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataAcquisitions_InjectionDataAcquisition" EntityType="Self.DataAcquisitions_InjectionDataAcquisition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataAcquisitions_IntegrityDataAcquisition" EntityType="Self.DataAcquisitions_IntegrityDataAcquisition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataAcquisitions_OffsetWellDataAcquisition" EntityType="Self.DataAcquisitions_OffsetWellDataAcquisition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataAcquisitions_ProductionDataAcquisition" EntityType="Self.DataAcquisitions_ProductionDataAcquisition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataRecords" EntityType="Self.DataRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeviationSurveys" EntityType="Self.DeviationSurveys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eastings" EntityType="Self.Eastings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fluids" EntityType="Self.Fluids" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HFTreatmentStages" EntityType="Self.HFTreatmentStages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inclinations" EntityType="Self.Inclinations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Injections" EntityType="Self.Injections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KGraphDatas" EntityType="Self.KGraphDatas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MDs" EntityType="Self.MDs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Northings" EntityType="Self.Northings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notes_Event" EntityType="Self.Notes_Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParamConstraints" EntityType="Self.ParamConstraints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perforations" EntityType="Self.Perforations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plugs" EntityType="Self.Plugs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Processings" EntityType="Self.Processings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proppants" EntityType="Self.Proppants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reflections" EntityType="Self.Reflections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeismosClients" EntityType="Self.SeismosClients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeismosProjects" EntityType="Self.SeismosProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stages" EntityType="Self.Stages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimePicks" EntityType="Self.TimePicks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments" EntityType="Self.Treatments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments_AcidTreatment" EntityType="Self.Treatments_AcidTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments_CasingRepairTreatment" EntityType="Self.Treatments_CasingRepairTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments_CleanOutTreatment" EntityType="Self.Treatments_CleanOutTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments_HydraulicFracturingTreatment" EntityType="Self.Treatments_HydraulicFracturingTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments_JunkBasketTreatment" EntityType="Self.Treatments_JunkBasketTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments_PlugDrillOutTreatment" EntityType="Self.Treatments_PlugDrillOutTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments_PlugRecovery" EntityType="Self.Treatments_PlugRecovery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments_RefracTreatment" EntityType="Self.Treatments_RefracTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatments_SteamInjectionTreatment" EntityType="Self.Treatments_SteamInjectionTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TVDs" EntityType="Self.TVDs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsedFilters" EntityType="Self.UsedFilters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsedParameters" EntityType="Self.UsedParameters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WellBores" EntityType="Self.WellBores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WellheadAssemblies" EntityType="Self.WellheadAssemblies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WellheadComponents" EntityType="Self.WellheadComponents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WellheadCoordinates" EntityType="Self.WellheadCoordinates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wellheads" EntityType="Self.Wellheads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wells" EntityType="Self.Wells" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ACGraphDataColumn" Association="Self.FK_ACGraphDataColumn">
+            <End Role="ACGraphDatas" EntitySet="ACGraphDatas" />
+            <End Role="Columns" EntitySet="Columns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AcidTreatment_inherits_Treatment" Association="Self.FK_AcidTreatment_inherits_Treatment">
+            <End Role="Treatments" EntitySet="Treatments" />
+            <End Role="Treatments_AcidTreatment" EntitySet="Treatments_AcidTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CasingRepairTreatment_inherits_Treatment" Association="Self.FK_CasingRepairTreatment_inherits_Treatment">
+            <End Role="Treatments" EntitySet="Treatments" />
+            <End Role="Treatments_CasingRepairTreatment" EntitySet="Treatments_CasingRepairTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CleanOutTreatment_inherits_Treatment" Association="Self.FK_CleanOutTreatment_inherits_Treatment">
+            <End Role="Treatments" EntitySet="Treatments" />
+            <End Role="Treatments_CleanOutTreatment" EntitySet="Treatments_CleanOutTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColumnColumnValue" Association="Self.FK_ColumnColumnValue">
+            <End Role="Columns" EntitySet="Columns" />
+            <End Role="ColumnValues" EntitySet="ColumnValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataAcquisitionDataRecord" Association="Self.FK_DataAcquisitionDataRecord">
+            <End Role="DataAcquisitions" EntitySet="DataAcquisitions" />
+            <End Role="DataRecords" EntitySet="DataRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataAcquisitionProcessing" Association="Self.FK_DataAcquisitionProcessing">
+            <End Role="DataAcquisitions" EntitySet="DataAcquisitions" />
+            <End Role="Processings" EntitySet="Processings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataRecordReflection" Association="Self.FK_DataRecordReflection">
+            <End Role="DataRecords" EntitySet="DataRecords" />
+            <End Role="Reflections" EntitySet="Reflections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataRecordTimePick" Association="Self.FK_DataRecordTimePick">
+            <End Role="DataRecords" EntitySet="DataRecords" />
+            <End Role="TimePicks" EntitySet="TimePicks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviationSurveyAzimuth" Association="Self.FK_DeviationSurveyAzimuth">
+            <End Role="DeviationSurveys" EntitySet="DeviationSurveys" />
+            <End Role="Azimuths" EntitySet="Azimuths" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviationSurveyEasting" Association="Self.FK_DeviationSurveyEasting">
+            <End Role="DeviationSurveys" EntitySet="DeviationSurveys" />
+            <End Role="Eastings" EntitySet="Eastings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviationSurveyInclination" Association="Self.FK_DeviationSurveyInclination">
+            <End Role="DeviationSurveys" EntitySet="DeviationSurveys" />
+            <End Role="Inclinations" EntitySet="Inclinations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviationSurveyMD" Association="Self.FK_DeviationSurveyMD">
+            <End Role="DeviationSurveys" EntitySet="DeviationSurveys" />
+            <End Role="MDs" EntitySet="MDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviationSurveyNorthing" Association="Self.FK_DeviationSurveyNorthing">
+            <End Role="DeviationSurveys" EntitySet="DeviationSurveys" />
+            <End Role="Northings" EntitySet="Northings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviationSurveyTVD" Association="Self.FK_DeviationSurveyTVD">
+            <End Role="DeviationSurveys" EntitySet="DeviationSurveys" />
+            <End Role="TVDs" EntitySet="TVDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EndReflectionTimePick" Association="Self.FK_EndReflectionTimePick">
+            <End Role="TimePicks" EntitySet="TimePicks" />
+            <End Role="Reflections" EntitySet="Reflections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_inherits_Note" Association="Self.FK_Event_inherits_Note">
+            <End Role="Notes" EntitySet="Notes" />
+            <End Role="Notes_Event" EntitySet="Notes_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HFTreatmentStageFluid" Association="Self.FK_HFTreatmentStageFluid">
+            <End Role="HFTreatmentStages" EntitySet="HFTreatmentStages" />
+            <End Role="Fluids" EntitySet="Fluids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HFTreatmentStageProppant" Association="Self.FK_HFTreatmentStageProppant">
+            <End Role="HFTreatmentStages" EntitySet="HFTreatmentStages" />
+            <End Role="Proppants" EntitySet="Proppants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HydraulicFracturingDataAcquisition_inherits_DataAcquisition" Association="Self.FK_HydraulicFracturingDataAcquisition_inherits_DataAcquisition">
+            <End Role="DataAcquisitions" EntitySet="DataAcquisitions" />
+            <End Role="DataAcquisitions_HydraulicFracturingDataAcquisition" EntitySet="DataAcquisitions_HydraulicFracturingDataAcquisition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HydraulicFracturingTreatment_inherits_Treatment" Association="Self.FK_HydraulicFracturingTreatment_inherits_Treatment">
+            <End Role="Treatments" EntitySet="Treatments" />
+            <End Role="Treatments_HydraulicFracturingTreatment" EntitySet="Treatments_HydraulicFracturingTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HydraulicFracturingTreatmentStage" Association="Self.FK_HydraulicFracturingTreatmentStage">
+            <End Role="Treatments_HydraulicFracturingTreatment" EntitySet="Treatments_HydraulicFracturingTreatment" />
+            <End Role="Stages" EntitySet="Stages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InjectionDataAcquisition_inherits_DataAcquisition" Association="Self.FK_InjectionDataAcquisition_inherits_DataAcquisition">
+            <End Role="DataAcquisitions" EntitySet="DataAcquisitions" />
+            <End Role="DataAcquisitions_InjectionDataAcquisition" EntitySet="DataAcquisitions_InjectionDataAcquisition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InjectionDataAcquisitionInjection" Association="Self.FK_InjectionDataAcquisitionInjection">
+            <End Role="DataAcquisitions_InjectionDataAcquisition" EntitySet="DataAcquisitions_InjectionDataAcquisition" />
+            <End Role="Injections" EntitySet="Injections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IntegrityDataAcquisition_inherits_DataAcquisition" Association="Self.FK_IntegrityDataAcquisition_inherits_DataAcquisition">
+            <End Role="DataAcquisitions" EntitySet="DataAcquisitions" />
+            <End Role="DataAcquisitions_IntegrityDataAcquisition" EntitySet="DataAcquisitions_IntegrityDataAcquisition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JunkBasketTreatment_inherits_Treatment" Association="Self.FK_JunkBasketTreatment_inherits_Treatment">
+            <End Role="Treatments" EntitySet="Treatments" />
+            <End Role="Treatments_JunkBasketTreatment" EntitySet="Treatments_JunkBasketTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KGraphDataColumn" Association="Self.FK_KGraphDataColumn">
+            <End Role="KGraphDatas" EntitySet="KGraphDatas" />
+            <End Role="Columns" EntitySet="Columns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OffsetWellDataAcquisition_inherits_DataAcquisition" Association="Self.FK_OffsetWellDataAcquisition_inherits_DataAcquisition">
+            <End Role="DataAcquisitions" EntitySet="DataAcquisitions" />
+            <End Role="DataAcquisitions_OffsetWellDataAcquisition" EntitySet="DataAcquisitions_OffsetWellDataAcquisition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlugDrillOutTreatment_inherits_Treatment" Association="Self.FK_PlugDrillOutTreatment_inherits_Treatment">
+            <End Role="Treatments" EntitySet="Treatments" />
+            <End Role="Treatments_PlugDrillOutTreatment" EntitySet="Treatments_PlugDrillOutTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlugMaterial" Association="Self.FK_PlugMaterial">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="Plugs" EntitySet="Plugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlugRecovery_inherits_Treatment" Association="Self.FK_PlugRecovery_inherits_Treatment">
+            <End Role="Treatments" EntitySet="Treatments" />
+            <End Role="Treatments_PlugRecovery" EntitySet="Treatments_PlugRecovery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessingACGraphData" Association="Self.FK_ProcessingACGraphData">
+            <End Role="Processings" EntitySet="Processings" />
+            <End Role="ACGraphDatas" EntitySet="ACGraphDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessingKGraphData" Association="Self.FK_ProcessingKGraphData">
+            <End Role="Processings" EntitySet="Processings" />
+            <End Role="KGraphDatas" EntitySet="KGraphDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessingUsedParameter" Association="Self.FK_ProcessingUsedParameter">
+            <End Role="UsedParameters" EntitySet="UsedParameters" />
+            <End Role="Processings" EntitySet="Processings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductionDataAcquisition_inherits_DataAcquisition" Association="Self.FK_ProductionDataAcquisition_inherits_DataAcquisition">
+            <End Role="DataAcquisitions" EntitySet="DataAcquisitions" />
+            <End Role="DataAcquisitions_ProductionDataAcquisition" EntitySet="DataAcquisitions_ProductionDataAcquisition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RefracTreatment_inherits_Treatment" Association="Self.FK_RefracTreatment_inherits_Treatment">
+            <End Role="Treatments" EntitySet="Treatments" />
+            <End Role="Treatments_RefracTreatment" EntitySet="Treatments_RefracTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeismosClientSeismosProject" Association="Self.FK_SeismosClientSeismosProject">
+            <End Role="SeismosClients" EntitySet="SeismosClients" />
+            <End Role="SeismosProjects" EntitySet="SeismosProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeismosProjectNote" Association="Self.FK_SeismosProjectNote">
+            <End Role="SeismosProjects" EntitySet="SeismosProjects" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeismosProjectsWells" Association="Self.FK_SeismosProjectsWells">
+            <End Role="SeismosProjects" EntitySet="SeismosProjects" />
+            <End Role="Wells" EntitySet="Wells" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StageHFTreatmentStage" Association="Self.FK_StageHFTreatmentStage">
+            <End Role="Stages" EntitySet="Stages" />
+            <End Role="HFTreatmentStages" EntitySet="HFTreatmentStages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StagePerforation" Association="Self.FK_StagePerforation">
+            <End Role="Stages" EntitySet="Stages" />
+            <End Role="Perforations" EntitySet="Perforations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StagePlug" Association="Self.FK_StagePlug">
+            <End Role="Stages" EntitySet="Stages" />
+            <End Role="Plugs" EntitySet="Plugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StartReflectionTimePick" Association="Self.FK_StartReflectionTimePick">
+            <End Role="TimePicks" EntitySet="TimePicks" />
+            <End Role="Reflections" EntitySet="Reflections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SteamInjectionTreatment_inherits_Treatment" Association="Self.FK_SteamInjectionTreatment_inherits_Treatment">
+            <End Role="Treatments" EntitySet="Treatments" />
+            <End Role="Treatments_SteamInjectionTreatment" EntitySet="Treatments_SteamInjectionTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsedFilterBasisSet" Association="Self.FK_UsedFilterBasisSet">
+            <End Role="UsedFilters" EntitySet="UsedFilters" />
+            <End Role="BasisSets" EntitySet="BasisSets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsedParameterParamConstraint" Association="Self.FK_UsedParameterParamConstraint">
+            <End Role="UsedParameters" EntitySet="UsedParameters" />
+            <End Role="ParamConstraints" EntitySet="ParamConstraints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsedParameterReflection" Association="Self.FK_UsedParameterReflection">
+            <End Role="UsedParameters" EntitySet="UsedParameters" />
+            <End Role="Reflections" EntitySet="Reflections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsedParameterUsedFilter" Association="Self.FK_UsedParameterUsedFilter">
+            <End Role="UsedParameters" EntitySet="UsedParameters" />
+            <End Role="UsedFilters" EntitySet="UsedFilters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellBoreCylinder" Association="Self.FK_WellBoreCylinder">
+            <End Role="WellBores" EntitySet="WellBores" />
+            <End Role="Cylinders" EntitySet="Cylinders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellDataAcquisition" Association="Self.FK_WellDataAcquisition">
+            <End Role="Wells" EntitySet="Wells" />
+            <End Role="DataAcquisitions" EntitySet="DataAcquisitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellheadAssemblyWellheadComponent" Association="Self.FK_WellheadAssemblyWellheadComponent">
+            <End Role="WellheadAssemblies" EntitySet="WellheadAssemblies" />
+            <End Role="WellheadComponents" EntitySet="WellheadComponents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellheadComponentMaterial" Association="Self.FK_WellheadComponentMaterial">
+            <End Role="WellheadComponents" EntitySet="WellheadComponents" />
+            <End Role="Materials" EntitySet="Materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellheadWellheadAssembly" Association="Self.FK_WellheadWellheadAssembly">
+            <End Role="WellheadAssemblies" EntitySet="WellheadAssemblies" />
+            <End Role="Wellheads" EntitySet="Wellheads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellheadWellheadCoordinate" Association="Self.FK_WellheadWellheadCoordinate">
+            <End Role="WellheadCoordinates" EntitySet="WellheadCoordinates" />
+            <End Role="Wellheads" EntitySet="Wellheads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellsDeviationSurveys" Association="Self.FK_WellsDeviationSurveys">
+            <End Role="Wells" EntitySet="Wells" />
+            <End Role="DeviationSurveys" EntitySet="DeviationSurveys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellTreatment" Association="Self.FK_WellTreatment">
+            <End Role="Wells" EntitySet="Wells" />
+            <End Role="Treatments" EntitySet="Treatments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellWellBore" Association="Self.FK_WellWellBore">
+            <End Role="Wells" EntitySet="Wells" />
+            <End Role="WellBores" EntitySet="WellBores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WellWellhead" Association="Self.FK_WellWellhead">
+            <End Role="Wells" EntitySet="Wells" />
+            <End Role="Wellheads" EntitySet="Wellheads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="seismosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1840,7 +1840,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="WellName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="WellGeometryType" Type="seismosModel.WellGeometryEnum" Nullable="false" />
           <NavigationProperty Name="SeismosProject" Relationship="seismosModel.SeismosProjectsWells" FromRole="Wells" ToRole="SeismosProjects" />
@@ -1975,7 +1975,7 @@
           <NavigationProperty Name="WellBore" Relationship="seismosModel.WellBoreCylinder" FromRole="Cylinder" ToRole="WellBore" />
           <Property Name="WellBoreId" Type="Guid" Nullable="false" />
           <Property Name="Weight" Type="Double" Nullable="false" />
-          <Property Name="Grade" Type="String" Nullable="false" />
+          <Property Name="Grade" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CasingOrderType" Type="seismosModel.CasingOrderTypeEnum" Nullable="false" />
           <Property Name="CalculatedVolume" Type="Double" Nullable="false" />
         </EntityType>
@@ -2803,26 +2803,6 @@
           <Member Name="CustomNoise" Value="5" />
           <Member Name="Other" Value="6" />
         </EnumType>
-        <EntityType Name="CasingChartLookup">
-          <Key>
-            <PropertyRef Name="Key" />
-          </Key>
-          <Property Name="Key" Type="Int32" Nullable="false" />
-          <Property Name="OuterDiameter" Type="Double" />
-          <Property Name="Weight" Type="Double" />
-          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Collapse" Type="Double" />
-          <Property Name="InternalMinYield" Type="Double" />
-          <Property Name="JointStrengthSTC" Type="Double" />
-          <Property Name="JointStrengthLTC" Type="Double" />
-          <Property Name="JointStrengthBTC" Type="Double" />
-          <Property Name="BodyYield" Type="Double" />
-          <Property Name="Wall" Type="Double" />
-          <Property Name="InnerDiameter" Type="Double" />
-          <Property Name="DriftDiameterAPI" Type="Double" />
-          <Property Name="DriftDiameterSPDR" Type="Double" />
-          <Property Name="MaximumSettingDepthSTC" Type="Double" />
-        </EntityType>
         <EnumType Name="CasingOrderTypeEnum" UnderlyingType="Int16">
           <Member Name="Casing" Value="0" />
           <Member Name="Liner1" Value="1" />
@@ -2831,6 +2811,26 @@
           <Member Name="Liner4" Value="4" />
           <Member Name="Liner5" Value="5" />
         </EnumType>
+        <EntityType Name="CasingChartLookup">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="Int32" Nullable="false" />
+          <Property Name="OuterDiameter" Type="Double" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Collapse" Type="Double" Nullable="false" />
+          <Property Name="InternalMinYield" Type="Double" />
+          <Property Name="JointStrengthSTC" Type="Double" />
+          <Property Name="JointStrengthLTC" Type="Double" />
+          <Property Name="JointStrengthBTC" Type="Double" />
+          <Property Name="BodyYield" Type="Double" />
+          <Property Name="Wall" Type="Double" />
+          <Property Name="InnerDiameter" Type="Double" Nullable="false" />
+          <Property Name="DriftDiameterAPI" Type="Double" />
+          <Property Name="DriftDiameterSPDR" Type="Double" />
+          <Property Name="MaximumSettingDepthSTC" Type="Double" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3360,27 +3360,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CasingChartLookups">
-      <EntityTypeMapping TypeName="IsTypeOf(seismosModel.CasingChartLookup)">
-        <MappingFragment StoreEntitySet="CasingChartLookups">
-          <ScalarProperty Name="Key" ColumnName="Key" />
-          <ScalarProperty Name="OuterDiameter" ColumnName="OuterDiameter" />
-          <ScalarProperty Name="Weight" ColumnName="Weight" />
-          <ScalarProperty Name="Grade" ColumnName="Grade" />
-          <ScalarProperty Name="Collapse" ColumnName="Collapse" />
-          <ScalarProperty Name="InternalMinYield" ColumnName="InternalMinYield" />
-          <ScalarProperty Name="JointStrengthSTC" ColumnName="JointStrengthSTC" />
-          <ScalarProperty Name="JointStrengthLTC" ColumnName="JointStrengthLTC" />
-          <ScalarProperty Name="JointStrengthBTC" ColumnName="JointStrengthBTC" />
-          <ScalarProperty Name="BodyYield" ColumnName="BodyYield" />
-          <ScalarProperty Name="Wall" ColumnName="Wall" />
-          <ScalarProperty Name="InnerDiameter" ColumnName="InnerDiameter" />
-          <ScalarProperty Name="DriftDiameterAPI" ColumnName="DriftDiameterAPI" />
-          <ScalarProperty Name="DriftDiameterSPDR" ColumnName="DriftDiameterSPDR" />
-          <ScalarProperty Name="MaximumSettingDepthSTC" ColumnName="MaximumSettingDepthSTC" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <AssociationSetMapping Name="SeismosProjectsWells" TypeName="seismosModel.SeismosProjectsWells" StoreEntitySet="Wells">
       <EndProperty Name="SeismosProjects">
         <ScalarProperty Name="Id" ColumnName="SeismosProject_Id" />
@@ -3551,6 +3530,27 @@
       </EndProperty>
       <Condition ColumnName="Stage_Id" IsNull="false" />
     </AssociationSetMapping>
+          <EntitySetMapping Name="CasingChartLookups">
+            <EntityTypeMapping TypeName="seismosModel.CasingChartLookup">
+              <MappingFragment StoreEntitySet="CasingChartLookups">
+                <ScalarProperty Name="MaximumSettingDepthSTC" ColumnName="MaximumSettingDepthSTC" />
+                <ScalarProperty Name="DriftDiameterSPDR" ColumnName="DriftDiameterSPDR" />
+                <ScalarProperty Name="DriftDiameterAPI" ColumnName="DriftDiameterAPI" />
+                <ScalarProperty Name="InnerDiameter" ColumnName="InnerDiameter" />
+                <ScalarProperty Name="Wall" ColumnName="Wall" />
+                <ScalarProperty Name="BodyYield" ColumnName="BodyYield" />
+                <ScalarProperty Name="JointStrengthBTC" ColumnName="JointStrengthBTC" />
+                <ScalarProperty Name="JointStrengthLTC" ColumnName="JointStrengthLTC" />
+                <ScalarProperty Name="JointStrengthSTC" ColumnName="JointStrengthSTC" />
+                <ScalarProperty Name="InternalMinYield" ColumnName="InternalMinYield" />
+                <ScalarProperty Name="Collapse" ColumnName="Collapse" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="OuterDiameter" ColumnName="OuterDiameter" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

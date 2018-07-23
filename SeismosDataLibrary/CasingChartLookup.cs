@@ -15,17 +15,17 @@ namespace SeismosDataLibrary
     public partial class CasingChartLookup
     {
         public int Key { get; set; }
-        public Nullable<double> OuterDiameter { get; set; }
-        public Nullable<double> Weight { get; set; }
+        public double OuterDiameter { get; set; }
+        public double Weight { get; set; }
         public string Grade { get; set; }
-        public Nullable<double> Collapse { get; set; }
+        public double Collapse { get; set; }
         public Nullable<double> InternalMinYield { get; set; }
         public Nullable<double> JointStrengthSTC { get; set; }
         public Nullable<double> JointStrengthLTC { get; set; }
         public Nullable<double> JointStrengthBTC { get; set; }
         public Nullable<double> BodyYield { get; set; }
         public Nullable<double> Wall { get; set; }
-        public Nullable<double> InnerDiameter { get; set; }
+        public double InnerDiameter { get; set; }
         public Nullable<double> DriftDiameterAPI { get; set; }
         public Nullable<double> DriftDiameterSPDR { get; set; }
         public Nullable<double> MaximumSettingDepthSTC { get; set; }

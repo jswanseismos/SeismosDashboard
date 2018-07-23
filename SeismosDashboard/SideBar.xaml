@@ -4,30 +4,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SeismosDashboard"
+             xmlns:ss="clr-namespace:SeismosServices;assembly=SeismosServices"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <TreeView>
-                <TreeViewItem Header="Project 123" IsExpanded="True" IsSelected="True">
-                    <TreeViewItem Header="Well 1" IsExpanded="True">
-                        <TreeViewItem Header="Stage 1" />
-                        <TreeViewItem Header="Stage 2" />
-                        <TreeViewItem Header="Stage 3" />
-                        <TreeViewItem Header="Stage 4" />
-
-                    </TreeViewItem>
-                    <TreeViewItem Header="Well 2" IsExpanded="True">
-                        <TreeViewItem Header="Stage 1"  />
-                        <TreeViewItem Header="Stage 2" />
-                        <TreeViewItem Header="Stage 3" />
-                        <TreeViewItem Header="Stage 4" />
-                        <TreeViewItem Header="Stage 5" />
-
-                    </TreeViewItem>
-                </TreeViewItem>
+            <TreeView ItemsSource="{Binding ClientTrees}">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Projects}" DataType="{x:Type ss:NavClientNode}">
+                        <Label Content="{Binding Name}"/>
+                        <HierarchicalDataTemplate.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Wells}" DataType="{x:Type ss:NavProjectNode}">
+                                <Label Content="{Binding Name}"/>
+                                <HierarchicalDataTemplate.ItemTemplate>
+                                    <HierarchicalDataTemplate ItemsSource="{Binding Stages}" DataType="{x:Type ss:NavWellNode}">
+                                        <Label Content="{Binding Name}"/>
+                                        <!-- <HierarchicalDataTemplate.ItemTemplate> -->
+                                        <!--     <HierarchicalDataTemplate ItemsSource="{Binding Nodes}" DataType="{x:Type local:SampleNode3}"> -->
+                                        <!--         <Label Content="{Binding Name}"/> -->
+                                        <!--     </HierarchicalDataTemplate> -->
+                                        <!-- </HierarchicalDataTemplate.ItemTemplate> -->
+                                    </HierarchicalDataTemplate>
+                                </HierarchicalDataTemplate.ItemTemplate>
+                            </HierarchicalDataTemplate>
+                            
+                        </HierarchicalDataTemplate.ItemTemplate>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
             </TreeView>
         </StackPanel>
 
     </Grid>
 </UserControl>
+
