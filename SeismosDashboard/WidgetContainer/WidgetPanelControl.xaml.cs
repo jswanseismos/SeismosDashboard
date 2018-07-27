@@ -23,7 +23,7 @@ namespace SeismosDashboard
         public WidgetPanelControl()
         {
             InitializeComponent();
-            DataContext = new WidgetPanelControlViewModel();
+//            DataContext = new WidgetPanelControlViewModel();
         }
 
     }

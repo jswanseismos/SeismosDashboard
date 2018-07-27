@@ -13,6 +13,9 @@ namespace SeismosDashboard
     public class ClientWidgetViewModel : WidgetViewModelBase
     {
 
+        private const String AddButtonName = "Add Client";
+        private const String UpdateButtonName = "Update Client";
+
         private SeismosMetaDataService seismosMetaDataService = new SeismosMetaDataService();
 
         public ClientWidgetViewModel()
@@ -25,11 +28,8 @@ namespace SeismosDashboard
         {
             // get the current selected client id
             string selectedId = DashboardStorage.Instance.GetValue<string>("SelectedSeismosClientId");
-            Guid selectedGuid;
-            if (!Guid.TryParse(selectedId, out selectedGuid))
-            {
-                selectedGuid = Guid.Empty;
-            }
+            if (!Guid.TryParse(selectedId, out var selectedGuid)) selectedGuid = Guid.Empty;
+            
 
             // get list of clients as KeyValueEntity
             seismosClients = seismosMetaDataService.GetSeismosClientsAlt();
@@ -61,6 +61,7 @@ namespace SeismosDashboard
             DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientObject", SelectedSeismosClient);
             OnPropertyChanged(nameof(OcSeismosClients));
             OnPropertyChanged(nameof(SelectedSeismosClient));
+            addUpdateButtonName = AddUpdateButtonName;
         }
 
 
@@ -78,6 +79,16 @@ namespace SeismosDashboard
             set { ocSeismosClients = value; }
         }
 
+        private string addUpdateButtonName;
+        public string AddUpdateButtonName
+        {
+            get { return addUpdateButtonName; }
+            set
+            {
+                addUpdateButtonName = value;
+                OnPropertyChanged(nameof(AddUpdateButtonName));
+            }
+        }
 
 
         private KeyValueEntity selectedSeismosClient;
@@ -87,6 +98,11 @@ namespace SeismosDashboard
             set
             {
                 selectedSeismosClient = value;
+                DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientId", selectedSeismosClient.Id.ToString());
+                DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientName", selectedSeismosClient.Name);
+
+                AddUpdateButtonName = selectedSeismosClient.Name != String.Empty ? UpdateButtonName : AddButtonName;
+
                 OnPropertyChanged(nameof(SelectedSeismosClient));
             }
         }

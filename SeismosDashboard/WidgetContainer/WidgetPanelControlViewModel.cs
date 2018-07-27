@@ -22,12 +22,12 @@ namespace SeismosDashboard
        
         public WidgetPanelControlViewModel()
         {
-            viewModels = new ObservableCollection<WidgetViewModelBase>
-            {
-                new ClientWidgetViewModel(),
-                new ProjectWidgetViewModel(),
-                new WellsWidgetViewModel()
-            };
+            viewModels = new ObservableCollection<WidgetViewModelBase>();
+//            {
+//                new ClientWidgetViewModel(),
+//                new ProjectWidgetViewModel(),
+//                new WellsGeneralWidgetViewModel()
+//            };
         }
 
 

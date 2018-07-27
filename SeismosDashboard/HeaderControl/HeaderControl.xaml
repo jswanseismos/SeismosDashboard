@@ -5,17 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SeismosDashboard"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style TargetType="Button" x:Key="DisabledLabelStyle">
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{StaticResource TextControlBorderBrush}" />
-            <Setter Property="Background" Value="AliceBlue"/>
-
-        </Style>
-    </UserControl.Resources>
-
-    <Grid Background="{DynamicResource GroupBoxBackgroundBrush}">
+             d:DesignHeight="250" d:DesignWidth="800">
+    <!-- <UserControl.Resources> -->
+    <!--     <Style TargetType="Button" x:Key="DisabledLabelStyle"> -->
+    <!--         <Setter Property="BorderThickness" Value="1" /> -->
+    <!--         <Setter Property="BorderBrush" Value="{StaticResource TextControlBorderBrush}" /> -->
+    <!--         <Setter Property="Background" Value="AliceBlue"/> -->
+    <!-- -->
+    <!--     </Style> -->
+    <!-- </UserControl.Resources> -->
+    <Border BorderBrush="{StaticResource AccentBaseColorBrush}" BorderThickness="1">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -26,15 +26,16 @@
         <StackPanel Grid.Column="0">
             <Image Height="60"  Source="/SeismosDashboard;component/Resources/SeismosLogo.png" Stretch="Fill"/>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-            <Label FontSize="12" Margin="5" VerticalAlignment="Top" Height="23" >Customer</Label>
-            <Button FontSize="14" Margin="5" VerticalAlignment="Top" Height="28" Width="120" Content="{Binding SelectClientName}" Style="{StaticResource DisabledLabelStyle}" Command="{Binding SelectClientCommand}" HorizontalAlignment="Left" />
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <Label Content="Client" FontWeight="Bold" FontSize="14" Margin="5"   />
+            <TextBox IsReadOnly="True" FontWeight="Bold" FontSize="18" Margin="5,5,5,0" VerticalAlignment="Top" Width="120" Text="{Binding SelectClientName}" HorizontalAlignment="Left" />
             <!-- <Label FontSize="16" Margin="5" VerticalAlignment="Top" Height="30" Content="Customer 1" Style="{StaticResource DisabledLabelStyle}" /> -->
         </StackPanel>
-        <StackPanel Grid.Column="2">
-            <Label FontSize="12" Margin="5" VerticalAlignment="Top" Height="23" >Project</Label>
-            <Button FontSize="14" Margin="5" VerticalAlignment="Top" Height="28" Width="120" Content="{Binding SelectProjectName}" Style="{StaticResource DisabledLabelStyle}" Command="{Binding SelectProjectCommand}" HorizontalAlignment="Left" />
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+            <Label Content="Project" FontWeight="Bold" FontSize="14" Margin="5"  />
+                <TextBox FontWeight="Bold" FontSize="18" Margin="5" VerticalAlignment="Top" Width="120" Text="{Binding SelectProjectName}" HorizontalAlignment="Left"  IsReadOnly="True"/>
         </StackPanel>
         <!-- <Button Command="{Binding AddProjectCommand}" Content="Add/Edit Project" Grid.Column="3" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/> -->
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>

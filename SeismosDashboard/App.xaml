@@ -8,8 +8,17 @@
             <ResourceDictionary.MergedDictionaries>
                 <!--<ResourceDictionary Source="Themes/Expression/Common.xaml"/>-->
                 <!--<ResourceDictionary Source="Themes/Expression/Dark.xaml"/>-->
-                <ResourceDictionary Source="Themes/BureauBlue.xaml" />
+                <!-- <ResourceDictionary Source="Themes/BureauBlue.xaml" /> -->
                 <ResourceDictionary Source="Themes/AdditionalStyles.xaml" />
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <!-- https://mahapps.com/guides/quick-start.html -->
+                <!-- https://mahapps.com/controls/ -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <BitmapImage x:Key="LogoSource" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\projects\SeismosDashboard\SeismosDashboard\Resources\SeismosLogo.png"/>
         </ResourceDictionary>

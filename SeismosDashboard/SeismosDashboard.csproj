@@ -34,16 +34,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net46\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\ProjectWidgetController.cs" />
     <Compile Include="CustomerDialog.xaml.cs">
       <DependentUpon>CustomerDialog.xaml</DependentUpon>
     </Compile>
@@ -117,6 +127,7 @@
       <DependentUpon>MainPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPanelViewModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="ProjectDialog.xaml.cs">
       <DependentUpon>ProjectDialog.xaml</DependentUpon>
     </Compile>
@@ -152,10 +163,14 @@
       <DependentUpon>ProjectWidget.xaml</DependentUpon>
     </Compile>
     <Compile Include="Widgets\ProjectWidgetViewModel.cs" />
-    <Compile Include="Widgets\WellsWidget.xaml.cs">
-      <DependentUpon>WellsWidget.xaml</DependentUpon>
+    <Compile Include="Widgets\WellsGeneralWidget.xaml.cs">
+      <DependentUpon>WellsGeneralWidget.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\WellsWidgetViewModel.cs" />
+    <Compile Include="Widgets\WellsGeneralWidgetViewModel.cs" />
+    <Compile Include="Widgets\WellVolumesWidget.xaml.cs">
+      <DependentUpon>WellVolumesWidget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\WellVolumesWidgetViewModel.cs" />
     <Compile Include="Widgets\WidgetViewModelBase.cs" />
     <Page Include="CustomerDialog.xaml">
       <SubType>Designer</SubType>
@@ -304,7 +319,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Widgets\WellsWidget.xaml">
+    <Page Include="Widgets\WellsGeneralWidget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\WellVolumesWidget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -351,6 +370,8 @@
       <Name>SeismosServices</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\seismos.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

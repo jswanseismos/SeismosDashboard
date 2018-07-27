@@ -10,7 +10,7 @@ namespace SeismosServices
     {
         public KeyValueEntity()
         {
-            keyValuePairs = new List<KeyValueMutable<string, string>>();
+            keyValuePairs = new List<KeyValueMutable<string, object>>();
         }
 
         private Guid id;
@@ -27,8 +27,8 @@ namespace SeismosServices
             set { name = value; }
         }
 
-        private List<KeyValueMutable<string, string>> keyValuePairs;
-        public List<KeyValueMutable<string, string>> KeyValuePairs
+        private List<KeyValueMutable<string, object>> keyValuePairs;
+        public List<KeyValueMutable<string, object>> KeyValuePairs
         {
             get { return keyValuePairs; }
             set { keyValuePairs = value; }

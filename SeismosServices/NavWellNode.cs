@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SeismosServices
 {
     public class NavWellNode
     {
+
         private Guid id;
         public Guid Id
         {

@@ -36,7 +36,7 @@ namespace SeismosDashboard
             }
 
             registry[key] += action;
-            registry.Remove(key);
+//            registry.Remove(key);
 
         }
 

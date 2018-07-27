@@ -20,15 +20,17 @@ namespace SeismosDashboard
         // TODO investigate a way to have the current time on the header
         public HeaderControlViewModel()
         {
-//            addProjectCommand = new SimpleCommand(AddButtonExecute);
-            selectClientCommand = new SimpleCommand(SelectClientButtonExecute);
-            selectProjectCommand = new SimpleCommand(SelectProjectButtonExecute);
+            //            addProjectCommand = new SimpleCommand(AddButtonExecute);
+            //            selectClientCommand = new SimpleCommand(SelectClientButtonExecute);
+            //            selectProjectCommand = new SimpleCommand(SelectProjectButtonExecute);
 
-//            selectSeismosClient = DashboardStorage.Instance.GetValue<SeismosClient>("SelectedSeismosClient") ?? new SeismosClient();
+            //            selectSeismosClient = DashboardStorage.Instance.GetValue<SeismosClient>("SelectedSeismosClient") ?? new SeismosClient();
+            selectClientName = DashboardStorage.Instance.GetValue<String>("SelectedSeismosClientName") ?? "";
+            selectProjectName = DashboardStorage.Instance.GetValue<String>("SelectedSeismosProjectName") ?? "";
             selectSeismosClient = DashboardStorage.Instance.GetValue<KeyValueEntity>("SelectedSeismosClientObject") ?? new KeyValueEntity();
             selectSeismosProject = DashboardStorage.Instance.GetValue<KeyValueEntity>("SelectedSeismosProject") ?? new KeyValueEntity();
-            DashboardStorage.Instance.RegisterAction("SelectedSeismosClientObject", SelectedClientChange);
-            DashboardStorage.Instance.RegisterAction("SelectedSeismosProject", SelectedProjectChange);
+            DashboardStorage.Instance.RegisterAction("SelectedSeismosClientName", SelectedClientChange);
+            DashboardStorage.Instance.RegisterAction("SelectedSeismosProjectName", SelectedProjectChange);
         }
 
 
@@ -42,12 +44,13 @@ namespace SeismosDashboard
         private KeyValueEntity selectSeismosClient;
         private KeyValueEntity selectSeismosProject;
 
+        private string selectClientName;
         public string SelectClientName
         {
-            get { return selectSeismosClient.Name; }
+            get { return selectClientName; }
             set
             {
-                selectSeismosClient.Name = value;
+                selectClientName = value;
                 OnPropertyChanged(nameof(SelectClientName));
                 OnPropertyChanged(nameof(SelectProjectName));
             }
@@ -56,7 +59,7 @@ namespace SeismosDashboard
 
         private void SelectedClientChange()
         {
-            selectSeismosClient = DashboardStorage.Instance.GetValue<KeyValueEntity>("SelectedSeismosClientObject") ?? new KeyValueEntity();
+            selectClientName = DashboardStorage.Instance.GetValue<String>("SelectedSeismosClientName") ?? "";
             selectSeismosProject = new KeyValueEntity();
             OnPropertyChanged(nameof(SelectClientName));
             OnPropertyChanged(nameof(SelectProjectName));
@@ -64,16 +67,17 @@ namespace SeismosDashboard
 
         private void SelectedProjectChange()
         {
-            selectSeismosProject = DashboardStorage.Instance.GetValue<KeyValueEntity>("SelectedSeismosProject") ?? new KeyValueEntity();
+            selectProjectName = DashboardStorage.Instance.GetValue<String>("SelectedSeismosProjectName") ?? "";
             OnPropertyChanged(nameof(SelectProjectName));
         }
 
+        private string selectProjectName;
         public string SelectProjectName
         {
-            get { return selectSeismosProject.Name; }
+            get { return selectProjectName; }
             set
             {
-                selectSeismosProject.Name = value;
+                selectProjectName = value;
                 OnPropertyChanged(nameof(SelectProjectName));
             }
 
@@ -96,6 +100,7 @@ namespace SeismosDashboard
         }
 
         private ICommand selectProjectCommand;
+
         public ICommand SelectProjectCommand
         {
             get { return selectProjectCommand; }

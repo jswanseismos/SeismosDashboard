@@ -9,9 +9,9 @@ using SeismosServices;
 
 namespace SeismosDashboard
 {
-    public class WellsWidgetViewModel : WidgetViewModelBase
+    public class WellVolumesWidgetViewModel : WidgetViewModelBase
     {
-        public WellsWidgetViewModel()
+        public WellVolumesWidgetViewModel()
         {
             wellDataService = new WellDataService();
 

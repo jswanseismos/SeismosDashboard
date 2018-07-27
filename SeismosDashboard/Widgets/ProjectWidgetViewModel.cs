@@ -2,15 +2,97 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using SeismosDataLibrary;
 using SeismosServices;
 
 namespace SeismosDashboard
 {
+    public class EditTemplateSelector : DataTemplateSelector
+
+    {
+
+        public DataTemplate TextEditDataTemplate
+
+        { get; set; }
+
+
+        public DataTemplate DateEditDataTemplate
+
+        { get; set; }
+
+
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+
+        {
+
+            if (item is KeyValueMutable<string, object> keyValue)
+            {
+                switch (keyValue.Text)
+                {
+                    case string _:
+                        return TextEditDataTemplate;
+                    case DateTime _:
+                        return DateEditDataTemplate;
+                }
+
+            }
+
+
+            return base.SelectTemplate(item, container);
+
+        }
+
+    }
+
+    public class TextTemplateSelector : DataTemplateSelector
+
+    {
+
+        public DataTemplate TextDataTemplate
+
+        { get; set; }
+
+
+        public DataTemplate DateDataTemplate
+
+        { get; set; }
+
+
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+
+        {
+
+            if (item is KeyValueMutable<string, object> keyValue)
+            {
+                if (keyValue.Text == null)
+                    return TextDataTemplate;
+                switch (keyValue.Text)
+                {
+                    case string _:
+                        return TextDataTemplate;
+                    case DateTime _:
+                        return DateDataTemplate;
+                }
+
+            }
+
+
+            return base.SelectTemplate(item, container);
+
+        }
+
+    }
+
+
     public class ProjectWidgetViewModel : WidgetViewModelBase
     {
-//        private ObservableCollection<KeyValueMutable<string, string>> ocSeismosProjectData;
+        //        private ObservableCollection<KeyValueMutable<string, string>> ocSeismosProjectData;
+
+        private const String AddButtonName = "Add Project";
+        private const String UpdateButtonName = "Update Project";
 
 
         public ProjectWidgetViewModel()
@@ -39,7 +121,7 @@ namespace SeismosDashboard
         private void InitializeProject()
         {
             // if there is no selected client then the rest is no necessary
-            if (selectSeismosClientId == Guid.Empty) return;
+//            if (selectSeismosClientId == Guid.Empty) return;
             // get the projects for the selected client and put into observable collection
             seismosProjects = metaDataService.GetSeismosProjectsAlt(selectSeismosClientId);
             ocSeismosProjects = new ObservableCollection<KeyValueEntity>(seismosProjects);
@@ -80,7 +162,7 @@ namespace SeismosDashboard
             //            SelectedSeismosClient.KeyValuePairs = OcSeismosClientData.ToList();
             //            var updatedGuid = seismosMetaDataService.UpdateSeismosClientAlt(SelectedSeismosClient);
             // push changes to the database. get the updated guid of the selected object
-            var updatedGuid = metaDataService.UpdateSeismosProjectAlt(SelectSeismosProject);
+            var updatedGuid = metaDataService.UpdateSeismosProjectAlt(SelectSeismosProject, selectSeismosClientId);
 
             DashboardStorage.Instance.AddOrUpdate("SelectedSeismosProjectId", updatedGuid.ToString());
             // this is just to show the name to the header
@@ -91,7 +173,7 @@ namespace SeismosDashboard
 //            OnPropertyChanged(nameof(OcSeismosProjectData));
             OnPropertyChanged(nameof(OcSeismosProjects));
             OnPropertyChanged(nameof(SelectSeismosProject));
-            return;
+            addUpdateButtonName = AddUpdateButtonName;
 
 
         }
@@ -103,11 +185,13 @@ namespace SeismosDashboard
             set
             {
                 selectSeismosProject = value;
-//                ocSeismosProjectData = new ObservableCollection<KeyValueMutable<string, string>>(
-//                    SelectSeismosProject?.KeyValuePairs ?? new List<KeyValueMutable<string, string>>());
-//                OnPropertyChanged(nameof(SelectSeismosProject));
-//                OnPropertyChanged(nameof(OcSeismosProjectData));
-
+                //                ocSeismosProjectData = new ObservableCollection<KeyValueMutable<string, string>>(
+                //                    SelectSeismosProject?.KeyValuePairs ?? new List<KeyValueMutable<string, string>>());
+                //                OnPropertyChanged(nameof(SelectSeismosProject));
+                //                OnPropertyChanged(nameof(OcSeismosProjectData));
+                DashboardStorage.Instance.AddOrUpdate("SelectedSeismosProjectId", selectSeismosProject.Id.ToString());
+                DashboardStorage.Instance.AddOrUpdate("SelectedSeismosProjectName", selectSeismosProject.Name);
+                AddUpdateButtonName = String.IsNullOrEmpty(selectSeismosProject.Name) ? AddButtonName : UpdateButtonName;
                 OnPropertyChanged(nameof(SelectSeismosProject));
             }
         }
@@ -133,11 +217,22 @@ namespace SeismosDashboard
         //            }
         //        }
 
-//        public ObservableCollection<KeyValueMutable<string, string>> OcSeismosProjectData
-//        {
-//            get { return ocSeismosProjectData; }
-//            set { ocSeismosProjectData = value; }
-//        }
+        //        public ObservableCollection<KeyValueMutable<string, string>> OcSeismosProjectData
+        //        {
+        //            get { return ocSeismosProjectData; }
+        //            set { ocSeismosProjectData = value; }
+        //        }
+
+        private string addUpdateButtonName;
+        public string AddUpdateButtonName
+        {
+            get { return addUpdateButtonName; }
+            set
+            {
+                addUpdateButtonName = value;
+                OnPropertyChanged(nameof(AddUpdateButtonName));
+            }
+        }
 
 
         private Guid selectSeismosClientId;
@@ -155,6 +250,10 @@ namespace SeismosDashboard
             InitializeProject();
             OnPropertyChanged(nameof(OcSeismosProjects));
             OnPropertyChanged(nameof(SelectSeismosProject));
+
+            
+
+
         }
 
     }

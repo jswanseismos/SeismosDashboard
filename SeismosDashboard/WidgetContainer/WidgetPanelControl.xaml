@@ -9,20 +9,6 @@
 
 
     <Grid>
-        <!-- <WrapPanel> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel1}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel2}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel3}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel4}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel5}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel6}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel7}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel8}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel9}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel10}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel11}" ></local:WidgetControl> -->
-        <!--     <local:WidgetControl DataContext="{Binding WidgetViewModel12}" ></local:WidgetControl> -->
-        <!-- </WrapPanel>   -->
         <ItemsControl ItemsSource="{Binding ViewModels}" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

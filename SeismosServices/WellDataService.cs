@@ -13,6 +13,119 @@ namespace SeismosServices
     public class WellDataService
     {
 
+        public void AddWells(KeyValueEntity wells, Guid targetProjectId)
+        {
+            SeismosProject targetProject;
+
+            using (var seismosContext = new seismosEntities())
+            {
+                targetProject = seismosContext.SeismosProjects.FirstOrDefault(sp => sp.Id == targetProjectId);
+                if (targetProject == null) return;
+
+                var currWells = targetProject.Wells.ToList();
+                foreach (var wellsKeyValuePair in wells.KeyValuePairs)
+                {
+                    if (wellsKeyValuePair == null) continue;
+                    var existingWell = currWells.FirstOrDefault(cw => cw.WellName == wellsKeyValuePair.Id);
+                    if (existingWell != null) continue;
+
+                    if (!Int32.TryParse(wellsKeyValuePair.Text.ToString(), out var iStagesToCreate))
+                    {
+                        iStagesToCreate = 0;
+                    }
+
+                    var insertWell = new Well
+                    {
+                        Id = Guid.NewGuid(),
+                        WellName = wellsKeyValuePair.Id,
+                        SeismosProject = targetProject
+                    };
+
+                    var hfTreatment = new HydraulicFracturingTreatment()
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = insertWell.WellName + " HF",
+                        Type = TreatmentTypeEnum.HydraulicFracturing,
+                        Stages = new List<Stage>()
+                    };
+
+
+                    for (int index = 0; index < iStagesToCreate; index++)
+                    {
+                        hfTreatment.Stages.Add(new Stage() { Id = Guid.NewGuid(), Number = index, StartTime = DateTime.Now, StopTime = DateTime.Now });
+                    }
+
+                    insertWell.Treatments.Add(hfTreatment);
+
+                    seismosContext.Wells.Add(insertWell);
+
+
+                }
+
+                seismosContext.SaveChanges();
+
+            }
+
+        }
+
+        private int GetStageCount(Well well)
+        {
+            int result = 0;
+
+            if (well.Treatments == null || well.Treatments.Count == 0) return 0;
+            foreach (var treatment in well.Treatments)
+            {
+                if (treatment is HydraulicFracturingTreatment fracturingTreatment)
+                {
+                    result += fracturingTreatment.Stages.Count();
+                }
+            }
+
+            return result;
+        }
+
+
+        public KeyValueEntity GetWellNamesEntity(Guid seismosProjectId)
+        {
+            KeyValueEntity wellsEntity = new KeyValueEntity();
+
+            SeismosProject targetProject;
+            List<Well> wells;
+            
+            using (var seismosContext = new seismosEntities())
+            {
+                targetProject = seismosContext.SeismosProjects.FirstOrDefault(sp => sp.Id == seismosProjectId);
+                if (targetProject == null) return null;
+
+//                wells = seismosContext.Wells.Where(w => w.SeismosProject.Id == targetProject.Id).ToList();
+                wells = targetProject.Wells.ToList();
+
+
+                wellsEntity.Id = targetProject.Id;
+                wellsEntity.Name = targetProject.Name;
+                foreach (var well in wells)
+                {
+                    int numStages = 0;
+                    var treatments = seismosContext.Treatments.Where(tr => tr.WellId == well.Id).ToList();
+                    foreach (var treatment in treatments)
+                    {
+                        if (treatment is HydraulicFracturingTreatment fracturingTreatment)
+                        {
+                            numStages += fracturingTreatment.Stages.Count();
+                        }
+                    }
+
+
+                    wellsEntity.KeyValuePairs.Add(new KeyValueMutable<string, object>(well.WellName, numStages.ToString()));
+
+                }
+
+            }
+
+
+            return wellsEntity;
+        }
+
 
         public List<WellEntry> GetWellEntries()
         {
@@ -115,6 +228,7 @@ namespace SeismosServices
 
 
         }
+
 
         public void AddWellEntry(WellEntry wellEntry, Guid targetProjectId)
         {

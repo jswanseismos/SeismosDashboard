@@ -11,12 +11,27 @@
         <GradientStop Color="#FFD4D7DB" Offset="1" />
     </LinearGradientBrush>
 
+    <!-- datagrid specific resources -->
+    <SolidColorBrush x:Key="HeaderSeparator" Color="#FFD7D5D8" />
+    <SolidColorBrush x:Key="GridBorder" Color="#FFD6D7D6" />
+
+    <SolidColorBrush x:Key="dropLocator" Color="{StaticResource DropLocate}" />
+    <LinearGradientBrush x:Key="sortArrow" EndPoint="0.725,0.832" StartPoint="0.275,0.168">
+        <GradientStop Color="{StaticResource PressStroke2}"/>
+        <GradientStop Color="{StaticResource DataSortArrow}" Offset="1"/>
+    </LinearGradientBrush>
+
+
 
     <Style BasedOn="{StaticResource {x:Type GroupBox}}"
 
            TargetType="{x:Type seismosDashboard:WidgetBoxAdv}">
 
     </Style>
+    <LinearGradientBrush x:Key="TextControlBorderBrush"  EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFABAEB3"/>
+        <GradientStop Color="#FFE2E8EE" Offset="1"/>
+    </LinearGradientBrush>
 
 
 </ResourceDictionary>

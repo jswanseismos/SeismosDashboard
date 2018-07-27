@@ -3,11 +3,11 @@
 namespace SeismosDashboard
 {
     /// <summary>
-    /// Interaction logic for WellsWidget.xaml
+    /// Interaction logic for WellsGeneralWidget.xaml
     /// </summary>
-    public partial class WellsWidget : UserControl
+    public partial class WellsGeneralWidget : UserControl
     {
-        public WellsWidget()
+        public WellsGeneralWidget()
         {
             InitializeComponent();
         }

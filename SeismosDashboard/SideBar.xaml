@@ -7,23 +7,26 @@
              xmlns:ss="clr-namespace:SeismosServices;assembly=SeismosServices"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="TreeViewExpanded" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="IsExpanded" Value="True"/>
+        </Style>
+        <Style x:Key="TreeViewCollapsed" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="IsExpanded" Value="False"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <StackPanel>
-            <TreeView ItemsSource="{Binding ClientTrees}">
+            <TreeView ItemsSource="{Binding ClientTrees}" ItemContainerStyle="{StaticResource TreeViewExpanded}" SelectedItemChanged="TreeView_OnSelectedItemChanged" >
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Projects}" DataType="{x:Type ss:NavClientNode}">
+                    <HierarchicalDataTemplate ItemContainerStyle="{StaticResource TreeViewExpanded}"  ItemsSource="{Binding Projects}" DataType="{x:Type ss:NavClientNode}">
                         <Label Content="{Binding Name}"/>
                         <HierarchicalDataTemplate.ItemTemplate>
-                            <HierarchicalDataTemplate ItemsSource="{Binding Wells}" DataType="{x:Type ss:NavProjectNode}">
+                            <HierarchicalDataTemplate ItemContainerStyle="{StaticResource TreeViewCollapsed}" ItemsSource="{Binding Wells}" DataType="{x:Type ss:NavProjectNode}">
                                 <Label Content="{Binding Name}"/>
                                 <HierarchicalDataTemplate.ItemTemplate>
-                                    <HierarchicalDataTemplate ItemsSource="{Binding Stages}" DataType="{x:Type ss:NavWellNode}">
+                                    <HierarchicalDataTemplate ItemContainerStyle="{StaticResource TreeViewCollapsed}"  ItemsSource="{Binding Stages}" DataType="{x:Type ss:NavWellNode}">
                                         <Label Content="{Binding Name}"/>
-                                        <!-- <HierarchicalDataTemplate.ItemTemplate> -->
-                                        <!--     <HierarchicalDataTemplate ItemsSource="{Binding Nodes}" DataType="{x:Type local:SampleNode3}"> -->
-                                        <!--         <Label Content="{Binding Name}"/> -->
-                                        <!--     </HierarchicalDataTemplate> -->
-                                        <!-- </HierarchicalDataTemplate.ItemTemplate> -->
                                     </HierarchicalDataTemplate>
                                 </HierarchicalDataTemplate.ItemTemplate>
                             </HierarchicalDataTemplate>

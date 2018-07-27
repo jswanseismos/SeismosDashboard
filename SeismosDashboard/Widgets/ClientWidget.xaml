@@ -3,10 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <!-- TODO clean up the styles on this control. -->
-    <!-- TODO Create a style for the key/value pair datagrid -->
+             mc:Ignorable="d">
+    <Border BorderBrush="{StaticResource AccentBaseColorBrush}" BorderThickness="1">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -19,15 +17,16 @@
                       SelectedItem="{Binding Path=SelectedSeismosClient, Mode=TwoWay}"  
                       SelectedValuePath="Id" ItemsSource="{Binding Path=OcSeismosClients}" DisplayMemberPath="Name">
                 </ComboBox>
-            <DataGrid ItemsSource="{Binding Path=SelectedSeismosClient.KeyValuePairs}" CanUserAddRows="false" AutoGenerateColumns="False" HeadersVisibility="None" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top">
+            <DataGrid Style="{StaticResource AzureDataGrid}" ItemsSource="{Binding Path=SelectedSeismosClient.KeyValuePairs}" CanUserAddRows="false" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" IsReadOnly="True"/>
-                    <DataGridTextColumn Binding="{Binding Text}" ClipboardContentBinding="{x:Null}"/>
+                    <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header=""/>
+                    <DataGridTextColumn Binding="{Binding Text}" Header="Values" />
                 </DataGrid.Columns>
             </DataGrid>
             <Label FontSize="24" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                <Button Content="Set Client" Width="75" Command="{Binding SaveCommand}"/>
+                    <Button Content="{Binding AddUpdateButtonName}" Command="{Binding SaveCommand}"/>
             </Label>
         </StackPanel>
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>

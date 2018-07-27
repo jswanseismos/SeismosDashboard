@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,12 +96,12 @@ namespace SeismosServices
                 {
                     Id = Guid.Empty,
                     Name = String.Empty,
-                    KeyValuePairs = new List<KeyValueMutable<string, string>>()
+                    KeyValuePairs = new List<KeyValueMutable<string, object>>()
                     {
-                        new KeyValueMutable<string, string>(ClientName, String.Empty),
-                        new KeyValueMutable<string, string>(ContactName, String.Empty),
-                        new KeyValueMutable<string, string>(EmailAddress, String.Empty),
-                        new KeyValueMutable<string, string>(PhoneNumber, String.Empty)
+                        new KeyValueMutable<string, object>(ClientName, String.Empty),
+                        new KeyValueMutable<string, object>(ContactName, String.Empty),
+                        new KeyValueMutable<string, object>(EmailAddress, String.Empty),
+                        new KeyValueMutable<string, object>(PhoneNumber, String.Empty)
                     }
                 }
             };
@@ -113,12 +114,12 @@ namespace SeismosServices
                 {
                     Id = seismosClient.Id,
                     Name = seismosClient.ClientName,
-                    KeyValuePairs = new List<KeyValueMutable<string, string>>()
+                    KeyValuePairs = new List<KeyValueMutable<string, object>>()
                     {
-                        new KeyValueMutable<string, string>(ClientName, seismosClient.ClientName),
-                        new KeyValueMutable<string, string>(ContactName, seismosClient.Contact),
-                        new KeyValueMutable<string, string>(EmailAddress, seismosClient.Email),
-                        new KeyValueMutable<string, string>(PhoneNumber, seismosClient.PhoneNumber)
+                        new KeyValueMutable<string, object>(ClientName, seismosClient.ClientName),
+                        new KeyValueMutable<string, object>(ContactName, seismosClient.Contact),
+                        new KeyValueMutable<string, object>(EmailAddress, seismosClient.Email),
+                        new KeyValueMutable<string, object>(PhoneNumber, seismosClient.PhoneNumber)
                     }
                 });
             }
@@ -128,13 +129,6 @@ namespace SeismosServices
 
         public List<KeyValueEntity> GetSeismosProjectsAlt(Guid seismosClientId)
         {
-            List<SeismosProject> seismosProjects;
-            if (seismosClientId == Guid.Empty) return null;
-
-            using (var seismosContext = new seismosEntities())
-            {
-                seismosProjects = seismosContext.SeismosProjects.Where(sp => sp.SeismosClientId == seismosClientId).ToList();
-            }
 
             List<KeyValueEntity> keyValueEntities = new List<KeyValueEntity>
             {
@@ -142,25 +136,32 @@ namespace SeismosServices
                 {
                     Id = Guid.Empty,
                     Name = String.Empty,
-                    KeyValuePairs = new List<KeyValueMutable<string, string>>()
+                    KeyValuePairs = new List<KeyValueMutable<string, object>>()
                     {
-                        new KeyValueMutable<string, string>(ProjectName, String.Empty),
-                        new KeyValueMutable<string, string>(Field, String.Empty),
-                        new KeyValueMutable<string, string>(Pad, String.Empty),
-                        new KeyValueMutable<string, string>(JobNum, String.Empty),
-                        new KeyValueMutable<string, string>(AFENum, String.Empty),
-                        new KeyValueMutable<string, string>(Formation, String.Empty),
-                        new KeyValueMutable<string, string>(County, String.Empty),
-                        new KeyValueMutable<string, string>(State, String.Empty),
-                        new KeyValueMutable<string, string>(StartDate, String.Empty),
-                        new KeyValueMutable<string, string>(EndDate, String.Empty),
-                        new KeyValueMutable<string, string>(LastModified, String.Empty),
-                        new KeyValueMutable<string, string>(LastModifiedBy, String.Empty)
+                        new KeyValueMutable<string, object>(ProjectName, String.Empty),
+                        new KeyValueMutable<string, object>(Field, String.Empty),
+                        new KeyValueMutable<string, object>(Pad, String.Empty),
+                        new KeyValueMutable<string, object>(JobNum, String.Empty),
+                        new KeyValueMutable<string, object>(AFENum, String.Empty),
+                        new KeyValueMutable<string, object>(Formation, String.Empty),
+                        new KeyValueMutable<string, object>(County, String.Empty),
+                        new KeyValueMutable<string, object>(State, String.Empty),
+                        new KeyValueMutable<string, object>(StartDate, String.Empty),
+                        new KeyValueMutable<string, object>(EndDate, String.Empty),
+                        new KeyValueMutable<string, object>(LastModified, String.Empty),
+                        new KeyValueMutable<string, object>(LastModifiedBy, String.Empty)
                     }
                 }
             };
 
+            List<SeismosProject> seismosProjects;
+            if (seismosClientId == Guid.Empty)
+                return keyValueEntities;
 
+            using (var seismosContext = new seismosEntities())
+            {
+                seismosProjects = seismosContext.SeismosProjects.Where(sp => sp.SeismosClientId == seismosClientId).ToList();
+            }
 
             foreach (var seismosProject in seismosProjects)
             {
@@ -168,20 +169,20 @@ namespace SeismosServices
                 {
                     Id = seismosProject.Id,
                     Name = seismosProject.Name,
-                    KeyValuePairs = new List<KeyValueMutable<string, string>>()
+                    KeyValuePairs = new List<KeyValueMutable<string, object>>()
                     {
-                        new KeyValueMutable<string, string>(ProjectName, seismosProject.Name),
-                        new KeyValueMutable<string, string>(Field, seismosProject.Field),
-                        new KeyValueMutable<string, string>(Pad, seismosProject.Pad),
-                        new KeyValueMutable<string, string>(JobNum, seismosProject.JobNum),
-                        new KeyValueMutable<string, string>(AFENum, seismosProject.AFENum),
-                        new KeyValueMutable<string, string>(Formation, seismosProject.Formation),
-                        new KeyValueMutable<string, string>(County, seismosProject.County),
-                        new KeyValueMutable<string, string>(State, seismosProject.State),
-                        new KeyValueMutable<string, string>(StartDate, seismosProject.StartDate.ToString("G")),
-                        new KeyValueMutable<string, string>(EndDate, seismosProject.EndDate.ToString("G")),
-                        new KeyValueMutable<string, string>(LastModified, seismosProject.LastModified.ToString("G")),
-                        new KeyValueMutable<string, string>(LastModifiedBy, seismosProject.LastModifiedBy)
+                        new KeyValueMutable<string, object>(ProjectName, seismosProject.Name ?? String.Empty),
+                        new KeyValueMutable<string, object>(Field, seismosProject.Field ?? String.Empty),
+                        new KeyValueMutable<string, object>(Pad, seismosProject.Pad ?? String.Empty),
+                        new KeyValueMutable<string, object>(JobNum, seismosProject.JobNum ?? String.Empty),
+                        new KeyValueMutable<string, object>(AFENum, seismosProject.AFENum ?? String.Empty),
+                        new KeyValueMutable<string, object>(Formation, seismosProject.Formation ?? String.Empty),
+                        new KeyValueMutable<string, object>(County, seismosProject.County ?? String.Empty),
+                        new KeyValueMutable<string, object>(State, seismosProject.State ?? String.Empty),
+                        new KeyValueMutable<string, object>(StartDate, seismosProject.StartDate),
+                        new KeyValueMutable<string, object>(EndDate, seismosProject.EndDate),
+                        new KeyValueMutable<string, object>(LastModified, seismosProject.LastModified),
+                        new KeyValueMutable<string, object>(LastModifiedBy, seismosProject.LastModifiedBy ?? String.Empty)
                     }
                 });
             }
@@ -213,16 +214,16 @@ namespace SeismosServices
                     switch (keyValuePair.Id)
                     {
                         case ClientName:
-                            updateSeismosClient.ClientName = keyValuePair.Text;
+                            updateSeismosClient.ClientName = keyValuePair.Text.ToString();
                             break;
                         case ContactName:
-                            updateSeismosClient.Contact = keyValuePair.Text;
+                            updateSeismosClient.Contact = keyValuePair.ToString();
                             break;
                         case EmailAddress:
-                            updateSeismosClient.Email = keyValuePair.Text;
+                            updateSeismosClient.Email = keyValuePair.Text.ToString();
                             break;
                         case PhoneNumber:
-                            updateSeismosClient.PhoneNumber = keyValuePair.Text;
+                            updateSeismosClient.PhoneNumber = keyValuePair.Text.ToString();
                             break;
                     }
                 }
@@ -240,7 +241,7 @@ namespace SeismosServices
             return retGuid;
         }
 
-        public Guid UpdateSeismosProjectAlt(KeyValueEntity seismosKeyValueEntity)
+        public Guid UpdateSeismosProjectAlt(KeyValueEntity seismosKeyValueEntity, Guid seismosClientId)
         {
             Guid retGuid;
             using (var seismosContext = new seismosEntities())
@@ -258,46 +259,47 @@ namespace SeismosServices
                 }
 
                 if (updateSeismoProject == null) return Guid.Empty;
+                updateSeismoProject.SeismosClientId = seismosClientId;
 
                 foreach (var keyValuePair in seismosKeyValueEntity.KeyValuePairs)
                 {
                     switch (keyValuePair.Id)
                     {
                         case ProjectName:
-                            updateSeismoProject.Name = keyValuePair.Text;
+                            updateSeismoProject.Name = keyValuePair.Text.ToString();
                             break;
                         case Field:
-                            updateSeismoProject.Field = keyValuePair.Text;
+                            updateSeismoProject.Field = keyValuePair.Text.ToString();
                             break;
                         case Pad:
-                            updateSeismoProject.Pad = keyValuePair.Text;
+                            updateSeismoProject.Pad = keyValuePair.Text.ToString();
                             break;
                         case JobNum:
-                            updateSeismoProject.JobNum = keyValuePair.Text;
+                            updateSeismoProject.JobNum = keyValuePair.Text.ToString();
                             break;
                         case AFENum:
-                            updateSeismoProject.AFENum = keyValuePair.Text;
+                            updateSeismoProject.AFENum = keyValuePair.Text.ToString();
                             break;
                         case Formation:
-                            updateSeismoProject.Formation = keyValuePair.Text;
+                            updateSeismoProject.Formation = keyValuePair.Text.ToString();
                             break;
                         case County:
-                            updateSeismoProject.County = keyValuePair.Text;
+                            updateSeismoProject.County = keyValuePair.Text.ToString();
                             break;
                         case State:
-                            updateSeismoProject.State = keyValuePair.Text;
+                            updateSeismoProject.State = keyValuePair.Text.ToString();
                             break;
                         case StartDate:
-                            updateSeismoProject.StartDate = DateTime.Parse( keyValuePair.Text);
+                            updateSeismoProject.StartDate = (DateTime) keyValuePair.Text;
                             break;
                         case EndDate:
-                            updateSeismoProject.EndDate = DateTime.Parse(keyValuePair.Text);
+                            updateSeismoProject.EndDate = (DateTime)keyValuePair.Text;
                             break;
                         case LastModified:
-                            updateSeismoProject.LastModified = DateTime.Parse(keyValuePair.Text);
+                            updateSeismoProject.LastModified = (DateTime)keyValuePair.Text;
                             break;
                         case LastModifiedBy:
-                            updateSeismoProject.LastModifiedBy = keyValuePair.Text;
+                            updateSeismoProject.LastModifiedBy = keyValuePair.Text.ToString();
                             break;
                     }
                 }

@@ -24,8 +24,11 @@
         <DataTemplate DataType="{x:Type local:ProjectWidgetViewModel}">
             <local:ProjectWidget Visibility="{Binding IsVisible, Converter={StaticResource BoolToVis}}" ></local:ProjectWidget>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type local:WellsWidgetViewModel}">
-            <local:WellsWidget Visibility="{Binding IsVisible, Converter={StaticResource BoolToVis}}" ></local:WellsWidget>
+        <DataTemplate DataType="{x:Type local:WellVolumesWidgetViewModel}">
+            <local:WellVolumesWidget Visibility="{Binding IsVisible, Converter={StaticResource BoolToVis}}" ></local:WellVolumesWidget>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:WellsGeneralWidgetViewModel}">
+            <local:WellsGeneralWidget Visibility="{Binding IsVisible, Converter={StaticResource BoolToVis}}" ></local:WellsGeneralWidget>
         </DataTemplate>
 
 
