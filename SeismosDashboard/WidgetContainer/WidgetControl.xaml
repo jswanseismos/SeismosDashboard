@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:SeismosDashboard"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <!-- TODO add visibility controls to widget controls and plan for sleep mode -->
     <!-- will need to add this to the widgetviewmodelbase and have the default set to true.
             each of the controls in the datatemplates will need visibility attribute binding 
             (unless there is a way to set it by default)
@@ -15,9 +14,6 @@
             and the state could be serialized and stored to prevent memory leaks -->
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
-        <DataTemplate DataType="{x:Type local:MessageWidgetControlViewModel}">
-            <local:MessageWidgetControl></local:MessageWidgetControl>
-        </DataTemplate>
         <DataTemplate DataType="{x:Type local:ClientWidgetViewModel}">
             <local:ClientWidget Visibility="{Binding IsVisible, Converter={StaticResource BoolToVis}}"></local:ClientWidget>
         </DataTemplate>

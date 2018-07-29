@@ -100,7 +100,7 @@ namespace SeismosDashboard
             this.metaDataService = new SeismosMetaDataService();
             Initialize();
             InitializeProject();
-            DashboardStorage.Instance.RegisterAction("SelectedSeismosClientId", SelectedProjectChange);
+            DashboardStorage.Instance.RegisterAction(DashboardEventsEnum.CurrentSeismosClientId, SelectedProjectChange);
             saveCommand = new SimpleCommand(SaveAction);
 
         }
@@ -108,7 +108,7 @@ namespace SeismosDashboard
         private void Initialize()
         {
             // get the selected client id
-            string selectedId = DashboardStorage.Instance.GetValue<string>("SelectedSeismosClientId");
+            string selectedId = DashboardStorage.Instance.GetValue<string>(DashboardEventsEnum.CurrentSeismosClientId);
             if (!Guid.TryParse(selectedId, out selectSeismosClientId))
             {
                 selectSeismosClientId = Guid.Empty;
@@ -127,7 +127,7 @@ namespace SeismosDashboard
             ocSeismosProjects = new ObservableCollection<KeyValueEntity>(seismosProjects);
 
             // get the selected project from the observable collection
-            string selectedProjectId = DashboardStorage.Instance.GetValue<string>("SelectedSeismosProjectId");
+            string selectedProjectId = DashboardStorage.Instance.GetValue<string>(DashboardEventsEnum.CurrentSeismosProjectId);
             if (!Guid.TryParse(selectedProjectId, out selectSeismosProjectId))
             {
                 selectSeismosProjectId = Guid.Empty;
@@ -164,10 +164,10 @@ namespace SeismosDashboard
             // push changes to the database. get the updated guid of the selected object
             var updatedGuid = metaDataService.UpdateSeismosProjectAlt(SelectSeismosProject, selectSeismosClientId);
 
-            DashboardStorage.Instance.AddOrUpdate("SelectedSeismosProjectId", updatedGuid.ToString());
+            DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosProjectId, updatedGuid.ToString());
             // this is just to show the name to the header
             // TODO need to change this to get the name from the id
-            DashboardStorage.Instance.AddOrUpdate("SelectedSeismosProject", SelectSeismosProject);
+//            DashboardStorage.Instance.AddOrUpdate("SelectedSeismosProject", SelectSeismosProject);
             InitializeProject();
 //            DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientObject", SelectedSeismosClient);
 //            OnPropertyChanged(nameof(OcSeismosProjectData));
@@ -189,8 +189,8 @@ namespace SeismosDashboard
                 //                    SelectSeismosProject?.KeyValuePairs ?? new List<KeyValueMutable<string, string>>());
                 //                OnPropertyChanged(nameof(SelectSeismosProject));
                 //                OnPropertyChanged(nameof(OcSeismosProjectData));
-                DashboardStorage.Instance.AddOrUpdate("SelectedSeismosProjectId", selectSeismosProject.Id.ToString());
-                DashboardStorage.Instance.AddOrUpdate("SelectedSeismosProjectName", selectSeismosProject.Name);
+                DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosProjectId, selectSeismosProject.Id.ToString());
+                DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosProjectName, selectSeismosProject.Name);
                 AddUpdateButtonName = String.IsNullOrEmpty(selectSeismosProject.Name) ? AddButtonName : UpdateButtonName;
                 OnPropertyChanged(nameof(SelectSeismosProject));
             }

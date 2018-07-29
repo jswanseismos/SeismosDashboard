@@ -17,6 +17,11 @@ namespace SeismosDashboard
         public ProjectWidgetController(WidgetPanelControlViewModel widgetPanelControlVm)
         {
             this.widgetPanelControlVm = widgetPanelControlVm;
+
+            DashboardStorage.Instance.RegisterAction(DashboardEventsEnum.NavProjectSelected, HandleProjectChange);
+            DashboardStorage.Instance.RegisterAction(DashboardEventsEnum.NavStageSelected, HandleStageChange);
+            DashboardStorage.Instance.RegisterAction(DashboardEventsEnum.NavWellSelected, HandleWellChange);
+
             Initialize();
         }
 
@@ -33,9 +38,29 @@ namespace SeismosDashboard
 //            wellsWidget.ChangeSleepMode(true);
         }
 
+        private void HandleProjectChange()
+        {
+            clientWidget.ChangeSleepMode(false);
+            projectWidget.ChangeSleepMode(false);
+            wellsWidget.ChangeSleepMode(false);
+
+        }
+
+        private void HandleWellChange()
+        {
+            clientWidget.ChangeSleepMode(true);
+            projectWidget.ChangeSleepMode(true);
+            wellsWidget.ChangeSleepMode(true);
+
+        }
+
+        private void HandleStageChange()
+        {
+            clientWidget.ChangeSleepMode(true);
+            projectWidget.ChangeSleepMode(true);
+            wellsWidget.ChangeSleepMode(true);
 
 
-
-
+        }
     }
 }

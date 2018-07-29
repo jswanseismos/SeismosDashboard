@@ -29,6 +29,7 @@ namespace SeismosDashboard
         {
             sleepMode = isSleepMode;
             IsVisible = !isSleepMode;
+            OnPropertyChanged(nameof(IsVisible));
         }
 
     }

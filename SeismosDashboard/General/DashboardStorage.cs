@@ -7,6 +7,20 @@ using System.Threading.Tasks;
 namespace SeismosDashboard
 {
     // TODO create enum for variable storage
+    internal enum DashboardEventsEnum
+    {
+        CurrentSeismosClientId,
+        CurrentSeismosClientName,
+        CurrentSeismosProjectId,
+        CurrentSeismosProjectName,
+        CurrentWellsChanged,
+        NavProjectSelected,
+        NavWellSelected,
+        NavStageSelected
+
+    }
+
+
 
     internal class DashboardStorage
     {
@@ -27,6 +41,10 @@ namespace SeismosDashboard
         private Dictionary<string, object> storage;
         private Dictionary<string, Action> registry;
 
+        internal void RegisterAction(DashboardEventsEnum key, Action action)
+        {
+            RegisterAction(Enum.GetName(typeof(DashboardEventsEnum), key), action);
+        }
         internal void RegisterAction(string key, Action action)
         {
             if (!registry.ContainsKey(key))
@@ -36,7 +54,6 @@ namespace SeismosDashboard
             }
 
             registry[key] += action;
-//            registry.Remove(key);
 
         }
 
@@ -72,6 +89,11 @@ namespace SeismosDashboard
 
         }
 
+        internal bool AddOrUpdate<T>(DashboardEventsEnum key, T value) where T : class
+        {
+            return AddOrUpdate(Enum.GetName(typeof(DashboardEventsEnum), key), value);
+        }
+
         internal bool AddOrUpdate<T>(string key, T value) where T : class
         {
             if (storage.ContainsKey(key))
@@ -92,6 +114,12 @@ namespace SeismosDashboard
             }
         }
 
+
+        internal T GetValue<T>(DashboardEventsEnum key) where T : class
+        {
+            return GetValue<T>(Enum.GetName(typeof(DashboardEventsEnum), key));
+        }
+
         internal T GetValue<T>(string key) where T : class
         {
             if (!storage.ContainsKey(key)) return null;
@@ -108,12 +136,15 @@ namespace SeismosDashboard
         internal void ClearStorage()
         {
             storage.Clear();
+            registry.Clear();
         }
 
         internal void DisposeStorage()
         {
+            registry = null;
             storage = null;
             Instance = null;
+
         }
 
     }

@@ -35,10 +35,7 @@ namespace SeismosDashboard
         /// <param name="canExecute">The execution status logic.</param>
         public RelayCommand(Action<T> execute, Predicate<T> canExecute)
         {
-            if (execute == null)
-                throw new ArgumentNullException("execute");
-
-            _execute = execute;
+            _execute = execute ?? throw new ArgumentNullException("execute");
             _canExecute = canExecute;
         }
 
@@ -79,54 +76,64 @@ namespace SeismosDashboard
         #endregion
     }
 
-    public class RelayCommand : ICommand
-    {
-        private readonly Predicate<object> _canExecute;
-        private readonly Action<object> _execute;
 
-        public RelayCommand(Action<object> execute)
-            : this(execute, null)
+//    public class RelayCommand : RelayCommand<object>
+//    {
+//        public RelayCommand(Action execute)
+//            : this(execute, null) { }
+//
+//        public RelayCommand(Action execute, Func<bool> canExecute)
+//            : base(param => execute(), param => canExecute()) { }
+//    }
+        public class RelayCommand : ICommand
         {
-            _execute = execute;
-        }
+            private readonly Predicate<object> _canExecute;
+            private readonly Action<object> _execute;
 
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
-        {
-            if (execute == null)
+
+            public RelayCommand(Action<object> execute)
+                : this(execute, null)
             {
-                throw new ArgumentNullException("execute");
+                _execute = execute;
             }
-            _execute = execute;
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null || _canExecute(parameter);
-        }
-
-        public void Execute(object parameter)
-        {
-            _execute(parameter);
-        }
-
-        // Ensures WPF commanding infrastructure asks all RelayCommand objects whether their
-        // associated views should be enabled whenever a command is invoked 
-        public event EventHandler CanExecuteChanged
-        {
-            add
+    
+            public RelayCommand(Action<object> execute, Predicate<object> canExecute)
             {
-                CommandManager.RequerySuggested += value;
-                CanExecuteChangedInternal += value;
+                if (execute == null)
+                {
+                    throw new ArgumentNullException("execute");
+                }
+                _execute = execute;
+                _canExecute = canExecute;
             }
-            remove
+    
+            public bool CanExecute(object parameter)
             {
-                CommandManager.RequerySuggested -= value;
-                CanExecuteChangedInternal -= value;
+                return _canExecute == null || _canExecute(parameter);
             }
+    
+            public void Execute(object parameter)
+            {
+                _execute(parameter);
+            }
+    
+            // Ensures WPF commanding infrastructure asks all RelayCommand objects whether their
+            // associated views should be enabled whenever a command is invoked 
+            public event EventHandler CanExecuteChanged
+            {
+                add
+                {
+                    CommandManager.RequerySuggested += value;
+                    CanExecuteChangedInternal += value;
+                }
+                remove
+                {
+                    CommandManager.RequerySuggested -= value;
+                    CanExecuteChangedInternal -= value;
+                }
+            }
+    
+            private event EventHandler CanExecuteChangedInternal;
+    
         }
-
-        private event EventHandler CanExecuteChangedInternal;
-
-    }
 }

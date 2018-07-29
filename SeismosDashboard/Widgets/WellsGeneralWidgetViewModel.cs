@@ -24,13 +24,13 @@ namespace SeismosDashboard
             Initialize();
 
             saveCommand = new SimpleCommand(SaveAction);
-            DashboardStorage.Instance.RegisterAction("SelectedSeismosProjectId", SelectedProjectChange);
+            DashboardStorage.Instance.RegisterAction(DashboardEventsEnum.CurrentSeismosProjectId, SelectedProjectChange);
 
         }
 
         private void Initialize()
         {
-            string selectedProjectId = DashboardStorage.Instance.GetValue<string>("SelectedSeismosProjectId");
+            string selectedProjectId = DashboardStorage.Instance.GetValue<string>(DashboardEventsEnum.CurrentSeismosProjectId);
             if (!Guid.TryParse(selectedProjectId, out selectSeismosProjectId))
             {
                 selectSeismosProjectId = Guid.Empty;
@@ -71,7 +71,7 @@ namespace SeismosDashboard
             wellDataService.AddWells(wellNameList, selectSeismosProjectId);
             Initialize();
             OnPropertyChanged(nameof(WellNameList));
-            DashboardStorage.Instance.AddOrUpdate("WellsChanged", selectSeismosProjectId.ToString());
+            DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentWellsChanged, selectSeismosProjectId.ToString());
         }
 
     }

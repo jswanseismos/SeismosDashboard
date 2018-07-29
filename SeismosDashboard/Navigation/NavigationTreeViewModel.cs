@@ -13,45 +13,36 @@ using SeismosServices;
 namespace SeismosDashboard
 {
 
-    public class SidebarViewModel : INotifyPropertyChanged
+    public class NavigationTreeViewModel : INotifyPropertyChanged
     {
         private NavigationService navigationService;
         private Guid clientId;
         private Guid projectId;
-        public SidebarViewModel()
+        public NavigationTreeViewModel()
         {
             navigationService = new NavigationService();
-//            NavClientNode clientNode = new NavClientNode() {Id = new Guid("1249c479-b6bd-4a23-9a17-10a87b09615e"), Name = "Client 2"};
 
-            NavClientNode clientNode = new NavClientNode();
-            //            clientNode.Projects = navigationService.GetProjectNodes(clientNode.Id);
-            //
-            //            clientTrees = new List<NavClientNode>(){clientNode};
-
-            DashboardStorage.Instance.RegisterAction("SelectedSeismosProjectId", HandleProjectChange);
-            DashboardStorage.Instance.RegisterAction("WellsChanged", HandleWellChange);
-
-            projectCommand = new SimpleCommand(projectAction);
-
+            DashboardStorage.Instance.RegisterAction(DashboardEventsEnum.CurrentSeismosProjectId, HandleProjectChange);
+            DashboardStorage.Instance.RegisterAction(DashboardEventsEnum.CurrentWellsChanged, HandleWellChange);
 
         }
 
         private void Initialize()
         {
-            string selectedId = DashboardStorage.Instance.GetValue<string>("SelectedSeismosClientId");
+            // 
+            string selectedId = DashboardStorage.Instance.GetValue<string>(DashboardEventsEnum.CurrentSeismosClientId);
             if (!Guid.TryParse(selectedId, out clientId))
             {
                 clientId = Guid.Empty;
             }
 
-
-            string selectedProjectId = DashboardStorage.Instance.GetValue<string>("SelectedSeismosProjectId");
+            string selectedProjectId = DashboardStorage.Instance.GetValue<string>(DashboardEventsEnum.CurrentSeismosProjectId);
             if (!Guid.TryParse(selectedProjectId, out projectId))
             {
                 projectId = Guid.Empty;
             }
 
-            string clientName = DashboardStorage.Instance.GetValue<String>("SelectedSeismosClientName") ?? "";
+            string clientName = DashboardStorage.Instance.GetValue<string>(DashboardEventsEnum.CurrentSeismosClientName) ?? "";
 
             NavClientNode clientNode = new NavClientNode
             {
@@ -74,28 +65,43 @@ namespace SeismosDashboard
 
         #region SelectedNodeHandlers
         // this is a bit of an imperfect solution
-        // adding a command to a treeview is a bit difficult
+        // adding a command to a treeview is a bit difficult, it is easier to capture the change selected it event
         // so the xaml captures a selected node changed event
         // the code behind will add the selected node to the properties below
         private NavWellNode selectedWellNode;
         public NavWellNode SelectedWellNode
         {
             get { return selectedWellNode; }
-            set { selectedWellNode = value; }
+            set
+            {
+                selectedWellNode = value;
+                var selectedId = selectedWellNode != null ? selectedWellNode.Id.ToString() : string.Empty;
+                DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.NavWellSelected, selectedId);
+            }
         }
 
         private NavProjectNode selectedProjectNode;
         public NavProjectNode SelectedProjectNode
         {
             get { return selectedProjectNode; }
-            set { selectedProjectNode = value; }
+            set
+            {
+                selectedProjectNode = value;
+                var selectedId = selectedProjectNode != null ? selectedProjectNode.Id.ToString() : string.Empty;
+                DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.NavProjectSelected, selectedId);
+            }
         }
 
         private NavStageNode selectedStageNode;
         public NavStageNode SelectedStageNode
         {
             get { return selectedStageNode; }
-            set { selectedStageNode = value; }
+            set
+            {
+                selectedStageNode = value;
+                var selectedId = selectedStageNode != null ? selectedStageNode.Id.ToString() : string.Empty;
+                DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.NavStageSelected, selectedId);
+            }
         }
 
         private NavClientNode selectedClientNode;
@@ -120,19 +126,6 @@ namespace SeismosDashboard
             OnPropertyChanged(nameof(ClientTrees));
 
         }
-
-        private ICommand projectCommand;
-        public ICommand ProjectCommand
-        {
-            get { return projectCommand; }
-            set { projectCommand = value; }
-        }
-
-        private void projectAction()
-        {
-            string r = "something";
-        }
-
 
 
         public event PropertyChangedEventHandler PropertyChanged;

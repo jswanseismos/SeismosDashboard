@@ -9,13 +9,14 @@ namespace SeismosDashboard
     public class MainWindowViewModel
     {
         private ProjectWidgetController projectWidgetController;
+        private WellWidgetController wellWidgetController;
 
         public MainWindowViewModel()
         {
             widgetPanelControlViewModel = new WidgetPanelControlViewModel();
 
             projectWidgetController = new ProjectWidgetController(widgetPanelControlViewModel);
-
+            wellWidgetController = new WellWidgetController(widgetPanelControlViewModel);
         }
 
         private WidgetPanelControlViewModel widgetPanelControlViewModel;

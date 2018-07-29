@@ -17,51 +17,54 @@ using SeismosServices;
 namespace SeismosDashboard
 {
     /// <summary>
-    /// Interaction logic for SideBar.xaml
+    /// Interaction logic for NavigationTree.xaml
     /// </summary>
-    public partial class SideBar : UserControl
+    public partial class NavigationTree : UserControl
     {
-        private SidebarViewModel sidebarVM;
+        private NavigationTreeViewModel navigationTreeVm;
 
-        public SideBar()
+        public NavigationTree()
         {
             InitializeComponent();
-            sidebarVM = new SidebarViewModel();
-            DataContext = sidebarVM;
+            navigationTreeVm = new NavigationTreeViewModel();
+            DataContext = navigationTreeVm;
         }
 
+        // this is an imperfect solution, but inserting commands on each node of a treeview is problematic
+        // this event returns which node was selected which is exactly what is needed
+        // the node is passed to the view model and it is handled from there
         private void TreeView_OnSelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
 
             switch (e.OldValue)
             {
                 case NavProjectNode navProjectNode:
-                    sidebarVM.SelectedProjectNode = null;
+                    navigationTreeVm.SelectedProjectNode = null;
                     break;
                 case NavWellNode navWellNode:
-                    sidebarVM.SelectedWellNode = null;
+                    navigationTreeVm.SelectedWellNode = null;
                     break;
                 case NavStageNode navStageNode:
-                    sidebarVM.SelectedStageNode = null;
+                    navigationTreeVm.SelectedStageNode = null;
                     break;
                 case NavClientNode navClientNode:
-                    sidebarVM.SelectedClientNode = null;
+                    navigationTreeVm.SelectedClientNode = null;
                     break;
             }
 
             switch (e.NewValue)
             {
                 case NavProjectNode navProjectNode:
-                    sidebarVM.SelectedProjectNode = navProjectNode;
+                    navigationTreeVm.SelectedProjectNode = navProjectNode;
                     break;
                 case NavWellNode navWellNode:
-                    sidebarVM.SelectedWellNode = navWellNode;
+                    navigationTreeVm.SelectedWellNode = navWellNode;
                     break;
                 case NavStageNode navStageNode:
-                    sidebarVM.SelectedStageNode = navStageNode;
+                    navigationTreeVm.SelectedStageNode = navStageNode;
                     break;
                 case NavClientNode navClientNode:
-                    sidebarVM.SelectedClientNode = navClientNode;
+                    navigationTreeVm.SelectedClientNode = navClientNode;
                     break;
             }
         }

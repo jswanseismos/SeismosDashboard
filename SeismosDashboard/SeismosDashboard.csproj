@@ -72,80 +72,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\ProjectWidgetController.cs" />
-    <Compile Include="CustomerDialog.xaml.cs">
-      <DependentUpon>CustomerDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Experiment\AlphaViewModel.cs" />
-    <Compile Include="Experiment\AlphaWindow.xaml.cs">
-      <DependentUpon>AlphaWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Experiment\BetaControl.xaml.cs">
-      <DependentUpon>BetaControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Experiment\BetaViewModel.cs" />
-    <Compile Include="Experiment\DeltaControl.xaml.cs">
-      <DependentUpon>DeltaControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Experiment\DeltaViewModel.cs" />
-    <Compile Include="Experiment\DialogService.cs" />
-    <Compile Include="Experiment\EpsilonControl.xaml.cs">
-      <DependentUpon>EpsilonControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Experiment\EpsilonViewModel.cs" />
-    <Compile Include="Experiment\GammaViewModelBase.cs" />
+    <Compile Include="Controllers\WellWidgetController.cs" />
     <Compile Include="General\DashboardStorage.cs" />
-    <Compile Include="General\IWindowClose.cs" />
     <Compile Include="General\RelayCommand.cs" />
     <Compile Include="General\SeismosExtensions.cs" />
     <Compile Include="General\SimpleCommand.cs" />
-    <Compile Include="General\ViewModelBase.cs" />
-    <Compile Include="HeaderControl\AddClientDialog.xaml.cs">
-      <DependentUpon>AddClientDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HeaderControl\AddClientDialogViewModel.cs" />
-    <Compile Include="HeaderControl\AddProjectDialog.xaml.cs">
-      <DependentUpon>AddProjectDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HeaderControl\AddProjectDialogViewModel.cs" />
     <Compile Include="HeaderControl\HeaderControl.xaml.cs">
       <DependentUpon>HeaderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="HeaderControl\HeaderControlViewModel.cs" />
-    <Compile Include="HeaderControl\SelectClientView.xaml.cs">
-      <DependentUpon>SelectClientView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HeaderControl\SelectClientViewModel.cs" />
-    <Compile Include="HeaderControl\SelectProjectView.xaml.cs">
-      <DependentUpon>SelectProjectView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HeaderControl\SelectProjectViewModel.cs" />
-    <Compile Include="KvPair.cs" />
-    <Compile Include="LogEntryDialog.xaml.cs">
-      <DependentUpon>LogEntryDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainPanel.xaml.cs">
-      <DependentUpon>MainPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainPanelViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="ProjectDialog.xaml.cs">
-      <DependentUpon>ProjectDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="SideBar.xaml.cs">
-      <DependentUpon>SideBar.xaml</DependentUpon>
+    <Compile Include="Navigation\NavigationTree.xaml.cs">
+      <DependentUpon>NavigationTree.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SidebarViewModel.cs" />
-    <Compile Include="WidgetBox.xaml.cs">
-      <DependentUpon>WidgetBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WidgetBoxAdv.xaml.cs">
-      <DependentUpon>WidgetBoxAdv.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WidgetContainer\MessageWidgetControl.xaml.cs">
-      <DependentUpon>MessageWidgetControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WidgetContainer\MessageWidgetControlViewModel.cs" />
+    <Compile Include="Navigation\NavigationTreeViewModel.cs" />
     <Compile Include="Widgets\ClientWidget.xaml.cs">
       <DependentUpon>ClientWidget.xaml</DependentUpon>
     </Compile>
@@ -167,60 +108,12 @@
       <DependentUpon>WellsGeneralWidget.xaml</DependentUpon>
     </Compile>
     <Compile Include="Widgets\WellsGeneralWidgetViewModel.cs" />
-    <Compile Include="Widgets\WellVolumesWidget.xaml.cs">
+    <Compile Include="Widgets\Wells\WellVolumesWidget.xaml.cs">
       <DependentUpon>WellVolumesWidget.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\WellVolumesWidgetViewModel.cs" />
+    <Compile Include="Widgets\Wells\WellVolumesWidgetViewModel.cs" />
     <Compile Include="Widgets\WidgetViewModelBase.cs" />
-    <Page Include="CustomerDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Experiment\AlphaWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Experiment\BetaControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Experiment\DeltaControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Experiment\EpsilonControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Footer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HeaderControl\AddClientDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HeaderControl\AddProjectDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="HeaderControl\HeaderControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HeaderControl\SelectClientView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HeaderControl\SelectProjectView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LogEntryDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -232,18 +125,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Footer.xaml.cs">
-      <DependentUpon>Footer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ProjectDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SideBar.xaml">
+    <Page Include="Navigation\NavigationTree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -291,18 +177,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WidgetBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WidgetBoxAdv.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WidgetContainer\MessageWidgetControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="WidgetContainer\WidgetControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -323,7 +197,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Widgets\WellVolumesWidget.xaml">
+    <Page Include="Widgets\Wells\WellVolumesWidget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -373,5 +247,6 @@
   <ItemGroup>
     <Resource Include="Resources\seismos.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,10 +15,10 @@ namespace SeismosDashboard
         {
             wellDataService = new WellDataService();
 
-            var result = wellDataService.GetWellEntries();
+//            var result = wellDataService.GetWellEntries();
             saveWellCommand = new RelayCommand(SaveWellAction);
 
-            wellEntries = new ObservableCollection<WellEntry>(result);
+//            wellEntries = new ObservableCollection<WellEntry>(result);
 
 //            var weightList = wellDataService.GetWeightList(4.5);
 //            var gradeList = wellDataService.GetGradeList(4.5, 9.5);
@@ -41,7 +41,7 @@ namespace SeismosDashboard
             var wellEntry = wellEntries.FirstOrDefault(we => we.Id == id);
             //            wellDataService.UpdateWellEntry(wellEntry);
              
-            string selectedProjectId = DashboardStorage.Instance.GetValue<string>("SelectedSeismosProjectId");
+            string selectedProjectId = DashboardStorage.Instance.GetValue<string>(DashboardEventsEnum.CurrentSeismosProjectId);
             if (!Guid.TryParse(selectedProjectId, out var selectSeismosProjectId))
             {
                 selectSeismosProjectId = Guid.Empty;

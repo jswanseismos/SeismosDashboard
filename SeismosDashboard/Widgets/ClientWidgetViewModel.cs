@@ -27,7 +27,7 @@ namespace SeismosDashboard
         private void Initialize()
         {
             // get the current selected client id
-            string selectedId = DashboardStorage.Instance.GetValue<string>("SelectedSeismosClientId");
+            string selectedId = DashboardStorage.Instance.GetValue<string>(DashboardEventsEnum.CurrentSeismosClientId);
             if (!Guid.TryParse(selectedId, out var selectedGuid)) selectedGuid = Guid.Empty;
             
 
@@ -53,12 +53,12 @@ namespace SeismosDashboard
             // push changes to the database. get the updated guid of the selected object
             var updatedGuid = seismosMetaDataService.UpdateSeismosClientAlt(SelectedSeismosClient);
             // store the selected guid
-            DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientId", updatedGuid.ToString());
+            DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosClientId, updatedGuid.ToString());
             // reload the data for the control
             Initialize();
             // just adding this for the name.
             // TODO find a better way to save the name
-            DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientObject", SelectedSeismosClient);
+//            DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientObject", SelectedSeismosClient);
             OnPropertyChanged(nameof(OcSeismosClients));
             OnPropertyChanged(nameof(SelectedSeismosClient));
             addUpdateButtonName = AddUpdateButtonName;
@@ -98,8 +98,9 @@ namespace SeismosDashboard
             set
             {
                 selectedSeismosClient = value;
-                DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientId", selectedSeismosClient.Id.ToString());
-                DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientName", selectedSeismosClient.Name);
+                DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosClientId, selectedSeismosClient.Id.ToString());
+                DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosClientName,
+                    selectedSeismosClient.Name);
 
                 AddUpdateButtonName = selectedSeismosClient.Name != String.Empty ? UpdateButtonName : AddButtonName;
 
