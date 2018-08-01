@@ -202,6 +202,9 @@
     <Compile Include="RefracTreatment.cs">
       <DependentUpon>SeismosDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SavedState.cs">
+      <DependentUpon>SeismosDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SeismosClient.cs">
       <DependentUpon>SeismosDataModel.tt</DependentUpon>
     </Compile>

@@ -26,8 +26,6 @@
             <ComboBox HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="120"    
                   SelectedItem="{Binding Path=SelectSeismosProject, Mode=TwoWay}"  
                   SelectedValuePath="Id" ItemsSource="{Binding Path=OcSeismosProjects}" DisplayMemberPath="Name"/>
-            <!-- TODO add datetime picker into the grid. -->
-
             <DataGrid Style="{StaticResource AzureDataGrid}" ItemsSource="{Binding Path=SelectSeismosProject.KeyValuePairs}" CanUserAddRows="false" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Id}" Header="" IsReadOnly="True"/>
@@ -39,7 +37,6 @@
                             <seismosDashboard:TextTemplateSelector TextDataTemplate="{StaticResource TextDataTemplate}" DateDataTemplate="{StaticResource DateDataTemplate}"></seismosDashboard:TextTemplateSelector>
                         </DataGridTemplateColumn.CellTemplateSelector>
                     </DataGridTemplateColumn>
-                        <!-- <DataGridTextColumn Binding="{Binding Text}" Header="Values"/> -->
                 </DataGrid.Columns>
             </DataGrid>
             <Label FontSize="24" VerticalAlignment="Bottom" HorizontalAlignment="Right">

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/18/2018 10:08:26
+-- Date Created: 07/31/2018 18:14:58
 -- Generated from EDMX file: C:\projects\SeismosDashboard\SeismosDataLibrary\SeismosDataModel.edmx
 -- --------------------------------------------------
 
@@ -21,7 +21,7 @@ IF OBJECT_ID(N'[dbo].[FK_SeismosProjectsWells]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Wells] DROP CONSTRAINT [FK_SeismosProjectsWells];
 GO
 IF OBJECT_ID(N'[dbo].[FK_WellsDeviationSurveys]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Wells] DROP CONSTRAINT [FK_WellsDeviationSurveys];
+    ALTER TABLE [dbo].[DeviationSurveys] DROP CONSTRAINT [FK_WellsDeviationSurveys];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DeviationSurveyInclination]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Inclinations] DROP CONSTRAINT [FK_DeviationSurveyInclination];
@@ -45,7 +45,7 @@ IF OBJECT_ID(N'[dbo].[FK_WellBoreCylinder]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Cylinders] DROP CONSTRAINT [FK_WellBoreCylinder];
 GO
 IF OBJECT_ID(N'[dbo].[FK_WellWellBore]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Wells] DROP CONSTRAINT [FK_WellWellBore];
+    ALTER TABLE [dbo].[WellBores] DROP CONSTRAINT [FK_WellWellBore];
 GO
 IF OBJECT_ID(N'[dbo].[FK_WellheadComponentMaterial]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Materials] DROP CONSTRAINT [FK_WellheadComponentMaterial];
@@ -63,7 +63,7 @@ IF OBJECT_ID(N'[dbo].[FK_WellheadWellheadCoordinate]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Wellheads] DROP CONSTRAINT [FK_WellheadWellheadCoordinate];
 GO
 IF OBJECT_ID(N'[dbo].[FK_WellWellhead]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Wells] DROP CONSTRAINT [FK_WellWellhead];
+    ALTER TABLE [dbo].[Wellheads] DROP CONSTRAINT [FK_WellWellhead];
 GO
 IF OBJECT_ID(N'[dbo].[FK_WellheadWellheadAssembly]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Wellheads] DROP CONSTRAINT [FK_WellheadWellheadAssembly];
@@ -315,6 +315,9 @@ IF OBJECT_ID(N'[dbo].[Proppants]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[CasingChartLookups]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CasingChartLookups];
+GO
+IF OBJECT_ID(N'[dbo].[SavedStates]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SavedStates];
 GO
 IF OBJECT_ID(N'[dbo].[DataAcquisitions_InjectionDataAcquisition]', 'U') IS NOT NULL
     DROP TABLE [dbo].[DataAcquisitions_InjectionDataAcquisition];
@@ -798,20 +801,28 @@ GO
 -- Creating table 'CasingChartLookups'
 CREATE TABLE [dbo].[CasingChartLookups] (
     [Key] int  NOT NULL,
-    [OuterDiameter] float  NULL,
-    [Weight] float  NULL,
+    [OuterDiameter] float  NOT NULL,
+    [Weight] float  NOT NULL,
     [Grade] varchar(50)  NULL,
-    [Collapse] float  NULL,
+    [Collapse] float  NOT NULL,
     [InternalMinYield] float  NULL,
     [JointStrengthSTC] float  NULL,
     [JointStrengthLTC] float  NULL,
     [JointStrengthBTC] float  NULL,
     [BodyYield] float  NULL,
     [Wall] float  NULL,
-    [InnerDiameter] float  NULL,
+    [InnerDiameter] float  NOT NULL,
     [DriftDiameterAPI] float  NULL,
     [DriftDiameterSPDR] float  NULL,
     [MaximumSettingDepthSTC] float  NULL
+);
+GO
+
+-- Creating table 'SavedStates'
+CREATE TABLE [dbo].[SavedStates] (
+    [Id] uniqueidentifier  NOT NULL,
+    [SavedKey] nvarchar(max)  NOT NULL,
+    [SavedValue] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -1148,6 +1159,12 @@ GO
 ALTER TABLE [dbo].[CasingChartLookups]
 ADD CONSTRAINT [PK_CasingChartLookups]
     PRIMARY KEY CLUSTERED ([Key] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SavedStates'
+ALTER TABLE [dbo].[SavedStates]
+ADD CONSTRAINT [PK_SavedStates]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'DataAcquisitions_InjectionDataAcquisition'

@@ -17,17 +17,9 @@ namespace SeismosDashboard
         }
 
 
-        // TODO design a way to add/remove widgetviewmodels and widgets,
-        // TODO design a way to save/restore state
-       
         public WidgetPanelControlViewModel()
         {
             viewModels = new ObservableCollection<WidgetViewModelBase>();
-//            {
-//                new ClientWidgetViewModel(),
-//                new ProjectWidgetViewModel(),
-//                new WellsGeneralWidgetViewModel()
-//            };
         }
 
 
@@ -57,8 +49,6 @@ namespace SeismosDashboard
             get => viewModels;
             set { viewModels = value; }
         }
-
-
 
 
 

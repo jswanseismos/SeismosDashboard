@@ -30,58 +30,10 @@ namespace SeismosServices
         private const string LastModifiedBy = "Last Modified by";
 
 
-        // creates the model
 
-        // CRUD clients
-        // CRUD projects
-        // CRUD wells
 
-        public void AddSeismosClient(SeismosClient seismosClient)
+        public List<KeyValueEntity> GetSeismosClients()
         {
-            seismosClient.Id = Guid.NewGuid();
-            using (var seismosContext = new seismosEntities())
-            {
-                seismosContext.SeismosClients.Add(seismosClient);
-                seismosContext.SaveChanges();
-            }
-
-        }
-
-        public List<SeismosClient> GetSeismosClients()
-        {
-            List<SeismosClient> seismosClients;
-
-            using (var seismosContext = new seismosEntities())
-            {
-                seismosClients = seismosContext.SeismosClients.ToList();
-            }
-
-//            List<KeyValueEntity> keyValueEntities = new List<KeyValueEntity>();
-
-//            foreach (var seismosClient in seismosClients)
-//            {
-//                keyValueEntities.Add(new KeyValueEntity()
-//                {
-//                    Id = seismosClient.Id,
-//                    Name = seismosClient.ClientName,
-//                    KeyValuePairs = new List<KeyValueMutable<string, string>>()
-//                    {
-//                        new KeyValueMutable<string, string>("Client Name", seismosClient.ClientName),
-//                        new KeyValueMutable<string, string>("Contact Name", seismosClient.Contact),
-//                        new KeyValueMutable<string, string>("Email address", seismosClient.Email),
-//                        new KeyValueMutable<string, string>("Phone Number", seismosClient.PhoneNumber)
-//                    }
-//                });
-//            }
-
-
-            return seismosClients;
-        }
-
-
-        public List<KeyValueEntity> GetSeismosClientsAlt()
-        {
-
 
             List<SeismosClient> seismosClients;
 
@@ -127,7 +79,7 @@ namespace SeismosServices
             return keyValueEntities;
         }
 
-        public List<KeyValueEntity> GetSeismosProjectsAlt(Guid seismosClientId)
+        public List<KeyValueEntity> GetSeismosProjects(Guid seismosClientId)
         {
 
             List<KeyValueEntity> keyValueEntities = new List<KeyValueEntity>
@@ -146,9 +98,9 @@ namespace SeismosServices
                         new KeyValueMutable<string, object>(Formation, String.Empty),
                         new KeyValueMutable<string, object>(County, String.Empty),
                         new KeyValueMutable<string, object>(State, String.Empty),
-                        new KeyValueMutable<string, object>(StartDate, String.Empty),
-                        new KeyValueMutable<string, object>(EndDate, String.Empty),
-                        new KeyValueMutable<string, object>(LastModified, String.Empty),
+                        new KeyValueMutable<string, object>(StartDate, DateTime.Now),
+                        new KeyValueMutable<string, object>(EndDate, DateTime.Now),
+                        new KeyValueMutable<string, object>(LastModified, DateTime.Now),
                         new KeyValueMutable<string, object>(LastModifiedBy, String.Empty)
                     }
                 }
@@ -190,7 +142,7 @@ namespace SeismosServices
             return keyValueEntities;
         }
 
-        public Guid UpdateSeismosClientAlt(KeyValueEntity seismosKeyValueEntity)
+        public Guid UpdateSeismosClient(KeyValueEntity seismosKeyValueEntity)
         {
             Guid retGuid;
             using (var seismosContext = new seismosEntities())
@@ -217,7 +169,7 @@ namespace SeismosServices
                             updateSeismosClient.ClientName = keyValuePair.Text.ToString();
                             break;
                         case ContactName:
-                            updateSeismosClient.Contact = keyValuePair.ToString();
+                            updateSeismosClient.Contact = keyValuePair.Text.ToString();
                             break;
                         case EmailAddress:
                             updateSeismosClient.Email = keyValuePair.Text.ToString();
@@ -241,7 +193,7 @@ namespace SeismosServices
             return retGuid;
         }
 
-        public Guid UpdateSeismosProjectAlt(KeyValueEntity seismosKeyValueEntity, Guid seismosClientId)
+        public Guid UpdateSeismosProject(KeyValueEntity seismosKeyValueEntity, Guid seismosClientId)
         {
             Guid retGuid;
             using (var seismosContext = new seismosEntities())
@@ -317,74 +269,6 @@ namespace SeismosServices
             return retGuid;
         }
 
-        public void UpdateSeismosClient(SeismosClient seismosClient)
-        {
-            using (var seismosContext = new seismosEntities())
-            {
-                var updateSeismosClient = seismosContext.SeismosClients.FirstOrDefault(sc => sc.Id == seismosClient.Id);
-                if (updateSeismosClient == null) return;
-
-                updateSeismosClient.ClientName = seismosClient.ClientName;
-                updateSeismosClient.Contact = seismosClient.Contact;
-                updateSeismosClient.PhoneNumber = seismosClient.PhoneNumber;
-                updateSeismosClient.Email = seismosClient.Email;
-
-                seismosContext.SaveChanges();
-            }
-
-        }
-
-
-        public void AddSeismosProject(SeismosProject seismosProject)
-        {
-            seismosProject.Id = Guid.NewGuid();
-            using (var seismosContext = new seismosEntities())
-            {
-                seismosContext.SeismosProjects.Add(seismosProject);
-                seismosContext.SaveChanges();
-            }
-
-        }
-
-        public List<SeismosProject> GetSeismosProjects(Guid seismosClientId)
-        {
-            List<SeismosProject> seismosProjects;
-
-            if (seismosClientId == Guid.Empty) return null;
-
-            using (var seismosContext = new seismosEntities())
-            {
-                seismosProjects = seismosContext.SeismosProjects.Where(sp => sp.SeismosClientId == seismosClientId).ToList();
-            }
-
-            return seismosProjects;
-        }
-
-        public void UpdateSeismosProject(SeismosProject seismosProject)
-        {
-            using (var seismosContext = new seismosEntities())
-            {
-                var updateSeismosProject = seismosContext.SeismosProjects.FirstOrDefault(sc => sc.Id == seismosProject.Id);
-                if (updateSeismosProject == null) return;
-
-                updateSeismosProject.Name = seismosProject.Name;
-                updateSeismosProject.Field = seismosProject.Field;
-                updateSeismosProject.Pad = seismosProject.Pad;
-                updateSeismosProject.JobNum = seismosProject.JobNum;
-                updateSeismosProject.AFENum = seismosProject.AFENum;
-                updateSeismosProject.Formation = seismosProject.Formation;
-                updateSeismosProject.County = seismosProject.County;
-                updateSeismosProject.State = seismosProject.State;
-                updateSeismosProject.StartDate = seismosProject.StartDate;
-                updateSeismosProject.EndDate = seismosProject.EndDate;
-                updateSeismosProject.LastModified = seismosProject.LastModified;
-                updateSeismosProject.LastModifiedBy = seismosProject.LastModifiedBy;
-                updateSeismosProject.SeismosClientId = seismosProject.SeismosClientId;
-
-                seismosContext.SaveChanges();
-            }
-
-        }
 
     }
 }

@@ -40,12 +40,6 @@ namespace SeismosDashboard
 
         }
 
-        private void SelectedProjectChange()
-        {
-            Initialize();
-            OnPropertyChanged(nameof(WellNameList));
-        }
-
 
         private KeyValueEntity wellNameList;
 
@@ -58,6 +52,9 @@ namespace SeismosDashboard
                 OnPropertyChanged(nameof(WellNameList));
             }
         }
+
+        #region Commands
+
 
         private ICommand saveCommand;
         public ICommand SaveCommand
@@ -73,6 +70,14 @@ namespace SeismosDashboard
             OnPropertyChanged(nameof(WellNameList));
             DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentWellsChanged, selectSeismosProjectId.ToString());
         }
+
+        private void SelectedProjectChange()
+        {
+            Initialize();
+            OnPropertyChanged(nameof(WellNameList));
+        }
+        #endregion
+
 
     }
 }

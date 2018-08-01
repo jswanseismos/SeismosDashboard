@@ -118,6 +118,7 @@
         <AssociationConnector Association="seismosModel.StageHFTreatmentStage" />
         <AssociationConnector Association="seismosModel.HydraulicFracturingTreatmentStage" />
         <EntityTypeShape EntityType="seismosModel.CasingChartLookup" Width="1.5" PointX="15.875" PointY="7.375" />
+        <EntityTypeShape EntityType="seismosModel.SavedState" Width="1.5" PointX="19.125" PointY="11.25" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

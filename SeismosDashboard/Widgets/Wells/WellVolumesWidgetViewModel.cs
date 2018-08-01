@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
 using System.Windows.Input;
@@ -11,21 +13,35 @@ namespace SeismosDashboard
 {
     public class WellVolumesWidgetViewModel : WidgetViewModelBase
     {
+
         public WellVolumesWidgetViewModel()
         {
             wellDataService = new WellDataService();
 
-//            var result = wellDataService.GetWellEntries();
             saveWellCommand = new RelayCommand(SaveWellAction);
 
-//            wellEntries = new ObservableCollection<WellEntry>(result);
-
-//            var weightList = wellDataService.GetWeightList(4.5);
-//            var gradeList = wellDataService.GetGradeList(4.5, 9.5);
-//            double innerDiameter = wellDataService.GetInnerDiameter(4.5, 9.5, "K-55");
-
         }
+
+        private void Initialize()
+        {
+            var result = wellDataService.GetWellEntry(currentWellId);
+
+            CurrWellEntry = result;
+        }
+
         private WellDataService wellDataService;
+
+        private Guid currentWellId;
+        public Guid CurrentWellId
+        {
+            get => currentWellId;
+            set
+            {
+                currentWellId = value;
+                Initialize();
+            }
+        }
+
 
         private ICommand saveWellCommand;
         public ICommand SaveWellCommand
@@ -36,29 +52,23 @@ namespace SeismosDashboard
 
         public void SaveWellAction(object param)
         {
-            Guid id = (Guid) param;
 
-            var wellEntry = wellEntries.FirstOrDefault(we => we.Id == id);
-            //            wellDataService.UpdateWellEntry(wellEntry);
-             
-            string selectedProjectId = DashboardStorage.Instance.GetValue<string>(DashboardEventsEnum.CurrentSeismosProjectId);
-            if (!Guid.TryParse(selectedProjectId, out var selectSeismosProjectId))
-            {
-                selectSeismosProjectId = Guid.Empty;
-            }
-
-            wellDataService.AddWellEntry(wellEntry, selectSeismosProjectId);
+            wellDataService.UpdateWellEntry(currWellEntry);
 
         }
 
 
-        private ObservableCollection<WellEntry> wellEntries;
-
-        public ObservableCollection<WellEntry> WellEntries
+        private WellEntry currWellEntry;
+        public WellEntry CurrWellEntry
         {
-            get { return wellEntries; }
-            set { wellEntries = value; }
+            get { return currWellEntry; }
+            set
+            {
+                currWellEntry = value;
+                OnPropertyChanged(nameof(CurrWellEntry));
+            }
         }
+
 
     }
 

@@ -87,11 +87,10 @@
       <DependentUpon>NavigationTree.xaml</DependentUpon>
     </Compile>
     <Compile Include="Navigation\NavigationTreeViewModel.cs" />
-    <Compile Include="Widgets\ClientWidget.xaml.cs">
+    <Compile Include="Widgets\Projects\ClientWidget.xaml.cs">
       <DependentUpon>ClientWidget.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\ClientWidgetViewModel.cs" />
-    <Compile Include="Widgets\IWidgetIdentity.cs" />
+    <Compile Include="Widgets\Projects\ClientWidgetViewModel.cs" />
     <Compile Include="WidgetContainer\WidgetControl.xaml.cs">
       <DependentUpon>WidgetControl.xaml</DependentUpon>
     </Compile>
@@ -100,14 +99,16 @@
       <DependentUpon>WidgetPanelControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WidgetContainer\WidgetPanelControlViewModel.cs" />
-    <Compile Include="Widgets\ProjectWidget.xaml.cs">
+    <Compile Include="Widgets\EditTemplateSelector.cs" />
+    <Compile Include="Widgets\Projects\ProjectWidget.xaml.cs">
       <DependentUpon>ProjectWidget.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\ProjectWidgetViewModel.cs" />
-    <Compile Include="Widgets\WellsGeneralWidget.xaml.cs">
+    <Compile Include="Widgets\Projects\ProjectWidgetViewModel.cs" />
+    <Compile Include="Widgets\TextTemplateSelector.cs" />
+    <Compile Include="Widgets\Projects\WellsGeneralWidget.xaml.cs">
       <DependentUpon>WellsGeneralWidget.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\WellsGeneralWidgetViewModel.cs" />
+    <Compile Include="Widgets\Projects\WellsGeneralWidgetViewModel.cs" />
     <Compile Include="Widgets\Wells\WellVolumesWidget.xaml.cs">
       <DependentUpon>WellVolumesWidget.xaml</DependentUpon>
     </Compile>
@@ -185,15 +186,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Widgets\ClientWidget.xaml">
+    <Page Include="Widgets\Projects\ClientWidget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Widgets\ProjectWidget.xaml">
+    <Page Include="Widgets\Projects\ProjectWidget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Widgets\WellsGeneralWidget.xaml">
+    <Page Include="Widgets\Projects\WellsGeneralWidget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

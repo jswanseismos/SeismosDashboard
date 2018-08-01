@@ -6,12 +6,11 @@
              xmlns:local="clr-namespace:SeismosDashboard"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <!-- will need to add this to the widgetviewmodelbase and have the default set to true.
-            each of the controls in the datatemplates will need visibility attribute binding 
-            (unless there is a way to set it by default)
+    <!-- isvisible should be set to true by default, but this should be controlled via the sleep mode
             in this way all of the widgets can be preloaded and can simply be turned off and on.
-            there could be a 'sleep' mode where the widget is turned invisible (collapsed) 
+            the 'sleep' mode is where the widget is turned invisible (collapsed) 
             and the state could be serialized and stored to prevent memory leaks -->
+    <!-- add datatemplate needs to load the widget and set the type as the viewmodel -->
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
         <DataTemplate DataType="{x:Type local:ClientWidgetViewModel}">

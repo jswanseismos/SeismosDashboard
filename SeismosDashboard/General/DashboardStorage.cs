@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeismosDashboard
 {
-    // TODO create enum for variable storage
+    // add storage keys as needed
     internal enum DashboardEventsEnum
     {
         CurrentSeismosClientId,
@@ -118,6 +118,13 @@ namespace SeismosDashboard
         internal T GetValue<T>(DashboardEventsEnum key) where T : class
         {
             return GetValue<T>(Enum.GetName(typeof(DashboardEventsEnum), key));
+        }
+
+        internal Guid GetValueId(DashboardEventsEnum key)
+        {
+            string strId = GetValue<String>(Enum.GetName(typeof(DashboardEventsEnum), key));
+            if (!Guid.TryParse(strId, out var tempId)) tempId = Guid.Empty;
+            return tempId;
         }
 
         internal T GetValue<T>(string key) where T : class

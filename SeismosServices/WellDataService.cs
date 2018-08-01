@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using SeismosDataLibrary;
@@ -12,6 +14,8 @@ namespace SeismosServices
 
     public class WellDataService
     {
+        private CasingChartService casingChartService = new CasingChartService();
+        private static readonly CasingOrderTypeEnum MaxCasingOrder = (CasingOrderTypeEnum)Enum.GetValues(typeof(CasingOrderTypeEnum)).Cast<short>().Max();
 
         public void AddWells(KeyValueEntity wells, Guid targetProjectId)
         {
@@ -144,7 +148,7 @@ namespace SeismosServices
                 Name = well.WellName,
                 SurfaceVolume = well.WellBore.SurfaceVolume,
                 TotalVolume = well.WellBore.TotalVolume,
-                CylinderEntries = GetCylinderEntries(well.WellBore)
+                CylinderEntries = new ObservableCollection<CylinderEntry>(GetCylinderEntries(well.WellBore))
             }));
 
             return wellEntries;
@@ -161,14 +165,16 @@ namespace SeismosServices
 
             if (getWell == null) return null;
 
+            double surfaceVolume = getWell.WellBore?.SurfaceVolume ?? 0.0;
+            double totalVolume = getWell.WellBore?.TotalVolume ?? 0.0;
 
             var wellEntry = new WellEntry()
             {
                 Id = getWell.Id,
                 Name = getWell.WellName,
-                SurfaceVolume = getWell.WellBore.SurfaceVolume,
-                TotalVolume = getWell.WellBore.TotalVolume,
-                CylinderEntries = GetCylinderEntries(getWell.WellBore)
+                SurfaceVolume = surfaceVolume,
+                TotalVolume = totalVolume,
+                CylinderEntries = new ObservableCollection<CylinderEntry>(GetCylinderEntries(getWell.WellBore))
             };
 
             return wellEntry;
@@ -178,9 +184,18 @@ namespace SeismosServices
         private List<CylinderEntry> GetCylinderEntries (WellBore wellBore)
         {
             List<CylinderEntry> cylinderEntries = new List<CylinderEntry>();
-            if (wellBore.Cylinders == null) return cylinderEntries;
-            var casingChart = new CasingChartService();
-            cylinderEntries.AddRange(wellBore.Cylinders.Select(cylinder => new CylinderEntry(casingChart)
+//            casingChartService = new CasingChartService();
+
+            // at present only upto two liners have been used
+            if (wellBore?.Cylinders == null || wellBore.Cylinders.Count == 0)
+            {
+                cylinderEntries.Add(GetBlankCylinderEntry(CasingOrderTypeEnum.Casing));
+//                cylinderEntries.Add(GetBlankCylinderEntry(CasingOrderTypeEnum.Liner1));
+//                cylinderEntries.Add(GetBlankCylinderEntry(CasingOrderTypeEnum.Liner2));
+                return cylinderEntries;
+            }
+
+            var listCylinders = wellBore.Cylinders.Select(cylinder => new CylinderEntry(casingChartService)
             {
                 Id = cylinder.Id,
                 CasingOrderType = Enum.GetName(typeof(CasingOrderTypeEnum), cylinder.CasingOrderType),
@@ -191,10 +206,54 @@ namespace SeismosServices
                 InnerDiameter = cylinder.InnerDiameter,
                 TopOfLiner = cylinder.TopOfLiner,
                 CalculatedVolume = cylinder.CalculatedVolume
-            }).OrderBy(ce => ce.CasingOrderType));
+            }).OrderBy(ce => ce.CasingOrderType).ToList();
 
+            var lastCasingOrder = listCylinders[listCylinders.Count - 1].CasingOrderType;
+            var blankCylinder = GetNextCylinderEntry(lastCasingOrder);
+            listCylinders.Add(blankCylinder);
 
-            return cylinderEntries;
+//            double currentDepth = 0.0;
+//            foreach (var cylinderEntry in listCylinders)
+//            {
+//                if (currentDepth.ApproxEquals(0.0)) currentDepth = cylinderEntry.MeasuredDepth;
+//                cylinderEntry.ActualMeasuredDepth = currentDepth - cylinderEntry.TopOfLiner;
+//                currentDepth = cylinderEntry.TopOfLiner;
+//                cylinderEntries.Add(cylinderEntry);
+//            }
+
+            return listCylinders;
+        }
+
+        public CylinderEntry GetNextCylinderEntry(string currCasingOrder)
+        {
+            CasingOrderTypeEnum currEnum = (CasingOrderTypeEnum) Enum.Parse(typeof(CasingOrderTypeEnum), currCasingOrder);
+            if (currEnum == MaxCasingOrder) return null;
+            return GetBlankCylinderEntry(currEnum + 1);
+        }
+
+        public CylinderEntry GetNextCylinderEntry(CasingOrderTypeEnum currCasingOrder)
+        {
+            if (currCasingOrder == MaxCasingOrder) return null;
+            return GetBlankCylinderEntry(currCasingOrder + 1);
+        }
+
+        private CylinderEntry GetBlankCylinderEntry(CasingOrderTypeEnum casingOrder)
+        {
+            CylinderEntry resultCylinderEntry =
+                new CylinderEntry(casingChartService)
+                {
+                    Id = Guid.Empty,
+                    CasingOrderType = Enum.GetName(typeof(CasingOrderTypeEnum), casingOrder),
+                    OuterDiameter = 0.0,
+                    Grade = string.Empty,
+                    Weight = 0.0,
+                    ActualMeasuredDepth = 0.0,
+                    MeasuredDepth = 0.0,
+                    InnerDiameter = 0.0,
+                    TopOfLiner = 0.0,
+                    CalculatedVolume = 0.0
+                };
+            return resultCylinderEntry;
         }
 
         public void UpdateWellEntry(WellEntry wellEntry)
@@ -205,24 +264,49 @@ namespace SeismosServices
                 if (currWell == null) return;
 
                 currWell.WellName = wellEntry.Name;
+
+                if (currWell.WellBore == null)
+                {
+                    currWell.WellBore = new WellBore {Id = Guid.NewGuid()};
+                }
+
                 currWell.WellBore.Name = wellEntry.Name;
                 currWell.WellBore.SurfaceVolume = wellEntry.SurfaceVolume;
                 currWell.WellBore.TotalVolume = wellEntry.TotalVolume;
-                foreach (var wellBoreCylinder in currWell.WellBore.Cylinders)
+                foreach (var cylinderEntry in wellEntry.CylinderEntries)
                 {
-                    var entryCylinder = wellEntry.CylinderEntries.FirstOrDefault(ce => ce.Id == wellBoreCylinder.Id);
-                    if (entryCylinder == null) continue;
-                    wellBoreCylinder.CalculatedVolume = entryCylinder.CalculatedVolume;
-                    wellBoreCylinder.CasingOrderType = (CasingOrderTypeEnum) Enum.Parse(typeof(CasingOrderTypeEnum), entryCylinder.CasingOrderType) ;
-                    wellBoreCylinder.Grade = entryCylinder.Grade;
-                    wellBoreCylinder.InnerDiameter = entryCylinder.InnerDiameter;
-                    wellBoreCylinder.MeasuredDepth = entryCylinder.MeasuredDepth;
-                    wellBoreCylinder.OuterDiameter = entryCylinder.OuterDiameter;
-                    wellBoreCylinder.TopOfLiner = entryCylinder.TopOfLiner;
-                    wellBoreCylinder.Weight = entryCylinder.Weight;
+                    if (cylinderEntry.CalculatedVolume.ApproxEquals(0.0)) break;
+                    if (cylinderEntry.Id == Guid.Empty)
+                    {
+                        cylinderEntry.Id = Guid.NewGuid();
+                    }
 
+                    bool isNew = false;
+                    var wellBoreCylinder =
+                        currWell.WellBore.Cylinders.FirstOrDefault(cy => cy.Id == cylinderEntry.Id);
+                    if (wellBoreCylinder == null)
+                    {
+                        wellBoreCylinder = new Cylinder {Id = Guid.NewGuid()};
+                        isNew = true;
+
+                    }
+                    wellBoreCylinder.CalculatedVolume = cylinderEntry.CalculatedVolume;
+                    wellBoreCylinder.CasingOrderType = (CasingOrderTypeEnum) Enum.Parse(typeof(CasingOrderTypeEnum),
+                        cylinderEntry.CasingOrderType);
+                    wellBoreCylinder.Grade = cylinderEntry.Grade;
+                    wellBoreCylinder.InnerDiameter = cylinderEntry.InnerDiameter;
+                    wellBoreCylinder.MeasuredDepth = cylinderEntry.MeasuredDepth;
+                    wellBoreCylinder.OuterDiameter = cylinderEntry.OuterDiameter;
+                    wellBoreCylinder.TopOfLiner = cylinderEntry.TopOfLiner;
+                    wellBoreCylinder.Weight = cylinderEntry.Weight;
+
+                    if (isNew)
+                    {
+                        currWell.WellBore.Cylinders.Add(wellBoreCylinder);
+                    }
                 }
-                // TODO handle the number of stages here
+
+                
                 seismosContext.SaveChanges();
             }
 
@@ -272,22 +356,22 @@ namespace SeismosServices
                     insertWell.WellBore.Cylinders.Add(wellBoreCylinder);
                 }
 
-                // TODO handle the number of stages here
-                var hfTreatment = new HydraulicFracturingTreatment()
-                {
-                    Id = Guid.NewGuid(),
-                    Name = insertWell + " HF",
-                    Type = TreatmentTypeEnum.HydraulicFracturing,
-                    Stages = new List<Stage>()
-                };
-
-
-                for (int index = 0; index < wellEntry.NumberOfStages; index++)
-                {
-                    hfTreatment.Stages.Add(new Stage(){Id = Guid.NewGuid(), Number = index, StartTime = DateTime.Now, StopTime = DateTime.Now});
-                }
-
-                insertWell.Treatments.Add(hfTreatment);
+                
+//                var hfTreatment = new HydraulicFracturingTreatment()
+//                {
+//                    Id = Guid.NewGuid(),
+//                    Name = insertWell + " HF",
+//                    Type = TreatmentTypeEnum.HydraulicFracturing,
+//                    Stages = new List<Stage>()
+//                };
+//
+//
+//                for (int index = 0; index < wellEntry.NumberOfStages; index++)
+//                {
+//                    hfTreatment.Stages.Add(new Stage(){Id = Guid.NewGuid(), Number = index, StartTime = DateTime.Now, StopTime = DateTime.Now});
+//                }
+//
+//                insertWell.Treatments.Add(hfTreatment);
 
                 seismosContext.Wells.Add(insertWell);
                 seismosContext.SaveChanges();

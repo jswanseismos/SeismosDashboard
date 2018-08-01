@@ -16,10 +16,11 @@ namespace SeismosDashboard
         private const String AddButtonName = "Add Client";
         private const String UpdateButtonName = "Update Client";
 
-        private SeismosMetaDataService seismosMetaDataService = new SeismosMetaDataService();
+        private SeismosMetaDataService seismosMetaDataService;
 
         public ClientWidgetViewModel()
         {
+            seismosMetaDataService = new SeismosMetaDataService();
             Initialize();            
             saveCommand = new SimpleCommand(SaveAction);
         }
@@ -32,7 +33,7 @@ namespace SeismosDashboard
             
 
             // get list of clients as KeyValueEntity
-            seismosClients = seismosMetaDataService.GetSeismosClientsAlt();
+            seismosClients = seismosMetaDataService.GetSeismosClients();
             ocSeismosClients = new ObservableCollection<KeyValueEntity>(seismosClients);
 
             // get the selected client object
@@ -41,30 +42,7 @@ namespace SeismosDashboard
 
         }
 
-        private ICommand saveCommand;
-        public ICommand SaveCommand
-        {
-            get { return saveCommand; }
-            set { saveCommand = value; }
-        }
-
-        private void SaveAction()
-        {
-            // push changes to the database. get the updated guid of the selected object
-            var updatedGuid = seismosMetaDataService.UpdateSeismosClientAlt(SelectedSeismosClient);
-            // store the selected guid
-            DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosClientId, updatedGuid.ToString());
-            // reload the data for the control
-            Initialize();
-            // just adding this for the name.
-            // TODO find a better way to save the name
-//            DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientObject", SelectedSeismosClient);
-            OnPropertyChanged(nameof(OcSeismosClients));
-            OnPropertyChanged(nameof(SelectedSeismosClient));
-            addUpdateButtonName = AddUpdateButtonName;
-        }
-
-
+        // initial set of seismos clients
         private List<KeyValueEntity> seismosClients;
         public List<KeyValueEntity> SeismosClients
         {
@@ -72,6 +50,7 @@ namespace SeismosDashboard
             set { seismosClients = value; }
         }
 
+        // observable collection of seismos clients
         private ObservableCollection<KeyValueEntity> ocSeismosClients;
         public ObservableCollection<KeyValueEntity> OcSeismosClients
         {
@@ -79,6 +58,7 @@ namespace SeismosDashboard
             set { ocSeismosClients = value; }
         }
 
+        // change the button whether it is an add or update
         private string addUpdateButtonName;
         public string AddUpdateButtonName
         {
@@ -98,15 +78,47 @@ namespace SeismosDashboard
             set
             {
                 selectedSeismosClient = value;
+                // trigger change in selected client event
                 DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosClientId, selectedSeismosClient.Id.ToString());
+                // client name is for the header since the header only displays it
                 DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosClientName,
                     selectedSeismosClient.Name);
 
+                // there is an empty seismos client in the list, if that is selected than the button turns to 'Add'
                 AddUpdateButtonName = selectedSeismosClient.Name != String.Empty ? UpdateButtonName : AddButtonName;
 
                 OnPropertyChanged(nameof(SelectedSeismosClient));
             }
         }
+
+        #region Commands
+
+        private ICommand saveCommand;
+        public ICommand SaveCommand
+        {
+            get { return saveCommand; }
+            set { saveCommand = value; }
+        }
+
+        private void SaveAction()
+        {
+            // push changes to the database. get the updated guid of the selected object
+            var updatedGuid = seismosMetaDataService.UpdateSeismosClient(SelectedSeismosClient);
+            // store the selected guid
+            DashboardStorage.Instance.AddOrUpdate(DashboardEventsEnum.CurrentSeismosClientId, updatedGuid.ToString());
+            // reload the data for the control
+            Initialize();
+            // just adding this for the name.
+            // TODO find a better way to save the name
+            //            DashboardStorage.Instance.AddOrUpdate("SelectedSeismosClientObject", SelectedSeismosClient);
+            OnPropertyChanged(nameof(OcSeismosClients));
+            OnPropertyChanged(nameof(SelectedSeismosClient));
+            addUpdateButtonName = AddUpdateButtonName;
+        }
+
+
+        #endregion
+
 
     }
 }

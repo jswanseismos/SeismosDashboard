@@ -33,9 +33,22 @@ namespace SeismosServices
             {
                 measuredDepth = value; 
                 OnPropertyChanged(nameof(MeasuredDepth));
-                CalculateVolume();
+//                CalculateVolume();
             }
         }
+
+        private double actualMeasuredDepth;
+        public double ActualMeasuredDepth
+        {
+            get { return actualMeasuredDepth; }
+            set
+            {
+                actualMeasuredDepth = value; 
+
+            }
+        }
+
+
 
         private double innerDiameter;
         public double InnerDiameter
@@ -45,7 +58,7 @@ namespace SeismosServices
             {
                 innerDiameter = value;
                 OnPropertyChanged(nameof(InnerDiameter));
-                CalculateVolume();
+//                CalculateVolume();
             }
         }
 
@@ -58,11 +71,19 @@ namespace SeismosServices
                 outerDiameter = value;
                 GetWeights();
                 OnPropertyChanged(nameof(OuterDiameter));
-                CalculateVolume();
+//                CalculateVolume();
             }
         }
 
-        public double TopOfLiner { get; set; }
+        public double TopOfLiner
+        {
+            get => topOfLiner;
+            set
+            {
+                topOfLiner = value;
+                OnPropertyChanged(nameof(TopOfLiner));
+            }
+        }
 
         private double weight;
         public double Weight
@@ -73,7 +94,7 @@ namespace SeismosServices
                 weight = value;
                 GetGrades();
                 OnPropertyChanged(nameof(Weight));
-                CalculateVolume();
+//                CalculateVolume();
             }
         }
 
@@ -86,7 +107,7 @@ namespace SeismosServices
                 grade = value;
                 GetInnerDiameter();
                 OnPropertyChanged(nameof(Grade));
-                CalculateVolume();
+//                CalculateVolume();
             }
         }
 
@@ -113,6 +134,8 @@ namespace SeismosServices
         }
 
         private List<String> grades;
+        private double topOfLiner;
+
         public List<string> Grades
         {
             get { return grades; }
@@ -139,9 +162,10 @@ namespace SeismosServices
             InnerDiameter = casingChart.GetInnerDiameter(outerDiameter, weight, grade);
         }
 
-        private void CalculateVolume()
+
+        public void CalculateVolume()
         {
-            CalculatedVolume = Math.Pow(InnerDiameter, 2) * MeasuredDepth / 1029.4;
+            CalculatedVolume = Math.Pow(InnerDiameter, 2) * ActualMeasuredDepth / 1029.4;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

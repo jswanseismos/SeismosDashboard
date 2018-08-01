@@ -24,6 +24,8 @@ namespace SeismosDashboard
 
         private void HandleWellChange()
         {
+            Guid wellId = DashboardStorage.Instance.GetValueId(DashboardEventsEnum.NavWellSelected);
+            wellVolumesWidgetViewModel.CurrentWellId = wellId;
             wellVolumesWidgetViewModel.ChangeSleepMode(false);
         }
 

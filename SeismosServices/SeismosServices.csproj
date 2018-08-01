@@ -49,21 +49,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CasingChartService.cs" />
-    <Compile Include="CylinderEntry.cs" />
-    <Compile Include="KeyValueEntity.cs" />
-    <Compile Include="KeyValueMutable.cs" />
-    <Compile Include="NavClientNode.cs" />
+    <Compile Include="DataObjects\CylinderEntry.cs" />
+    <Compile Include="DataObjects\KeyValueEntity.cs" />
+    <Compile Include="DataObjects\KeyValueMutable.cs" />
+    <Compile Include="DataObjects\NavClientNode.cs" />
     <Compile Include="NavigationService.cs" />
-    <Compile Include="NavProjectNode.cs" />
-    <Compile Include="NavStageNode.cs" />
-    <Compile Include="NavWellNode.cs" />
+    <Compile Include="DataObjects\NavProjectNode.cs" />
+    <Compile Include="DataObjects\NavStageNode.cs" />
+    <Compile Include="DataObjects\NavWellNode.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SavedStateService.cs" />
     <Compile Include="SeismosDataService.cs" />
     <Compile Include="SeismosExtensions.cs" />
     <Compile Include="SeismosMetaDataService.cs" />
     <Compile Include="WellDataService.cs" />
-    <Compile Include="WellEntry.cs" />
+    <Compile Include="DataObjects\WellEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SeismosDataLibrary\SeismosDataLibrary.csproj">

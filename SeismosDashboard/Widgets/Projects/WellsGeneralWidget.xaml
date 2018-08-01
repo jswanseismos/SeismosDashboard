@@ -6,14 +6,6 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <!-- <UserControl.Resources> -->
-    <!--     <DataTemplate DataType="{x:Type system:DateTime}"> -->
-    <!--         <DatePicker SelectedDate="{Binding Text}"></DatePicker> -->
-    <!--     </DataTemplate> -->
-    <!--     <DataTemplate DataType="{x:Type system:String}"> -->
-    <!--         <TextBox Text="{Binding Text}"></TextBox> -->
-    <!--     </DataTemplate> -->
-    <!-- </UserControl.Resources> -->
 
     <Border BorderBrush="{StaticResource AccentBaseColorBrush}" BorderThickness="1">
     <Grid>

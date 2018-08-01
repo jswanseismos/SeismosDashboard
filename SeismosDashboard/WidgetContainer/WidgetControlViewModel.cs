@@ -9,7 +9,7 @@ using SeismosDashboard.Annotations;
 
 namespace SeismosDashboard
 {
-    public class WidgetControlViewModel 
+    public class WidgetControlViewModel : INotifyPropertyChanged 
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

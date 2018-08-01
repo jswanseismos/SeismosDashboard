@@ -65,5 +65,6 @@ namespace SeismosDataLibrary
         public virtual DbSet<Fluid> Fluids { get; set; }
         public virtual DbSet<Proppant> Proppants { get; set; }
         public virtual DbSet<CasingChartLookup> CasingChartLookups { get; set; }
+        public virtual DbSet<SavedState> SavedStates { get; set; }
     }
 }
